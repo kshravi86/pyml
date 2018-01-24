@@ -11768,6 +11768,19 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
+
+  <div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+	<div class="topcoat-navigation-bar__item left quarter">
+	  <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
+		<span class="topcoat-icon home-icon"></span>
+	  </a>
+	</div>
+	<div class="topcoat-navigation-bar__item center half">
+	  <h1 class="topcoat-navigation-bar__title">Errors</h1>
+	</div>
+  </div>
+  
+  
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11775,13 +11788,52 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python-Errors">Python Errors<a class="anchor-link" href="#Python-Errors">&#182;</a></h1>
+<h1 id="Errors-and-Exceptions">Errors and Exceptions<a class="anchor-link" href="#Errors-and-Exceptions">&#182;</a></h1><p><strong>Time</strong></p>
+<ul>
+<li>teaching: 10 min</li>
+<li>exercises: 10 min</li>
+</ul>
+<p><strong>Questions</strong>:</p>
+<ul>
+<li>"How do I a read an error message?"</li>
+<li>"What do the error messages mean?"</li>
+<li>"How do I a fix an error?"</li>
+<li>"What if I still can't figure it out?"</li>
+</ul>
+<p><strong>Learning Objectives</strong>:</p>
+<ul>
+<li>To be able to read a traceback, and determine the following relevant pieces of information:<ul>
+<li>The file, function, and line number on which the error occurred</li>
+<li>The type of the error</li>
+<li>The error message</li>
+</ul>
+</li>
+<li>To be able to describe the types of situations in which the following errors occur:<ul>
+<li><code>SyntaxError</code> and <code>IndentationError</code></li>
+<li><code>NameError</code></li>
+<li><code>IndexError</code> and <code>TypeError</code></li>
+<li><code>IOError</code></li>
+</ul>
+</li>
+<li>Debug code containing an error systematically.</li>
+</ul>
+<hr>
+<h2 id="Every-programmer-encounters-errors">Every programmer encounters errors<a class="anchor-link" href="#Every-programmer-encounters-errors">&#182;</a></h2><ul>
+<li>Both those who are just beginning, and those who have been programming for years.</li>
+<li>Encountering errors and exceptions can be very frustrating at times</li>
+<li>But understanding what the different types of errors are
+and when you are likely to encounter them can help a lot.</li>
+<li>Once you know <em>why</em> you get certain types of errors,
+they become much easier to fix.</li>
+</ul>
+<h2 id="Errors-in-Python-come-in-specific-form,-called-a-traceback.">Errors in Python come in specific form, called a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#traceback">traceback</a>.<a class="anchor-link" href="#Errors-in-Python-come-in-specific-form,-called-a-traceback.">&#182;</a></h2><p>Let's examine one:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">errors_01</span>
@@ -11792,48 +11844,52 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">IndexError</span>                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-1-8cf46271daba&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">import</span> errors_01
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>errors_01<span class="ansi-blue-fg">.</span>favorite_ice_cream<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-green-fg">/storage/emulated/0/Download/python-fundamentals/Day_3/errors_01.py</span> in <span class="ansi-cyan-fg">favorite_ice_cream</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>         <span class="ansi-blue-fg">&#34;strawberry&#34;</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span>     ]
-<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg">     </span>print<span class="ansi-blue-fg">(</span>ice_creams<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      8</span> 
-
-<span class="ansi-red-fg">IndexError</span>: list index out of range</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="--You-can-determine-the-number-of-levels-by-looking-for-the-number-of-arrows-on-the-left-hand-side.">- You can determine the number of levels by looking for the number of arrows on the left hand side.<a class="anchor-link" href="#--You-can-determine-the-number-of-levels-by-looking-for-the-number-of-arrows-on-the-left-hand-side.">&#182;</a></h1><h1 id="The-last-level-is-the-actual-place-where-the-error-occurred.">The last level is the actual place where the error occurred.<a class="anchor-link" href="#The-last-level-is-the-actual-place-where-the-error-occurred.">&#182;</a></h1><h1 id="The-other-level(s)-show-what-function-the-program-executed-to-get-to-the-next-level-down.">The other level(s) show what function the program executed to get to the next level down.<a class="anchor-link" href="#The-other-level(s)-show-what-function-the-program-executed-to-get-to-the-next-level-down.">&#182;</a></h1><h1 id="So,-in-this-case,-the-program:">So, in this case, the program:<a class="anchor-link" href="#So,-in-this-case,-the-program:">&#182;</a></h1><h1 id="first-performed-a-function-call-to-the-function-favorite_ice_cream.">first performed a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#function-call">function call</a> to the function <code>favorite_ice_cream</code>.<a class="anchor-link" href="#first-performed-a-function-call-to-the-function-favorite_ice_cream.">&#182;</a></h1><h1 id="Inside-this-function,-the-program-encountered-an-error-on-Line-7,-when-it-tried-to-run-the-code-print-ice_creams[3].">Inside this function, the program encountered an error on Line 7, when it tried to run the code <code>print ice_creams[3]</code>.<a class="anchor-link" href="#Inside-this-function,-the-program-encountered-an-error-on-Line-7,-when-it-tried-to-run-the-code-print-ice_creams[3].">&#182;</a></h1><h2 id="Long-Tracebacks">Long Tracebacks<a class="anchor-link" href="#Long-Tracebacks">&#182;</a></h2><h1 id="Sometimes,-you-might-see-a-traceback-that-is-very-long----sometimes-they-might-even-be-20-levels-deep!">Sometimes, you might see a traceback that is very long -- sometimes they might even be 20 levels deep!<a class="anchor-link" href="#Sometimes,-you-might-see-a-traceback-that-is-very-long----sometimes-they-might-even-be-20-levels-deep!">&#182;</a></h1><h1 id="This-can-make-it-seem-like-something-horrible-happened,">This can make it seem like something horrible happened,<a class="anchor-link" href="#This-can-make-it-seem-like-something-horrible-happened,">&#182;</a></h1><h1 id="but-really-it-just-means-that-your-program-called-many-functions-before-it-ran-into-the-error.">but really it just means that your program called many functions before it ran into the error.<a class="anchor-link" href="#but-really-it-just-means-that-your-program-called-many-functions-before-it-ran-into-the-error.">&#182;</a></h1><h1 id="Most-of-the-time,">Most of the time,<a class="anchor-link" href="#Most-of-the-time,">&#182;</a></h1><h1 id="you-can-just-pay-attention-to-the-bottom-most-level,">you can just pay attention to the bottom-most level,<a class="anchor-link" href="#you-can-just-pay-attention-to-the-bottom-most-level,">&#182;</a></h1><h1 id="which-is-the-actual-place-where-the-error-occurred.">which is the actual place where the error occurred.<a class="anchor-link" href="#which-is-the-actual-place-where-the-error-occurred.">&#182;</a></h1><h1 id="So-what-error-did-the-program-actually-encounter?">So what error did the program actually encounter?<a class="anchor-link" href="#So-what-error-did-the-program-actually-encounter?">&#182;</a></h1><h2 id="Python--tells-us-the-category-or-type-of-error">Python  tells us the category or <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#type-of-error">type of error</a><a class="anchor-link" href="#Python--tells-us-the-category-or-type-of-error">&#182;</a></h2><h1 id="In-this-case,-it-is-an-IndexError.-Python-then-prints-a-more-detailed-error-message-(in-this-case,-it-says-&quot;list-index-out-of-range&quot;).">In this case, it is an <code>IndexError</code>. Python then prints a more detailed error message (in this case, it says "list index out of range").<a class="anchor-link" href="#In-this-case,-it-is-an-IndexError.-Python-then-prints-a-more-detailed-error-message-(in-this-case,-it-says-&quot;list-index-out-of-range&quot;).">&#182;</a></h1><h1 id="If-you-encounter-an-error-and-don't-know-what-it-means,-it-is-still-important-to-read-the-traceback-closely.">If you encounter an error and don't know what it means, it is still important to read the traceback closely.<a class="anchor-link" href="#If-you-encounter-an-error-and-don't-know-what-it-means,-it-is-still-important-to-read-the-traceback-closely.">&#182;</a></h1><h1 id="That-way,-if-you-fix-the-error,-but-encounter-a-new-one,-you-can-tell-that-the-error-changed.">That way, if you fix the error, but encounter a new one, you can tell that the error changed.<a class="anchor-link" href="#That-way,-if-you-fix-the-error,-but-encounter-a-new-one,-you-can-tell-that-the-error-changed.">&#182;</a></h1><h1 id="sometimes-just-knowing-where-the-error-occurred-is-enough-to-fix-it,-even-if-you-don't-entirely-understand-the-message.">sometimes just knowing <em>where</em> the error occurred is enough to fix it, even if you don't entirely understand the message.<a class="anchor-link" href="#sometimes-just-knowing-where-the-error-occurred-is-enough-to-fix-it,-even-if-you-don't-entirely-understand-the-message.">&#182;</a></h1><h2 id="Python-reports-a-syntax-error-when-it-can't-understand-the-source-of-a-program.">Python reports a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#syntax-error">syntax error</a> when it can't understand the source of a program.<a class="anchor-link" href="#Python-reports-a-syntax-error-when-it-can't-understand-the-source-of-a-program.">&#182;</a></h2><h1 id="People-can-typically-figure-out-what-is-meant-by-text-with-no-punctuation,">People can typically figure out what is meant by text with no punctuation,<a class="anchor-link" href="#People-can-typically-figure-out-what-is-meant-by-text-with-no-punctuation,">&#182;</a></h1><h1 id="but-people-are-much-smarter-than-computers.">but people are much smarter than computers.<a class="anchor-link" href="#but-people-are-much-smarter-than-computers.">&#182;</a></h1><h1 id="If-Python-doesn't-know-how-to-read-the-program,">If Python doesn't know how to read the program,<a class="anchor-link" href="#If-Python-doesn't-know-how-to-read-the-program,">&#182;</a></h1><h1 id="it-will-just-give-up-and-inform-you-with-an-error.">it will just give up and inform you with an error.<a class="anchor-link" href="#it-will-just-give-up-and-inform-you-with-an-error.">&#182;</a></h1><h1 id="For-example:">For example:<a class="anchor-link" href="#For-example:">&#182;</a></h1>
+<ul>
+<li>This particular <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#traceback">traceback</a> has two levels.</li>
+<li>You can determine the number of levels by looking for the number of arrows on the left hand side.</li>
+<li>The last level is the actual place where the error occurred.</li>
+<li>The other level(s) show what function the program executed to get to the next level down.</li>
+</ul>
+<p>So, in this case, the program:</p>
+<ol>
+<li><p>first performed a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#function-call">function call</a> to the function <code>favorite_ice_cream</code>.</p>
+</li>
+<li><p>Inside this function, the program encountered an error on Line 7, when it tried to run the code <code>print ice_creams[3]</code>.</p>
+</li>
+</ol>
+<h2 id="Long-Tracebacks">Long Tracebacks<a class="anchor-link" href="#Long-Tracebacks">&#182;</a></h2><blockquote><p>Sometimes, you might see a traceback that is very long -- sometimes they might even be 20 levels deep!
+This can make it seem like something horrible happened,
+but really it just means that your program called many functions before it ran into the error.
+Most of the time,
+you can just pay attention to the bottom-most level,
+which is the actual place where the error occurred.</p>
+</blockquote>
+<p>So what error did the program actually encounter?</p>
+<h2 id="Python--tells-us-the-category-or-type-of-error">Python  tells us the category or <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#type-of-error">type of error</a><a class="anchor-link" href="#Python--tells-us-the-category-or-type-of-error">&#182;</a></h2><p>In this case, it is an <code>IndexError</code>. Python then prints a more detailed error message (in this case, it says "list index out of range").</p>
+<ul>
+<li>If you encounter an error and don't know what it means, it is still important to read the traceback closely.</li>
+<li>That way, if you fix the error, but encounter a new one, you can tell that the error changed.</li>
+<li>sometimes just knowing <em>where</em> the error occurred is enough to fix it, even if you don't entirely understand the message.</li>
+</ul>
+<h2 id="Python-reports-a-syntax-error-when-it-can't-understand-the-source-of-a-program.">Python reports a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#syntax-error">syntax error</a> when it can't understand the source of a program.<a class="anchor-link" href="#Python-reports-a-syntax-error-when-it-can't-understand-the-source-of-a-program.">&#182;</a></h2><ul>
+<li>People can typically figure out what is meant by text with no punctuation,
+but people are much smarter than computers.</li>
+<li>If Python doesn't know how to read the program,
+it will just give up and inform you with an error.
+For example:</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">some_function</span><span class="p">()</span>
@@ -11846,40 +11902,28 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-1-95d391d879b2&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">1</span>
-<span class="ansi-red-fg">    def some_function()</span>
-                       ^
-<span class="ansi-red-fg">SyntaxError</span><span class="ansi-red-fg">:</span> invalid syntax
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="--Here,-Python-tells-us-that-there-is-a-SyntaxError-on-line-1,">- Here, Python tells us that there is a <code>SyntaxError</code> on line 1,<a class="anchor-link" href="#--Here,-Python-tells-us-that-there-is-a-SyntaxError-on-line-1,">&#182;</a></h1><h1 id="and-even-puts-a-little-arrow-in-the-place-where-there-is-an-issue.">and even puts a little arrow in the place where there is an issue.<a class="anchor-link" href="#and-even-puts-a-little-arrow-in-the-place-where-there-is-an-issue.">&#182;</a></h1><h1 id="In-this-case-the-problem-is-that-the-function-definition-is-missing-a-colon-at-the-end.">In this case the problem is that the function definition is missing a colon at the end.<a class="anchor-link" href="#In-this-case-the-problem-is-that-the-function-definition-is-missing-a-colon-at-the-end.">&#182;</a></h1><h2 id="Indentation-is-meaningful-in-Python">Indentation is meaningful in Python<a class="anchor-link" href="#Indentation-is-meaningful-in-Python">&#182;</a></h2><h1 id="If-we-fix-the-problem-with-the-colon,">If we fix the problem with the colon,<a class="anchor-link" href="#If-we-fix-the-problem-with-the-colon,">&#182;</a></h1><h1 id="we-see-that-there-is-also-an-IndentationError,">we see that there is <em>also</em> an <code>IndentationError</code>,<a class="anchor-link" href="#we-see-that-there-is-also-an-IndentationError,">&#182;</a></h1><h1 id="which-means-that-the-lines-in-the-function-definition-do-not-all-have-the-same-indentation:">which means that the lines in the function definition do not all have the same indentation:<a class="anchor-link" href="#which-means-that-the-lines-in-the-function-definition-do-not-all-have-the-same-indentation:">&#182;</a></h1>
+<ul>
+<li>Here, Python tells us that there is a <code>SyntaxError</code> on line 1,
+and even puts a little arrow in the place where there is an issue.</li>
+<li>In this case the problem is that the function definition is missing a colon at the end.</li>
+</ul>
+<h2 id="Indentation-is-meaningful-in-Python">Indentation is meaningful in Python<a class="anchor-link" href="#Indentation-is-meaningful-in-Python">&#182;</a></h2><ul>
+<li>If we fix the problem with the colon,
+we see that there is <em>also</em> an <code>IndentationError</code>,
+which means that the lines in the function definition do not all have the same indentation:</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">some_function</span><span class="p">():</span>
@@ -11892,40 +11936,34 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-2-18d6e2304f63&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">4</span>
-<span class="ansi-red-fg">    return msg</span>
-    ^
-<span class="ansi-red-fg">IndentationError</span><span class="ansi-red-fg">:</span> unexpected indent
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="--Both-SyntaxError-and-IndentationError-indicate-a-problem-with-the-syntax-of-your-program,">- Both <code>SyntaxError</code> and <code>IndentationError</code> indicate a problem with the syntax of your program,<a class="anchor-link" href="#--Both-SyntaxError-and-IndentationError-indicate-a-problem-with-the-syntax-of-your-program,">&#182;</a></h1><h1 id="but-an-IndentationError-is-more-specific:">but an <code>IndentationError</code> is more specific:<a class="anchor-link" href="#but-an-IndentationError-is-more-specific:">&#182;</a></h1><h1 id="it-always-means-that-there-is-a-problem-with-how-your-code-is-indented.">it <em>always</em> means that there is a problem with how your code is indented.<a class="anchor-link" href="#it-always-means-that-there-is-a-problem-with-how-your-code-is-indented.">&#182;</a></h1><h2 id="Tabs-and-Spaces">Tabs and Spaces<a class="anchor-link" href="#Tabs-and-Spaces">&#182;</a></h2><h1 id="A-quick-note-on-indentation-errors:">A quick note on indentation errors:<a class="anchor-link" href="#A-quick-note-on-indentation-errors:">&#182;</a></h1><h1 id="they-can-sometimes-be-insidious,">they can sometimes be insidious,<a class="anchor-link" href="#they-can-sometimes-be-insidious,">&#182;</a></h1><h1 id="especially-if-you-are-mixing-spaces-and-tabs.">especially if you are mixing spaces and tabs.<a class="anchor-link" href="#especially-if-you-are-mixing-spaces-and-tabs.">&#182;</a></h1><h1 id="Because-they-are-both-whitespace,">Because they are both <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#whitespace">whitespace</a>,<a class="anchor-link" href="#Because-they-are-both-whitespace,">&#182;</a></h1><h1 id="it-is-difficult-to-visually-tell-the-difference.">it is difficult to visually tell the difference.<a class="anchor-link" href="#it-is-difficult-to-visually-tell-the-difference.">&#182;</a></h1><h1 id="The-text-editor-SublimeText-makes-it">The text editor <a href="https://www.sublimetext.com/">SublimeText</a> makes it<a class="anchor-link" href="#The-text-editor-SublimeText-makes-it">&#182;</a></h1><h1 id="really-easy-to-deal-with-inconsistent-indentation-and-tabs.">really easy to deal with inconsistent indentation and tabs.<a class="anchor-link" href="#really-easy-to-deal-with-inconsistent-indentation-and-tabs.">&#182;</a></h1><h1 id="The-Jupyter-notebook-actually-gives-us-a-bit-of-a-hint,">The Jupyter notebook actually gives us a bit of a hint,<a class="anchor-link" href="#The-Jupyter-notebook-actually-gives-us-a-bit-of-a-hint,">&#182;</a></h1><h1 id="but-not-all-Python-editors-will-do-that.">but not all Python editors will do that.<a class="anchor-link" href="#but-not-all-Python-editors-will-do-that.">&#182;</a></h1><h1 id="In-the-following-example,">In the following example,<a class="anchor-link" href="#In-the-following-example,">&#182;</a></h1><h1 id="the-first-two-lines-are-using-a-tab-for-indentation,">the first two lines are using a tab for indentation,<a class="anchor-link" href="#the-first-two-lines-are-using-a-tab-for-indentation,">&#182;</a></h1><h1 id="while-the-third-line-uses-four-spaces:">while the third line uses four spaces:<a class="anchor-link" href="#while-the-third-line-uses-four-spaces:">&#182;</a></h1>
+<ul>
+<li>Both <code>SyntaxError</code> and <code>IndentationError</code> indicate a problem with the syntax of your program,
+but an <code>IndentationError</code> is more specific:
+it <em>always</em> means that there is a problem with how your code is indented.</li>
+</ul>
+<h2 id="Tabs-and-Spaces">Tabs and Spaces<a class="anchor-link" href="#Tabs-and-Spaces">&#182;</a></h2><blockquote><p>A quick note on indentation errors:
+they can sometimes be insidious,
+especially if you are mixing spaces and tabs.
+Because they are both <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#whitespace">whitespace</a>,
+it is difficult to visually tell the difference.
+The IPython notebook actually gives us a bit of a hint,
+but not all Python editors will do that.
+In the following example,
+the first two lines are using a tab for indentation,
+while the third line uses four spaces:</p>
+</blockquote>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">some_function</span><span class="p">():</span>
@@ -11938,40 +11976,19 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-cyan-fg">  File </span><span class="ansi-green-fg">&#34;&lt;ipython-input-3-802f5bbe07bc&gt;&#34;</span><span class="ansi-cyan-fg">, line </span><span class="ansi-green-fg">4</span>
-<span class="ansi-red-fg">    return msg</span>
-              ^
-<span class="ansi-red-fg">TabError</span><span class="ansi-red-fg">:</span> inconsistent use of tabs and spaces in indentation
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="A-NameError,-and-what-occurs-when-you-try-to-use-a-variable-that-does-not-exist">A <code>NameError</code>, and what occurs when you try to use a variable that does not exist<a class="anchor-link" href="#A-NameError,-and-what-occurs-when-you-try-to-use-a-variable-that-does-not-exist">&#182;</a></h1><h1 id="For-example:">For example:<a class="anchor-link" href="#For-example:">&#182;</a></h1>
+<h2 id="A-NameError,-and-what-occurs-when-you-try-to-use-a-variable-that-does-not-exist">A <code>NameError</code>, and what occurs when you try to use a variable that does not exist<a class="anchor-link" href="#A-NameError,-and-what-occurs-when-you-try-to-use-a-variable-that-does-not-exist">&#182;</a></h2><p>For example:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
@@ -11981,41 +11998,22 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-4-bca0e2660b9f&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>a<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;a&#39; is not defined</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Why-did-you-get-this-error?">Why did you get this error?<a class="anchor-link" href="#Why-did-you-get-this-error?">&#182;</a></h1><h1 id="You-might-have-meant-to-use-a-string,-but-forgot-to-put-quotes-around-it:">You might have meant to use a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#string">string</a>, but forgot to put quotes around it:<a class="anchor-link" href="#You-might-have-meant-to-use-a-string,-but-forgot-to-put-quotes-around-it:">&#182;</a></h1>
+<p>Why did you get this error?</p>
+<ul>
+<li>You might have meant to use a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#string">string</a>, but forgot to put quotes around it:</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">hello</span><span class="p">)</span>
@@ -12025,41 +12023,23 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-5-1cd80308eb4c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>hello<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;hello&#39; is not defined</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="--Or-you-just-forgot-to-create-the-variable-before-using-it.">- Or you just forgot to create the variable before using it.<a class="anchor-link" href="#--Or-you-just-forgot-to-create-the-variable-before-using-it.">&#182;</a></h1><h1 id="In-the-following-example,">In the following example,<a class="anchor-link" href="#In-the-following-example,">&#182;</a></h1><h1 id="count-should-have-been-defined-(e.g.,-with-count-=-0)-before-the-for-loop:"><code>count</code> should have been defined (e.g., with <code>count = 0</code>) before the for loop:<a class="anchor-link" href="#count-should-have-been-defined-(e.g.,-with-count-=-0)-before-the-for-loop:">&#182;</a></h1>
+<ul>
+<li>Or you just forgot to create the variable before using it.</li>
+<li>In the following example,
+<code>count</code> should have been defined (e.g., with <code>count = 0</code>) before the for loop:</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
@@ -12071,43 +12051,21 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-6-eaca7bf8cd5b&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-green-fg">for</span> number <span class="ansi-green-fg">in</span> range<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg">     </span>count <span class="ansi-blue-fg">=</span> count <span class="ansi-blue-fg">+</span> number
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;The count is: &#34;</span> <span class="ansi-blue-fg">+</span> str<span class="ansi-blue-fg">(</span>count<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;count&#39; is not defined</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="--or-you-might-have-made-a-typo-when-you-were-writing-your-code.">- or you might have made a typo when you were writing your code.<a class="anchor-link" href="#--or-you-might-have-made-a-typo-when-you-were-writing-your-code.">&#182;</a></h1>
+<ul>
+<li>or you might have made a typo when you were writing your code.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">Count</span> <span class="o">=</span> <span class="mi">0</span>
@@ -12120,44 +12078,23 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-7-adb9d6f033c8&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> Count <span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> <span class="ansi-green-fg">for</span> number <span class="ansi-green-fg">in</span> range<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg">     </span>count <span class="ansi-blue-fg">=</span> count <span class="ansi-blue-fg">+</span> number
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;The count is: &#34;</span> <span class="ansi-blue-fg">+</span> str<span class="ansi-blue-fg">(</span>count<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;count&#39; is not defined</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Type-and-Index-Errors">Type and Index Errors<a class="anchor-link" href="#Type-and-Index-Errors">&#182;</a></h1><h1 id="Next-up-are-errors-having-to-do-with-containers-(like-lists-and-dictionaries)-and-the-items-within-them.">Next up are errors having to do with containers (like lists and dictionaries) and the items within them.<a class="anchor-link" href="#Next-up-are-errors-having-to-do-with-containers-(like-lists-and-dictionaries)-and-the-items-within-them.">&#182;</a></h1><h1 id="If-you-try-to-access-an-item-in-a-list-or-a-dictionary-that-does-not-exist,">If you try to access an item in a list or a dictionary that does not exist,<a class="anchor-link" href="#If-you-try-to-access-an-item-in-a-list-or-a-dictionary-that-does-not-exist,">&#182;</a></h1><h1 id="then-you-will-get-an-error.">then you will get an error.<a class="anchor-link" href="#then-you-will-get-an-error.">&#182;</a></h1>
+<h2 id="Type-and-Index-Errors">Type and Index Errors<a class="anchor-link" href="#Type-and-Index-Errors">&#182;</a></h2><ul>
+<li>Next up are errors having to do with containers (like lists and dictionaries) and the items within them. </li>
+<li>If you try to access an item in a list or a dictionary that does not exist,
+then you will get an error.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
@@ -12171,59 +12108,24 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Letter #1 is a
-Letter #2 is b
-Letter #3 is c
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">IndexError</span>                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-8-87e4256bd03c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      3</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Letter #2 is &#34;</span> <span class="ansi-blue-fg">+</span> letters<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-intense-fg ansi-bold">      4</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Letter #3 is &#34;</span> <span class="ansi-blue-fg">+</span> letters<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 5</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;Letter #4 is &#34;</span> <span class="ansi-blue-fg">+</span> letters<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">3</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">IndexError</span>: list index out of range</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Here,-Python-is-telling-us-that-there-is-an-IndexError-in-our-code,-meaning-we-tried-to-access-a-list-index-that-did-not-exist.">Here, Python is telling us that there is an <code>IndexError</code> in our code, meaning we tried to access a list index that did not exist.<a class="anchor-link" href="#Here,-Python-is-telling-us-that-there-is-an-IndexError-in-our-code,-meaning-we-tried-to-access-a-list-index-that-did-not-exist.">&#182;</a></h1><h1 id="A-similar-error-occurs-when-we-confuse-types;-that-is,-when-we-try-to-use-a-method-or-syntax-relevant-to-one-type-on-another-type-that-doesn't-like-it.">A similar error occurs when we confuse types; that is, when we try to use a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#method">method</a> or syntax relevant to one type on another type that doesn't like it.<a class="anchor-link" href="#A-similar-error-occurs-when-we-confuse-types;-that-is,-when-we-try-to-use-a-method-or-syntax-relevant-to-one-type-on-another-type-that-doesn't-like-it.">&#182;</a></h1>
+<p>Here, Python is telling us that there is an <code>IndexError</code> in our code, meaning we tried to access a list index that did not exist.</p>
+<p>A similar error occurs when we confuse types; that is, when we try to use a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#method">method</a> or syntax relevant to one type on another type that doesn't like it.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;or&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a_dictionary</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;beyonce&#39;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;the&#39;</span><span class="p">,</span> <span class="s1">&#39;greatest&#39;</span><span class="p">}</span>
+<span class="n">a_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">a_dictionary</span><span class="p">]</span>
 
 <span class="n">a_list</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
 </pre></div>
@@ -12232,87 +12134,25 @@ Letter #3 is c
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-9-17bd6951d77d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> a_list <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">99</span><span class="ansi-blue-fg">,</span> <span class="ansi-cyan-fg">24</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;a&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;name&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;or&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;two&#39;</span><span class="ansi-blue-fg">]</span>
-<span class="ansi-green-intense-fg ansi-bold">      2</span> 
-<span class="ansi-green-fg">----&gt; 3</span><span class="ansi-red-fg"> </span>a_list<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#39;name&#39;</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-red-fg">TypeError</span>: list indices must be integers or slices, not str</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a_dict</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="s1">&#39;1&#39;</span><span class="p">,</span>
-         <span class="mi">2</span><span class="p">:</span> <span class="s1">&#39;2&#39;</span><span class="p">,</span>
-         <span class="mi">3</span><span class="p">:</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span>
-         <span class="mi">4</span><span class="p">:</span> <span class="s1">&#39;4&#39;</span><span class="p">,</span>
-         <span class="mi">5</span><span class="p">:</span> <span class="s1">&#39;5&#39;</span><span class="p">}</span>
-
-<span class="n">a_dict</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-10-a9f6ea07f534&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      5</span>          5: &#39;5&#39;}
-<span class="ansi-green-intense-fg ansi-bold">      6</span> 
-<span class="ansi-green-fg">----&gt; 7</span><span class="ansi-red-fg"> </span>a_dict<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">:</span><span class="ansi-cyan-fg">4</span><span class="ansi-blue-fg">]</span>
-
-<span class="ansi-red-fg">TypeError</span>: unhashable type: &#39;slice&#39;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="File-Errors">File Errors<a class="anchor-link" href="#File-Errors">&#182;</a></h1><h1 id="The-last-type-of-error-we'll-cover-today-are-those-associated-with-reading-and-writing-files:-IOError.">The last type of error we'll cover today are those associated with reading and writing files: <code>IOError</code>.<a class="anchor-link" href="#The-last-type-of-error-we'll-cover-today-are-those-associated-with-reading-and-writing-files:-IOError.">&#182;</a></h1><h1 id="If-you-try-to-read-a-file-that-does-not-exist,">If you try to read a file that does not exist,<a class="anchor-link" href="#If-you-try-to-read-a-file-that-does-not-exist,">&#182;</a></h1><h1 id="you-will-recieve-an-IOError-telling-you-so.">you will recieve an <code>IOError</code> telling you so.<a class="anchor-link" href="#you-will-recieve-an-IOError-telling-you-so.">&#182;</a></h1>
+<h2 id="File-Errors">File Errors<a class="anchor-link" href="#File-Errors">&#182;</a></h2><ul>
+<li><p>The last type of error we'll cover today are those associated with reading and writing files: <code>IOError</code>.</p>
+</li>
+<li><p>If you try to read a file that does not exist,
+you will recieve an <code>IOError</code> telling you so.</p>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">file_handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;nonexistentfile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
@@ -12322,26 +12162,29 @@ Letter #3 is c
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>One reason for receiving this error is that you specified an incorrect path to the file.</li>
+<li>Or you could be using the "read" flag instead of the "write" flag.</li>
+</ul>
 
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">FileNotFoundError</span>          Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-12-84dc2ff812aa&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>file_handle <span class="ansi-blue-fg">=</span> open<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;nonexistentfile.txt&#39;</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;r&#39;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">FileNotFoundError</span>: [Errno 2] No such file or directory: &#39;nonexistentfile.txt&#39;</pre>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">file_handle</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;myfile.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">file_handle</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</pre></div>
 
+</div>
 </div>
 </div>
 
@@ -12350,7 +12193,134 @@ Letter #3 is c
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="--One-reason-for-receiving-this-error-is-that-you-specified-an-incorrect-path-to-the-file.">- One reason for receiving this error is that you specified an incorrect path to the file.<a class="anchor-link" href="#--One-reason-for-receiving-this-error-is-that-you-specified-an-incorrect-path-to-the-file.">&#182;</a></h1><h1 id="Or-you-could-be-using-the-&quot;read&quot;-flag-instead-of-the-&quot;write&quot;-flag.">Or you could be using the "read" flag instead of the "write" flag.<a class="anchor-link" href="#Or-you-could-be-using-the-&quot;read&quot;-flag-instead-of-the-&quot;write&quot;-flag.">&#182;</a></h1>
+<h2 id="Challenges-1:-Reading-Error-Messages">Challenges 1: Reading Error Messages<a class="anchor-link" href="#Challenges-1:-Reading-Error-Messages">&#182;</a></h2><p>Read the traceback below, and identify the following pieces of information about it:</p>
+<ol>
+<li>How many levels does the traceback have?</li>
+<li>What is the file name where the error occurred?</li>
+<li>What is the function name where the error occurred?</li>
+<li>On which line number in this function did the error occurr?</li>
+<li>What is the type of error?</li>
+<li>What is the error message?</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">errors_02</span>
+<span class="n">errors_02</span><span class="o">.</span><span class="n">print_friday_message</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-2.-Identifying-Syntax-Errors">Challenge 2. Identifying Syntax Errors<a class="anchor-link" href="#Challenge-2.-Identifying-Syntax-Errors">&#182;</a></h2><ol>
+<li>Read the code below, and (without running it) try to identify what the errors are.</li>
+<li>Run the code, and read the error message. Is it a <code>SyntaxError</code> or an <code>IndentationError</code>?</li>
+<li>Fix the error.</li>
+<li>Repeat steps 2 and 3, until you have fixed all the errors.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">another_function</span>
+  <span class="nb">print</span> <span class="s2">&quot;Syntax errors are annoying.&quot;</span>
+   <span class="nb">print</span><span class="s2">&quot;But at least python tells us about them!&quot;</span>
+  <span class="nb">print</span> <span class="s2">&quot;So they are usually not too hard to fix.&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-3.-Identifying-Variable-Name-Errors">Challenge 3. Identifying Variable Name Errors<a class="anchor-link" href="#Challenge-3.-Identifying-Variable-Name-Errors">&#182;</a></h2><ol>
+<li>Read the code below, and (without running it) try to identify what the errors are.</li>
+<li>Run the code, and read the error message. What type of <code>NameError</code> do you think this is? In other words, is it a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#string">string</a> with no quotes, a misspelled variable, or a variable that should have been defined but was not?</li>
+<li>Fix the error.</li>
+<li>Repeat steps 2 and 3, until you have fixed all the errors.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="c1"># use a if the number is a multiple of 3, otherwise use b</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">Number</span> <span class="o">%</span> <span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">+</span> <span class="n">a</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="n">message</span> <span class="o">+</span> <span class="s2">&quot;b&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-4.-Identifying-Item-Errors">Challenge 4. Identifying Item Errors<a class="anchor-link" href="#Challenge-4.-Identifying-Item-Errors">&#182;</a></h2><ol>
+<li>Read the code below, and (without running it) try to identify what the errors are.</li>
+<li>Run the code, and read the error message. What type of error is it?</li>
+<li>Fix the error.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">seasons</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Spring&#39;</span><span class="p">,</span> <span class="s1">&#39;Summer&#39;</span><span class="p">,</span> <span class="s1">&#39;Fall&#39;</span><span class="p">,</span> <span class="s1">&#39;Winter&#39;</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;My favorite season is &#39;</span><span class="p">,</span> <span class="n">seasons</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Debugging-Strategies">Debugging Strategies<a class="anchor-link" href="#Debugging-Strategies">&#182;</a></h2><h3 id="Know-what-it's-supposed-to-do">Know what it's supposed to do<a class="anchor-link" href="#Know-what-it's-supposed-to-do">&#182;</a></h3><p>The first step in debugging something is to <em>know what it's supposed to do</em>. "My program doesn't work" isn't good enough: in order to diagnose and fix problems, we need to be able to tell correct output from incorrect. If we can write a test case for the failing case --- i.e., if we can assert that with <em>these</em> inputs, the function should produce <em>that</em> result --- then we're ready to start debugging. If we can't, then we need to figure out how we're going to know when we've fixed things.</p>
+<h3 id="Start-with-a-simplified-case.">Start with a simplified case.<a class="anchor-link" href="#Start-with-a-simplified-case.">&#182;</a></h3><p>If you're writing a multi-step loop or function, start with one case and get to work. Then ask what you need to do to generalize to many cases.</p>
+<h3 id="Divide-and-conquer">Divide and conquer<a class="anchor-link" href="#Divide-and-conquer">&#182;</a></h3><p>We want to localize the failure to the smallest possible region of code. The smaller the gap between cause and effect, the easier the connection is to find. Many programmers therefore use a <strong>divide and conquer</strong> strategy to find bugs, i.e., if the output of a function is wrong, they check whether things are OK in the middle, then concentrate on either the first or second half, and so on.</p>
+<h3 id="Change-One-Thing-at-a-Time,-For-a-Reason">Change One Thing at a Time, For a Reason<a class="anchor-link" href="#Change-One-Thing-at-a-Time,-For-a-Reason">&#182;</a></h3><p>Replacing random chunks of code is unlikely to do much good. (After all, if you got it wrong the first time, you'll probably get it wrong the second and third as well.) Good programmers therefore <em>change one thing at a time, for a reason</em>. They are either trying to gather more information ("is the bug still there if we change the order of the loops?") or test a fix ("can we make the bug go away by sorting our data before processing it?").</p>
+<p>Every time we make a change, however small, we should re-run our tests immediately, because the more things we change at once, the harder it is to know what's responsible for what.</p>
+<h3 id="Outside-Resources">Outside Resources<a class="anchor-link" href="#Outside-Resources">&#182;</a></h3><p>If you've tried everything you can think of to logically fix the error and still don't understand what Python is trying to tell you, now the real searching begins. Go to Google and copy/paste the error, you're probably not the only one who has run into it!</p>
+
 </div>
 </div>
 </div>

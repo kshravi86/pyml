@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>07_Lists</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>02_Jupyter Notebooks</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11776,9 +11776,10 @@ div#notebook {
 	  </a>
 	</div>
 	<div class="topcoat-navigation-bar__item center half">
-	  <h1 class="topcoat-navigation-bar__title">Lists</h1>
+	  <h1 class="topcoat-navigation-bar__title">Jupyter Notebooks</h1>
 	</div>
   </div>
+  
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11786,595 +11787,207 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Lists">Lists<a class="anchor-link" href="#Lists">&#182;</a></h1><p><strong>Time</strong></p>
+<h1 id="Jupyter-Notebooks">Jupyter Notebooks<a class="anchor-link" href="#Jupyter-Notebooks">&#182;</a></h1><p><strong>Time</strong></p>
 <ul>
-<li>teaching: 10 min</li>
-<li>exercises: 15 min</li>
+<li>Teaching: 10 min</li>
+<li>Challenges: 0</li>
 </ul>
-<p><strong>Questions</strong>:</p>
+<p><strong>Questions</strong></p>
 <ul>
-<li>"How do I organize several data types in an ordered manner?"</li>
-<li>"How can I modify this collection of data?"</li>
+<li>How do I use a Jupyter Notebook?</li>
 </ul>
 <p><strong>Learning Objectives</strong>:</p>
 <ul>
-<li>"Understand how to create and modify a list"</li>
-<li>"Understand what a list can and can't do"</li>
-<li>"Become familiar with common list methods"</li>
+<li>Launch the Jupyter Notebook, create new notebooks, and exit the Notebook.</li>
+<li>Create Markdown cells in a notebook.</li>
+<li>Create and run Python cells in a notebook.</li>
 </ul>
 <hr>
-<p>A list is an ordered, indexable collection of data. Lets say you're doing a study on the following countries:</p>
 
-<pre><code>country:
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2><p>You've just got a basic intro to programming in python. Now, we are going to get our hands dirty, but...</p>
+<p><strong>Don't panic!</strong></p>
+<p><em>You can't break anything!</em> You can always get another copy of any notebook from the workshop on the <a href="https://github.com/dlab-berkeley/python-intensive">github repo</a>.</p>
 
-"Afghanistan"
-"Canada"
-"Sierra Leone"
-"Denmark"
-"Japan"
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Navigating-in-Jupyter-Notebook">Navigating in Jupyter Notebook<a class="anchor-link" href="#Navigating-in-Jupyter-Notebook">&#182;</a></h2><p>Jupyter Notebooks have more useful features for interactive use than the standard python interpreter, but they work in the same basic way: you type things and then execute them.</p>
+<p>Unlike many graphical systems, there is no button to run your code! Instead, <strong>you run code using Shift-Enter</strong>. This also moves you to the next box (or "cell") for code below the one you just ran (but this may change in the future).</p>
+<p>Try to <strong>run the following code using Shift-Enter</strong> now!</p>
 
-</code></pre>
-<p>You could put that data into a list</p>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Look Ma, I&#39;m programming!&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you hit <strong>Enter</strong> only, IPython Notebook gives you another line in the current cell.</p>
+<p>This allows you to <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#compose">compose</a> multi-line commands and submit them to python all at once.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>Control-Enter</strong> (<strong>Cmd-ENTER</strong> on Macs) executes the cell and does not move to the next cell.</p>
+<p>You can enter the same line over and over again into the interpreter.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Try entering this cell a few times:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">i</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>If you want to create new empty cells, you can use Insert -&gt; Insert Cell Below or use the Insert Cell Below button at the top of the notebook. Try entering a new cell below this one.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You can also split cells by putting your cursor on the line you want to split, and clicking on Edit --&gt; Split cell. Split the cell below after the <code>c = 2</code> line</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">c</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span> <span class="o">+</span> <span class="n">c</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>You merge cells by clicking the Edit --&gt; Merge cell Above / Below. Go back to the cells you split and merge them back into one cell.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Markdown">Markdown<a class="anchor-link" href="#Markdown">&#182;</a></h2><p>Jupyter notebooks allow you type in markdown as well as code. In fact, this very cell is written in Markdown!</p>
+<p>Markdown is a lightweight markup language with plain text formatting syntax designed so that it can be converted to HTML and many other formats. Markdown has its own syntax, but it's easy to learn. Here's a <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">cheatsheet</a> that can help.</p>
+<p>Double click the cell below to see the markdown code rendering the output.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
 <ul>
-<li>contain data in square brackets <code>[...]</code>, </li>
-<li>each value is separated by a comma <code>,</code>.</li>
+<li>Use asterisks</li>
+<li>to create</li>
+<li>bullet lists.</li>
 </ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Afghanistan&quot;</span><span class="p">,</span> <span class="s2">&quot;Canada&quot;</span><span class="p">,</span> <span class="s2">&quot;Sierra Leone&quot;</span><span class="p">,</span> <span class="s2">&quot;Denmark&quot;</span><span class="p">,</span> <span class="s2">&quot;Japan&quot;</span><span class="p">]</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">country_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Use <code>len</code> to find out how many values are in a list.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">country_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Use-an-item&#8217;s-index-to-fetch-it-from-a-list.">Use an item&#8217;s <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#index">index</a> to fetch it from a list.<a class="anchor-link" href="#Use-an-item&#8217;s-index-to-fetch-it-from-a-list.">&#182;</a></h2><ul>
-<li>Each value in a list is stored in a particular location.</li>
-<li>Locations are numbered from 0 rather than 1.</li>
-<li>Use the location’s index in square brackets to access the value it contains.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the first item is:&#39;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the fourth item is:&#39;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Lists can be indexed from the back using a negative index. </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&quot;Slice&quot;-a-list-using-[-:-]">"Slice" a list using <code>[ : ]</code><a class="anchor-link" href="#&quot;Slice&quot;-a-list-using-[-:-]">&#182;</a></h2><ul>
-<li>Just as with strings, we can get multiple items from a list using slicing</li>
-<li>Note that the first index is included, while the second is excluded</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Leave an index blank to get everything from the beginning / end</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Lists&#8217;-values-can-be-replaced-by-assigning-to-specific-indices.">Lists&#8217; values can be replaced by assigning to specific indices.<a class="anchor-link" href="#Lists&#8217;-values-can-be-replaced-by-assigning-to-specific-indices.">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Iran&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Country List is now:&#39;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>This makes lists different from strings. </li>
-<li>You cannot change the characters in a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#string">string</a> after it has been created.<ul>
-<li><em>Immutable</em>: cannot be changed after creation.</li>
-<li>In contrast, lists are <em>mutable</em>: they can be modified in place.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;Donut&quot;</span>
-<span class="n">mystring</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Mutability-has-consequences.">Mutability has consequences.<a class="anchor-link" href="#Mutability-has-consequences.">&#182;</a></h3><p>The fact that lists are mutable also means that any other variables pointing to a list will <em>also</em> changed if that list gets changed:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="n">country_list</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original list: &quot;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new list: &quot;</span><span class="p">,</span> <span class="n">new_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">()</span>
-
-<span class="n">country_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;India&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original list: &quot;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new list: &quot;</span><span class="p">,</span> <span class="n">new_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>But it goes both ways! If a variable pointing to that list is changed, then the original list itself is changed.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Austria&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original list: &quot;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new list: &quot;</span><span class="p">,</span> <span class="n">new_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Slicing-creates-copies.">Slicing creates copies.<a class="anchor-link" href="#Slicing-creates-copies.">&#182;</a></h4><p>On the other hand, variables created by assigning their value to a slice of a list are "copies" of that slice of the list, and they <em>do not</em> change when the original list gets changed:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">derived_list</span> <span class="o">=</span> <span class="n">country_list</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;first three countries:&quot;</span><span class="p">,</span> <span class="n">derived_list</span><span class="p">)</span>
-
-<span class="n">country_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Thailand&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;changed country_list: &quot;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;first three countries:&quot;</span><span class="p">,</span> <span class="n">derived_list</span><span class="p">,</span> <span class="s2">&quot;...still!&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>So if you want to make an exact copy of a list that won't change when the original list does, then you can simply slice the entire list.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Austria&#39;</span><span class="p">,</span> <span class="s1">&#39;Switzerland&#39;</span><span class="p">,</span> <span class="s1">&#39;Germany&#39;</span><span class="p">]</span>
-
-<span class="n">new_countries</span> <span class="o">=</span> <span class="n">countries</span><span class="p">[:]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;countries&#39;</span><span class="p">,</span> <span class="n">countries</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;new countries&#39;</span><span class="p">,</span> <span class="n">new_countries</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now let's change the first item in <code>countries</code>, and print both lists.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Liechtenstein&#39;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;countries&#39;</span><span class="p">,</span> <span class="n">countries</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;new countries&#39;</span><span class="p">,</span> <span class="n">new_countries</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Only <code>countries</code> changed! Same thing if we change <code>new_countries</code>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_countries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Italy&#39;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;countries&#39;</span><span class="p">,</span> <span class="n">countries</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;new countries&#39;</span><span class="p">,</span> <span class="n">new_countries</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>These are the normal behaviors of lists and other mutable data types in Python, but they can sometimes have unexpected results, especially with nested data structures. (If you need to make certain that data don't change, you can use the <code>copy</code> and <code>deepcopy</code> functions, but these are too much for this introduction.)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Lists-have-Methods">Lists have Methods<a class="anchor-link" href="#Lists-have-Methods">&#182;</a></h2><ul>
-<li>Just like strings have methods, lists do too. <ul>
-<li>Remember that a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#method">method</a> is like a function, but tied to a particular object.</li>
-<li>Use <code>object_name.method_name</code> to call methods.</li>
-<li>IPython lets us do tab completion after a dot ('.') to see what an object has to offer.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_list</span><span class="o">.</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>If you want to append items to the end of a list, use the <code>append</code> method.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;United States&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Use-del-to-remove-items-from-a-list-entirely.">Use del to remove items from a list entirely.<a class="anchor-link" href="#Use-del-to-remove-items-from-a-list-entirely.">&#182;</a></h2><ul>
-<li><code>del list_name[index]</code> removes an item from a list and shortens the list.</li>
-<li>Not a function or a method, but a statement in the language.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original list was:&quot;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-<span class="k">del</span> <span class="n">country_list</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the list is now:&quot;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Lists-may-contain-values-of-different-types.">Lists may contain values of different types.<a class="anchor-link" href="#Lists-may-contain-values-of-different-types.">&#182;</a></h2><ul>
-<li>A single list may contain numbers, strings, and anything else.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">complex_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;life&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="s1">&#39;the universe&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">complex_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Notice that we put a list inside of a list, which can itself be indexed. The same could be done for a string. </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">complex_list</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">complex_list</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-empty-list-contains-no-values.">The empty list contains no values.<a class="anchor-link" href="#The-empty-list-contains-no-values.">&#182;</a></h2><ul>
-<li>Use <code>[]</code> on its own to represent a list that doesn't contain any values.<ul>
-<li>"The zero of lists."</li>
-</ul>
-</li>
-<li>Helpful as a starting point for collecting values
-(which we will see in the next episode.)</li>
-</ul>
-<h2 id="Indexing-beyond-the-end-of-the-collection-is-an-error.">Indexing beyond the end of the collection is an error.<a class="anchor-link" href="#Indexing-beyond-the-end-of-the-collection-is-an-error.">&#182;</a></h2><ul>
-<li>Python reports an <code>IndexError</code> if we attempt to access a value that doesn't exist.<ul>
-<li>This is a kind of <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Day_3/15_Errors.ipynb">runtime error</a>.</li>
-<li>Cannot be detected as the code is parsed
-because the index might be calculated based on data.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">[</span><span class="mi">99</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Challenge-1:-Slice-It">Challenge 1: Slice It<a class="anchor-link" href="#Challenge-1:-Slice-It">&#182;</a></h2><p>If <code>thing</code> is a list and <code>low</code> and <code>high</code> are both non-negative integers:</p>
+<p>but</p>
 <ol>
-<li>What does <code>thing[low:high]</code> do?</li>
-<li>What does <code>thing[low:]</code> (without a value after the colon) do?</li>
-<li>What does <code>thing[:high]</code> (without a value before the colon) do?</li>
-<li>What does <code>thing[:]</code> (just a colon) do?</li>
-<li>How long is the list <code>thing[low:high]</code>?</li>
+<li>Use numbers</li>
+<li>to create</li>
+<li>numbered lists.</li>
 </ol>
+<h1 id="A-Level-1-Heading">A Level-1 Heading<a class="anchor-link" href="#A-Level-1-Heading">&#182;</a></h1><h2 id="B-Level-2-Heading">B Level-2 Heading<a class="anchor-link" href="#B-Level-2-Heading">&#182;</a></h2><h3 id="C-Level-3-Heading-(etc)">C Level-3 Heading (etc)<a class="anchor-link" href="#C-Level-3-Heading-(etc)">&#182;</a></h3><p>Line breaks
+don't matter.</p>
+<p>But blank lines
+create new paragraphs.</p>
+<p><a href="http://dlab.berkeley.edu">Create links</a> with <code>[...](...)</code>.</p>
+<hr>
 
 </div>
 </div>
@@ -12383,7 +11996,25 @@ because the index might be calculated based on data.</li>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Challenge-2:-Making-Strides">Challenge 2: Making Strides<a class="anchor-link" href="#Challenge-2:-Making-Strides">&#182;</a></h2><p>What does the following program print?</p>
+<p>By default, cells in jupyter notebook are code cells, which means it's expecting you to enter Python code. But you can change the cell format by changing the dropdown item on the top from "Code" to "Markdown".</p>
+<p>Enter some markdown text in the cell below, and execute it. Be sure to change the cell from code to markdown!</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Error-Reporting">Error Reporting<a class="anchor-link" href="#Error-Reporting">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What happens if you run this cell?</p>
 
 </div>
 </div>
@@ -12393,9 +12024,7 @@ because the index might be calculated based on data.</li>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;Berkeley&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Or am I)</span>
 </pre></div>
 
 </div>
@@ -12407,10 +12036,7 @@ because the index might be calculated based on data.</li>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li>If we write a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#slice">slice</a> as low:high:stride, what does stride do?</li>
-<li>What expression would select all of the even-numbered items from a collection of consecutive integers?</li>
-</ol>
+<p>As you can see, Jupyter offers proper error reporting. But don't worry - Python is just trying to help fix something it can't understand!</p>
 
 </div>
 </div>
@@ -12419,7 +12045,15 @@ because the index might be calculated based on data.</li>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Challenge-3:-Append-vs.-Extend">Challenge 3: Append vs. Extend<a class="anchor-link" href="#Challenge-3:-Append-vs.-Extend">&#182;</a></h2><p>Using the program below, can you tell the difference between the <code>append</code> method and the <code>extend</code> method?</p>
+<h2 id="History">History<a class="anchor-link" href="#History">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In order to see all the commands you've run so far in the notebook, use the <code>%history</code> built-in command. This is unique to Jupyter Notebook. See more <a href="http://ipython.readthedocs.io/en/stable/interactive/magics.html#magic-history">here</a>.</p>
 
 </div>
 </div>
@@ -12429,13 +12063,7 @@ because the index might be calculated based on data.</li>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pantry_1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bread&#39;</span><span class="p">,</span> <span class="s1">&#39;pasta&#39;</span><span class="p">,</span> <span class="s1">&#39;beans&#39;</span><span class="p">,</span> <span class="s1">&#39;cereal&#39;</span><span class="p">]</span>
-<span class="n">pantry_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bread&#39;</span><span class="p">,</span> <span class="s1">&#39;pasta&#39;</span><span class="p">,</span> <span class="s1">&#39;beans&#39;</span><span class="p">,</span> <span class="s1">&#39;cereal&#39;</span><span class="p">]</span>
-<span class="n">new_items</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;granola bars&#39;</span><span class="p">,</span> <span class="s1">&#39;cookies&#39;</span><span class="p">]</span>
-<span class="n">pantry_1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_items</span><span class="p">)</span>
-<span class="n">pantry_2</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">new_items</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;append does this:&#39;</span><span class="p">,</span> <span class="n">pantry_1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;extend does this:&#39;</span><span class="p">,</span> <span class="n">pantry_2</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">history</span>
 </pre></div>
 
 </div>
@@ -12447,7 +12075,17 @@ because the index might be calculated based on data.</li>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Challenge-4:-Index">Challenge 4: Index<a class="anchor-link" href="#Challenge-4:-Index">&#182;</a></h2><p>I've created a (long) list for you below. Use the <code>.index()</code> method to find out what the index number is for <code>Waldo</code></p>
+<p>If you want to see your history for Python in interactive mode in the shell, check out the answers given <a href="https://stackoverflow.com/questions/6558765/how-do-you-see-the-entire-command-history-in-interactive-python">here</a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Clearing-Jupyter">Clearing Jupyter<a class="anchor-link" href="#Clearing-Jupyter">&#182;</a></h2><p>Jupyter remembers everything it executed, <strong>even if it's not currently displayed in the notebook</strong>.</p>
+<p>To clear everything from Jupyter use Kernel--&gt;Restart in the menu.</p>
 
 </div>
 </div>
@@ -12457,9 +12095,9 @@ because the index might be calculated based on data.</li>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Wheres_Waldo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Shad&quot;</span><span class="p">,</span> <span class="s2">&quot;Rachel&quot;</span><span class="p">,</span> <span class="s2">&quot;Maura&quot;</span><span class="p">,</span> <span class="s2">&quot;Jason&quot;</span><span class="p">,</span> <span class="s2">&quot;Matt&quot;</span><span class="p">,</span> <span class="s2">&quot;Konrad&quot;</span><span class="p">,</span> <span class="s2">&quot;Justine&quot;</span><span class="p">,</span> <span class="s2">&quot;Sarah&quot;</span><span class="p">,</span> <span class="s2">&quot;Laura&quot;</span><span class="p">,</span> \
-                <span class="s2">&quot;Chelsea&quot;</span><span class="p">,</span> <span class="s2">&quot;Nina&quot;</span><span class="p">,</span> <span class="s2">&quot;Dierdre&quot;</span><span class="p">,</span> <span class="s2">&quot;Julian&quot;</span><span class="p">,</span> <span class="s2">&quot;Waldo&quot;</span><span class="p">,</span> <span class="s2">&quot;Naniette&quot;</span><span class="p">,</span> <span class="s2">&quot;Melissa&quot;</span><span class="p">,</span> <span class="s2">&quot;Biz&quot;</span><span class="p">,</span> <span class="s2">&quot;Elsa&quot;</span><span class="p">,</span> <span class="s2">&quot;Demetria&quot;</span><span class="p">,</span>\
-                <span class="s2">&quot;Liz&quot;</span><span class="p">,</span> <span class="s2">&quot;Olivia&quot;</span><span class="p">,</span> <span class="s2">&quot;Will&quot;</span><span class="p">,</span> <span class="s2">&quot;Ogi&quot;</span><span class="p">,</span> <span class="s2">&quot;Melanie&quot;</span><span class="p">,</span> <span class="s2">&quot;Jessica&quot;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;And three shall be the count.&quot;</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="n">mystring</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12471,7 +12109,7 @@ because the index might be calculated based on data.</li>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Challenge-5:--Join">Challenge 5:  Join<a class="anchor-link" href="#Challenge-5:--Join">&#182;</a></h2><p>Read the help file (or the <a href="https://docs.python.org/3/library/stdtypes.html?highlight=str.join#str.join">Python documentation</a>) for <code>join()</code>, a string method.</p>
+<p>Now use Kernel--&gt;Restart in the menu!</p>
 
 </div>
 </div>
@@ -12481,7 +12119,7 @@ because the index might be calculated based on data.</li>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>str.join<span class="o">?</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">mystring</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12493,29 +12131,7 @@ because the index might be calculated based on data.</li>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Using the join method, concatenate all the values in this list into one string:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now use the <code>join</code> method to make one string with all the names from the list <code>Wheres_Waldo</code>, which prints each name on a separate line. (HINT: Remember a new line is represented by <code>'\n'</code>.)</p>
+<p>Note that the error message contains a recap of the input that caused the error (with an arrow, no less!)   It is objecting that <strong>mystring</strong> is not defined, since we just reset it.</p>
 
 </div>
 </div>
@@ -12524,7 +12140,8 @@ because the index might be calculated based on data.</li>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Reverse the order of the names:</p>
+<h2 id="Exiting-Jupyter">Exiting Jupyter<a class="anchor-link" href="#Exiting-Jupyter">&#182;</a></h2><p>When you close your Jupyter notebook window, all of your values will be lost. But you can save your code for a later time.</p>
+<p>First go to File --&gt; Close and Halt in order to shutdown the notebook you are using. Once all notebooks are shutdown, to end the Jupyter server, go back to your shell and type <code>CTRL+C</code>.</p>
 
 </div>
 </div>
@@ -12533,17 +12150,20 @@ because the index might be calculated based on data.</li>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Keypoints">Keypoints<a class="anchor-link" href="#Keypoints">&#182;</a></h1><ol>
-<li>A list stores many values in a single structure.</li>
-<li>Use an item’s index to fetch it from a list.</li>
-<li>Lists’ values can be replaced by assigning to them.</li>
-<li>Appending items to a list lengthens it.</li>
-<li>Use del to remove items from a list entirely.</li>
-<li>The empty list contains no values.</li>
-<li>Lists may contain values of different types.</li>
-<li>Character strings are immutable.</li>
-<li>Indexing beyond the end of the collection is an error.</li>
-</ol>
+<h2 id="Challenge-1">Challenge 1<a class="anchor-link" href="#Challenge-1">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Clear this notebook again.</li>
+<li>Save the notebook.</li>
+<li>Close this notebook correctly.</li>
+<li>Shutdown Jupyter notebook. Reopen Jupyter notebook and open the notebook 03_Variables_Assignment.</li>
+</ul>
 
 </div>
 </div>

@@ -11768,6 +11768,19 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
+
+  <div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+	<div class="topcoat-navigation-bar__item left quarter">
+	  <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
+		<span class="topcoat-icon home-icon"></span>
+	  </a>
+	</div>
+	<div class="topcoat-navigation-bar__item center half">
+	  <h1 class="topcoat-navigation-bar__title">Loops</h1>
+	</div>
+  </div>
+  
+  
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11775,42 +11788,52 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="A-for-loop-executes-commands-once-for-each-value-in-a-collection.">A <em>for loop</em> executes commands once for each value in a collection.<a class="anchor-link" href="#A-for-loop-executes-commands-once-for-each-value-in-a-collection.">&#182;</a></h1>
+<h1 id="Loops">Loops<a class="anchor-link" href="#Loops">&#182;</a></h1><p><strong>Time</strong></p>
+<ul>
+<li>Teaching: 10 min</li>
+<li>Exercises: 15 min</li>
+</ul>
+<p><strong>Questions</strong>:</p>
+<ul>
+<li>"How can I make a program do many things?"</li>
+</ul>
+<p><strong>Learning Objectives</strong>:</p>
+<ul>
+<li>"Explain what for loops are normally used for."</li>
+<li>"Trace the execution of a simple (unnested) loop and correctly state the values of variables in each iteration."</li>
+<li>"Write for loops that use the Accumulator pattern to aggregate values."</li>
+</ul>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-for-loop-executes-commands-once-for-each-value-in-a-collection.">A <em>for loop</em> executes commands once for each value in a collection.<a class="anchor-link" href="#A-for-loop-executes-commands-once-for-each-value-in-a-collection.">&#182;</a></h2><ul>
+<li>Doing calculations on the values in a list one by one
+is as painful as working with <code>pressure_001</code>, <code>pressure_002</code>, etc.</li>
+<li>A <em>for loop</em> tells Python to execute some statements once for each value in a list,
+a character string,
+or some other collection.</li>
+<li>"for each thing in this group, do these operations"</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span><span class="mi">36</span><span class="p">,</span><span class="mi">45</span><span class="p">,</span><span class="mi">54</span><span class="p">]:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>18
-27
-36
-45
-54
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11819,45 +11842,53 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*---This-for-loop-is-equivalent-to:">*   This <code>for</code> loop is equivalent to:<a class="anchor-link" href="#*---This-for-loop-is-equivalent-to:">&#182;</a></h1>
+<ul>
+<li>This <code>for</code> loop is equivalent to:</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">18</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">27</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="mi">54</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-first-line-of-the-for-loop-must-end-with-a-colon,-and-the-body-must-be-indented.">The first line of the <code>for</code> loop must end with a colon, and the <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#body">body</a> must be indented.<a class="anchor-link" href="#The-first-line-of-the-for-loop-must-end-with-a-colon,-and-the-body-must-be-indented.">&#182;</a></h2><ul>
+<li>The colon at the end of the first line signals the start of a <em>block</em> of statements.</li>
+<li>Python uses indentation rather than <code>{}</code> or <code>begin</code>/<code>end</code> to show <em>nesting</em>.<ul>
+<li>Any consistent indentation is legal, but almost everyone uses four spaces.</li>
+</ul>
+</li>
+</ul>
 
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>18
-27
-36
-45
-54
-</pre>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
 
+</div>
 </div>
 </div>
 
@@ -11872,34 +11903,14 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">kitten</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">27</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">54</span><span class="p">]:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">kitten</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>27
-36
-54
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11908,16 +11919,58 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-body-of-a-loop-can-contain-many-statements.">The body of a loop can contain many statements.<a class="anchor-link" href="#The-body-of-a-loop-can-contain-many-statements.">&#182;</a></h1>
+<ul>
+<li>The collection, <code>[2, 3, 5]</code>, is what the loop is being run on.</li>
+<li>The body, <code>print(number)</code>, specifies what to do for each value in the collection.</li>
+<li>The loop variable, <code>number</code>, is what changes for each <em>iteration</em> of the loop.<ul>
+<li>The "current thing".</li>
+</ul>
+</li>
+</ul>
+<h2 id="Loop-variables-can-be-called-anything!!!">Loop variables can be called anything!!!<a class="anchor-link" href="#Loop-variables-can-be-called-anything!!!">&#182;</a></h2><ul>
+<li>As with all variables, loop variables are:<ul>
+<li>Created on demand.</li>
+<li>Meaningless: their names can be anything at all.</li>
+<li>Placeholders for the loop</li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">primes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">27</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">54</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">kitten</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">kitten</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="The-body-of-a-loop-can-contain-many-statements.">The body of a loop can contain many statements.<a class="anchor-link" href="#The-body-of-a-loop-can-contain-many-statements.">&#182;</a></h2><ul>
+<li>But no loop should be more than a few lines long.</li>
+<li>Hard for human beings to keep larger chunks of code in mind.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">primes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">primes</span><span class="p">:</span>
     <span class="n">squared</span> <span class="o">=</span> <span class="n">p</span> <span class="o">**</span> <span class="mi">2</span>
     <span class="n">cubed</span> <span class="o">=</span> <span class="n">p</span> <span class="o">**</span> <span class="mi">3</span>
@@ -11928,23 +11981,37 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Use-range-to-iterate-over-a-sequence-of-numbers.">Use <code>range</code> to iterate over a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#sequence">sequence</a> of numbers.<a class="anchor-link" href="#Use-range-to-iterate-over-a-sequence-of-numbers.">&#182;</a></h2><ul>
+<li>The built-in function <code>range</code> produces a sequence of numbers.<ul>
+<li><em>Not</em> a list: the numbers are produced on demand
+to make looping over large ranges more efficient.</li>
+</ul>
+</li>
+<li><code>range(N)</code> is the numbers 0..N-1<ul>
+<li>Exactly the legal indices of a list or character <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#string">string</a> of length N</li>
+</ul>
+</li>
+</ul>
 
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>27 729 19683
-36 1296 46656
-54 2916 157464
-</pre>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;a range is not a list:&#39;</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">))</span>
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">number</span><span class="p">)</span>
+</pre></div>
 
+</div>
 </div>
 </div>
 
@@ -11953,19 +12020,26 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-Accumulator-pattern-turns-many-values-into-one.">The Accumulator pattern turns many values into one.<a class="anchor-link" href="#The-Accumulator-pattern-turns-many-values-into-one.">&#182;</a></h1><h1 id="A-common-pattern-in-programs-is-to:">A common pattern in programs is to:<a class="anchor-link" href="#A-common-pattern-in-programs-is-to:">&#182;</a></h1><h1 id="1.--Initialize-an-accumulator-variable-to-zero,-the-empty-string,-or-the-empty-list.">1.  Initialize an <em>accumulator</em> variable to zero, the empty string, or the empty list.<a class="anchor-link" href="#1.--Initialize-an-accumulator-variable-to-zero,-the-empty-string,-or-the-empty-list.">&#182;</a></h1><h1 id="2.--Update-the-variable-with-values-from-a-collection.">2.  Update the variable with values from a collection.<a class="anchor-link" href="#2.--Update-the-variable-with-values-from-a-collection.">&#182;</a></h1><p>   </p>
-<h1 id="If-only-one-argument-is-given-to-range,-the-minimum-will-default-to-0.-But-two-arguments-may-also-be-given:">If only one <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#argument">argument</a> is given to <code>range</code>, the minimum will default to 0. But two arguments may also be given:<a class="anchor-link" href="#If-only-one-argument-is-given-to-range,-the-minimum-will-default-to-0.-But-two-arguments-may-also-be-given:">&#182;</a></h1>
+<h2 id="The-Accumulator-pattern-turns-many-values-into-one.">The Accumulator pattern turns many values into one.<a class="anchor-link" href="#The-Accumulator-pattern-turns-many-values-into-one.">&#182;</a></h2><ul>
+<li>A common pattern in programs is to:<ol>
+<li>Initialize an <em>accumulator</em> variable to zero, the empty string, or the empty list.</li>
+<li>Update the variable with values from a collection.</li>
+</ol>
+</li>
+</ul>
+<p>If only one <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#argument">argument</a> is given to <code>range</code>, the minimum will default to 0. But two arguments may also be given:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sum the first 10 integers.</span>
 <span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">99</span><span class="p">):</span> <span class="c1"># start at one, end at 10</span>
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span> <span class="c1"># start at one, end at 10</span>
     <span class="n">total</span> <span class="o">=</span> <span class="n">total</span> <span class="o">+</span> <span class="n">number</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
 </pre></div>
@@ -11974,65 +12048,36 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>4815
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*---Read-total-=-total-+-number-as:">*   Read <code>total = total + number</code> as:<a class="anchor-link" href="#*---Read-total-=-total-+-number-as:">&#182;</a></h1><p> # *  Add the current value of the <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#loop-variable">loop variable</a> <code>number</code> to the current value of the accumulator variable <code>total</code>.</p>
-<h1 id="*--Assign-this-new-value-to-to-total,-replacing-the-current-value.">*  Assign this new value to to <code>total</code>, replacing the current value.<a class="anchor-link" href="#*--Assign-this-new-value-to-to-total,-replacing-the-current-value.">&#182;</a></h1><p>   </p>
-<h1 id="Instead-of-writing-total-=-total-+-number,-this-can-be-simplified-to-total-+=-number.-This-will-reassign-total-to-the-current-value-of-total-plus-the-current-value-of-number:">Instead of writing <code>total = total + number</code>, this can be simplified to <code>total += number</code>. This will reassign total to the current value of total plus the current value of number:<a class="anchor-link" href="#Instead-of-writing-total-=-total-+-number,-this-can-be-simplified-to-total-+=-number.-This-will-reassign-total-to-the-current-value-of-total-plus-the-current-value-of-number:">&#182;</a></h1>
+<ul>
+<li>Read <code>total = total + number</code> as:<ul>
+<li>Add the current value of the <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#loop-variable">loop variable</a> <code>number</code> to the current value of the accumulator variable <code>total</code>.</li>
+<li>Assign this new value to to <code>total</code>, replacing the current value.</li>
+</ul>
+</li>
+</ul>
+<p>Instead of writing <code>total = total + number</code>, this can be simplified to <code>total += number</code>. This will reassign total to the current value of total plus the current value of number:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">99</span><span class="p">):</span> <span class="c1"># start at one, end at 10</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Sum the first 10 integers.</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">number</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span> <span class="c1"># start at one, end at 10</span>
     <span class="n">total</span> <span class="o">+=</span> <span class="n">number</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>4815
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12047,10 +12092,10 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">108</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">values</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]</span>
 
 <span class="n">squared_values</span> <span class="o">=</span> <span class="p">[]</span>
 <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
@@ -12063,21 +12108,30 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-1:-Reversing-a-String">Challenge 1: Reversing a String<a class="anchor-link" href="#Challenge-1:-Reversing-a-String">&#182;</a></h2><p>Fill in the blanks in the program below so that it prints "nit"
+(the reverse of the original character string "tin").</p>
 
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[324, 729, 1296, 2025, 6561, 8100, 11664]
-</pre>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">original</span> <span class="o">=</span> <span class="s2">&quot;tin&quot;</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">____</span>
+<span class="k">for</span> <span class="n">char</span> <span class="ow">in</span> <span class="n">original</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">____</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
 
+</div>
 </div>
 </div>
 
@@ -12086,7 +12140,151 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*"><strong>*</strong><a class="anchor-link" href="#*">&#182;</a></h1><h1 id="Keypoints:">Keypoints:<a class="anchor-link" href="#Keypoints:">&#182;</a></h1><h1 id="&quot;A-for-loop-executes-commands-once-for-each-value-in-a-collection.&quot;">"A <em>for loop</em> executes commands once for each value in a collection."<a class="anchor-link" href="#&quot;A-for-loop-executes-commands-once-for-each-value-in-a-collection.&quot;">&#182;</a></h1><h1 id="&quot;The-first-line-of-the-for-loop-must-end-with-a-colon,-and-the-body-must-be-indented.&quot;">"The first line of the <code>for</code> loop must end with a colon, and the body must be indented."<a class="anchor-link" href="#&quot;The-first-line-of-the-for-loop-must-end-with-a-colon,-and-the-body-must-be-indented.&quot;">&#182;</a></h1><h1 id="&quot;A-for-loop-is-made-up-of-a-collection,-a-loop-variable,-and-a-body.&quot;">"A <code>for</code> loop is made up of a collection, a loop variable, and a body."<a class="anchor-link" href="#&quot;A-for-loop-is-made-up-of-a-collection,-a-loop-variable,-and-a-body.&quot;">&#182;</a></h1><h1 id="&quot;Loop-variables-can-be-called-anything.&quot;">"Loop variables can be called anything."<a class="anchor-link" href="#&quot;Loop-variables-can-be-called-anything.&quot;">&#182;</a></h1><h1 id="&quot;The-body-of-a-loop-can-contain-many-statements.&quot;">"The body of a loop can contain many statements."<a class="anchor-link" href="#&quot;The-body-of-a-loop-can-contain-many-statements.&quot;">&#182;</a></h1><h1 id="&quot;Use-range-to-iterate-over-a-sequence-of-numbers.&quot;">"Use <code>range</code> to iterate over a sequence of numbers."<a class="anchor-link" href="#&quot;Use-range-to-iterate-over-a-sequence-of-numbers.&quot;">&#182;</a></h1><h1 id="&quot;The-Accumulator-pattern-turns-many-values-into-one.&quot;">"The Accumulator pattern turns many values into one."<a class="anchor-link" href="#&quot;The-Accumulator-pattern-turns-many-values-into-one.&quot;">&#182;</a></h1>
+<h3 id="BONUS:-How-can-you-do-this-in-one-line-with-stride?">BONUS: How can you do this in one line with stride?<a class="anchor-link" href="#BONUS:-How-can-you-do-this-in-one-line-with-stride?">&#182;</a></h3><p>This is a much better way of reversing a string.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-2:-Practice-Accumulating">Challenge 2: Practice Accumulating<a class="anchor-link" href="#Challenge-2:-Practice-Accumulating">&#182;</a></h2><p>Fill in the blanks in each of the programs below
+to produce the indicated result.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Total length of the strings in the list: [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;] =&gt; 12</span>
+<span class="n">total</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]:</span>
+    <span class="n">____</span> <span class="o">=</span> <span class="n">____</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">total</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># List of word lengths: [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;] =&gt; [3, 5, 4]</span>
+<span class="n">lengths</span> <span class="o">=</span> <span class="n">____</span>
+<span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]:</span>
+    <span class="n">lengths</span><span class="o">.</span><span class="n">____</span><span class="p">(</span><span class="n">____</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Concatenate all words: [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;] =&gt; &quot;redgreenblue&quot;</span>
+<span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;red&quot;</span><span class="p">,</span> <span class="s2">&quot;green&quot;</span><span class="p">,</span> <span class="s2">&quot;blue&quot;</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">____</span>
+<span class="k">for</span> <span class="n">____</span> <span class="ow">in</span> <span class="n">____</span><span class="p">:</span>
+    <span class="n">____</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Create acronym: [&quot;red&quot;, &quot;green&quot;, &quot;blue&quot;] =&gt; &quot;RGB&quot;</span>
+<span class="c1"># write the whole thing</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-3:-Multiple-Operations">Challenge 3: Multiple Operations<a class="anchor-link" href="#Challenge-3:-Multiple-Operations">&#182;</a></h2><p>Below is a list of presidents. Create a new list that contains only the last name of each president.</p>
+<p>(HINT: Look at string methods!)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">presidents_full</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;George Washington&quot;</span><span class="p">,</span> <span class="s2">&quot;John Adams&quot;</span><span class="p">,</span> <span class="s2">&quot;Thomas Jefferson&quot;</span><span class="p">,</span> <span class="s2">&quot;James Madison&quot;</span><span class="p">,</span> <span class="s2">&quot;James Monroe&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;John Quincy Adams&quot;</span><span class="p">,</span> <span class="s2">&quot;Andrew Jackson&quot;</span><span class="p">,</span> <span class="s2">&quot;Martin Van Buren&quot;</span><span class="p">,</span> <span class="s2">&quot;William Henry Harrison&quot;</span><span class="p">,</span> <span class="s2">&quot;John Tyler&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;James K. Polk&quot;</span><span class="p">,</span> <span class="s2">&quot;Zachary Taylor&quot;</span><span class="p">,</span> <span class="s2">&quot;Millard Fillmore&quot;</span><span class="p">,</span> <span class="s2">&quot;Franklin Pierce&quot;</span><span class="p">,</span> <span class="s2">&quot;James Buchanan&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;Abraham Lincoln&quot;</span><span class="p">,</span> <span class="s2">&quot;Andrew Johnson&quot;</span><span class="p">,</span> <span class="s2">&quot;Ulysses S. Grant&quot;</span><span class="p">,</span> <span class="s2">&quot;Rutherford B. Hayes&quot;</span><span class="p">,</span> <span class="s2">&quot;James A. Garfield&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;Chester A. Arthur&quot;</span><span class="p">,</span> <span class="s2">&quot;Grover Cleveland&quot;</span><span class="p">,</span> <span class="s2">&quot;Benjamin Harrison&quot;</span><span class="p">,</span> <span class="s2">&quot;Grover Cleveland&quot;</span><span class="p">,</span> <span class="s2">&quot;William McKinley&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;Theodore Roosevelt&quot;</span><span class="p">,</span> <span class="s2">&quot;William Howard Taft&quot;</span><span class="p">,</span> <span class="s2">&quot;Woodrow Wilson&quot;</span><span class="p">,</span> <span class="s2">&quot;Warren G. Harding&quot;</span><span class="p">,</span> <span class="s2">&quot;Calvin Coolidge&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;Herbert Hoover&quot;</span><span class="p">,</span> <span class="s2">&quot;Franklin D. Roosevelt&quot;</span><span class="p">,</span> <span class="s2">&quot;Harry S. Truman&quot;</span><span class="p">,</span> <span class="s2">&quot;Dwight D. Eisenhower&quot;</span><span class="p">,</span> <span class="s2">&quot;John F. Kennedy&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;Lyndon B. Johnson&quot;</span><span class="p">,</span> <span class="s2">&quot;Richard Nixon&quot;</span><span class="p">,</span> <span class="s2">&quot;Gerald Ford&quot;</span><span class="p">,</span> <span class="s2">&quot;Jimmy Carter&quot;</span><span class="p">,</span> <span class="s2">&quot;Ronald Reagan&quot;</span><span class="p">,</span> <span class="s2">&quot;George H. W. Bush&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;Bill Clinton&quot;</span><span class="p">,</span> <span class="s2">&quot;George W. Bush&quot;</span><span class="p">,</span> <span class="s2">&quot;Barack Obama&quot;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Now sort the list alphabetically by last name (HINT: look up <code>sorted</code>):</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-4:-Range">Challenge 4: Range<a class="anchor-link" href="#Challenge-4:-Range">&#182;</a></h2><p>Using <code>range</code> and a for loop, calculate the factorial of 42 (the product of all integers up to and including 42).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Keypoints:">Keypoints:<a class="anchor-link" href="#Keypoints:">&#182;</a></h1><ul>
+<li>"A <em>for loop</em> executes commands once for each value in a collection."</li>
+<li>"The first line of the <code>for</code> loop must end with a colon, and the body must be indented."</li>
+<li>"A <code>for</code> loop is made up of a collection, a loop variable, and a body."</li>
+<li>"Loop variables can be called anything."</li>
+<li>"The body of a loop can contain many statements."</li>
+<li>"Use <code>range</code> to iterate over a sequence of numbers."</li>
+<li>"The Accumulator pattern turns many values into one."</li>
+</ul>
+
 </div>
 </div>
 </div>

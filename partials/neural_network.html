@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>07_Lists</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>neural_network</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11768,17 +11768,6 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
-
-  <div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
-	<div class="topcoat-navigation-bar__item left quarter">
-	  <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
-		<span class="topcoat-icon home-icon"></span>
-	  </a>
-	</div>
-	<div class="topcoat-navigation-bar__item center half">
-	  <h1 class="topcoat-navigation-bar__title">Lists</h1>
-	</div>
-  </div>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11786,50 +11775,76 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Lists">Lists<a class="anchor-link" href="#Lists">&#182;</a></h1><p><strong>Time</strong></p>
-<ul>
-<li>teaching: 10 min</li>
-<li>exercises: 15 min</li>
-</ul>
-<p><strong>Questions</strong>:</p>
-<ul>
-<li>"How do I organize several data types in an ordered manner?"</li>
-<li>"How can I modify this collection of data?"</li>
-</ul>
-<p><strong>Learning Objectives</strong>:</p>
-<ul>
-<li>"Understand how to create and modify a list"</li>
-<li>"Understand what a list can and can't do"</li>
-<li>"Become familiar with common list methods"</li>
-</ul>
-<hr>
-<p>A list is an ordered, indexable collection of data. Lets say you're doing a study on the following countries:</p>
-
-<pre><code>country:
-
-"Afghanistan"
-"Canada"
-"Sierra Leone"
-"Denmark"
-"Japan"
-
-</code></pre>
-<p>You could put that data into a list</p>
-<ul>
-<li>contain data in square brackets <code>[...]</code>, </li>
-<li>each value is separated by a comma <code>,</code>.</li>
-</ul>
-
+<h1 id="Import-images-and-labels-from-MNIST-Database">Import images and labels from MNIST Database<a class="anchor-link" href="#Import-images-and-labels-from-MNIST-Database">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Afghanistan&quot;</span><span class="p">,</span> <span class="s2">&quot;Canada&quot;</span><span class="p">,</span> <span class="s2">&quot;Sierra Leone&quot;</span><span class="p">,</span> <span class="s2">&quot;Denmark&quot;</span><span class="p">,</span> <span class="s2">&quot;Japan&quot;</span><span class="p">]</span>
-<span class="nb">type</span><span class="p">(</span><span class="n">country_list</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
+
+<span class="c1"># Import MNIST data</span>
+<span class="kn">from</span> <span class="nn">tensorflow.examples.tutorials.mnist</span> <span class="k">import</span> <span class="n">input_data</span>
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">input_data</span><span class="o">.</span><span class="n">read_data_sets</span><span class="p">(</span><span class="s2">&quot;/tmp/data/&quot;</span><span class="p">,</span> <span class="n">one_hot</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Extracting /tmp/data/train-images-idx3-ubyte.gz
+Extracting /tmp/data/train-labels-idx1-ubyte.gz
+Extracting /tmp/data/t10k-images-idx3-ubyte.gz
+Extracting /tmp/data/t10k-labels-idx1-ubyte.gz
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="set-parameters-and-network-parameters">set parameters and network parameters<a class="anchor-link" href="#set-parameters-and-network-parameters">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Parameters</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.1</span>
+<span class="n">num_steps</span> <span class="o">=</span> <span class="mi">1000</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">128</span>
+<span class="n">display_step</span> <span class="o">=</span> <span class="mi">100</span>
+
+<span class="c1"># Network Parameters</span>
+<span class="n">n_hidden_1</span> <span class="o">=</span> <span class="mi">256</span> <span class="c1"># 1st layer number of neurons</span>
+<span class="n">n_hidden_2</span> <span class="o">=</span> <span class="mi">256</span> <span class="c1"># 2nd layer number of neurons</span>
+<span class="n">num_input</span> <span class="o">=</span> <span class="mi">784</span> <span class="c1"># MNIST data input (img shape: 28*28)</span>
+<span class="n">num_classes</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># MNIST total classes (0-9 digits)</span>
 </pre></div>
 
 </div>
@@ -11841,19 +11856,19 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Use <code>len</code> to find out how many values are in a list.</li>
-</ul>
-
+<h1 id="Define-input-function-for-training">Define input function for training<a class="anchor-link" href="#Define-input-function-for-training">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">len</span><span class="p">(</span><span class="n">country_list</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define the input function for training</span>
+<span class="n">input_fn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">numpy_input_fn</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;images&#39;</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">images</span><span class="p">},</span> <span class="n">y</span><span class="o">=</span><span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">num_epochs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11865,22 +11880,106 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Use-an-item&#8217;s-index-to-fetch-it-from-a-list.">Use an item&#8217;s <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#index">index</a> to fetch it from a list.<a class="anchor-link" href="#Use-an-item&#8217;s-index-to-fetch-it-from-a-list.">&#182;</a></h2><ul>
-<li>Each value in a list is stored in a particular location.</li>
-<li>Locations are numbered from 0 rather than 1.</li>
-<li>Use the location’s index in square brackets to access the value it contains.</li>
-</ul>
-
+<h1 id="Define-Neural-Network">Define Neural Network<a class="anchor-link" href="#Define-Neural-Network">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the first item is:&#39;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;the fourth item is:&#39;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define the neural network</span>
+<span class="k">def</span> <span class="nf">neural_net</span><span class="p">(</span><span class="n">x_dict</span><span class="p">):</span>
+    <span class="c1"># TF Estimator input is a dict, in case of multiple inputs</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x_dict</span><span class="p">[</span><span class="s1">&#39;images&#39;</span><span class="p">]</span>
+    <span class="c1"># Hidden fully connected layer with 256 neurons</span>
+    <span class="n">layer_1</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n_hidden_1</span><span class="p">)</span>
+    <span class="c1"># Hidden fully connected layer with 256 neurons</span>
+    <span class="n">layer_2</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">layer_1</span><span class="p">,</span> <span class="n">n_hidden_2</span><span class="p">)</span>
+    <span class="c1"># Output fully connected layer with a neuron for each class</span>
+    <span class="n">out_layer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">layers</span><span class="o">.</span><span class="n">dense</span><span class="p">(</span><span class="n">layer_2</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">out_layer</span>
+
+<span class="n">neural_net</span><span class="p">(</span><span class="n">x_dict</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-intense-fg ansi-bold">---------------------------------------------------------------------------</span>
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>                                 Traceback (most recent call last)
+<span class="ansi-green-intense-fg ansi-bold">&lt;ipython-input-14-90db62dbc150&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-intense-fg ansi-bold">()</span>
+<span class="ansi-green-fg">     11</span>     <span class="ansi-green-intense-fg ansi-bold">return</span> out_layer
+<span class="ansi-green-fg">     12</span> 
+<span class="ansi-green-intense-fg ansi-bold">---&gt; 13</span><span class="ansi-yellow-intense-fg ansi-bold"> </span>neural_net<span class="ansi-yellow-intense-fg ansi-bold">(</span>x_dict<span class="ansi-yellow-intense-fg ansi-bold">)</span>
+
+<span class="ansi-red-intense-fg ansi-bold">NameError</span>: name &#39;x_dict&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Define-the-Model-Function">Define the Model Function<a class="anchor-link" href="#Define-the-Model-Function">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Define the model function (following TF Estimator Template)</span>
+<span class="k">def</span> <span class="nf">model_fn</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">mode</span><span class="p">):</span>
+    
+    <span class="c1"># Build the neural network</span>
+    <span class="n">logits</span> <span class="o">=</span> <span class="n">neural_net</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+    
+    <span class="c1"># Predictions</span>
+    <span class="n">pred_classes</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">logits</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">pred_probas</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">logits</span><span class="p">)</span>
+    
+    <span class="c1"># If prediction mode, early return</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">ModeKeys</span><span class="o">.</span><span class="n">PREDICT</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">EstimatorSpec</span><span class="p">(</span><span class="n">mode</span><span class="p">,</span> <span class="n">predictions</span><span class="o">=</span><span class="n">pred_classes</span><span class="p">)</span> 
+        
+    <span class="c1"># Define loss and optimizer</span>
+    <span class="n">loss_op</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">sparse_softmax_cross_entropy_with_logits</span><span class="p">(</span>
+        <span class="n">logits</span><span class="o">=</span><span class="n">logits</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">int32</span><span class="p">)))</span>
+    <span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="o">=</span><span class="n">learning_rate</span><span class="p">)</span>
+    <span class="n">train_op</span> <span class="o">=</span> <span class="n">optimizer</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">loss_op</span><span class="p">,</span> <span class="n">global_step</span><span class="o">=</span><span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">get_global_step</span><span class="p">())</span>
+    
+    <span class="c1"># Evaluate the accuracy of the model</span>
+    <span class="n">acc_op</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">accuracy</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span> <span class="n">predictions</span><span class="o">=</span><span class="n">pred_classes</span><span class="p">)</span>
+    
+    <span class="c1"># TF Estimators requires to return a EstimatorSpec, that specify</span>
+    <span class="c1"># the different ops for training, evaluating, ...</span>
+    <span class="n">estim_specs</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">EstimatorSpec</span><span class="p">(</span>
+      <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
+      <span class="n">predictions</span><span class="o">=</span><span class="n">pred_classes</span><span class="p">,</span>
+      <span class="n">loss</span><span class="o">=</span><span class="n">loss_op</span><span class="p">,</span>
+      <span class="n">train_op</span><span class="o">=</span><span class="n">train_op</span><span class="p">,</span>
+      <span class="n">eval_metric_ops</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;accuracy&#39;</span><span class="p">:</span> <span class="n">acc_op</span><span class="p">})</span>
+
+    <span class="k">return</span> <span class="n">estim_specs</span>
 </pre></div>
 
 </div>
@@ -11892,661 +11991,568 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Lists can be indexed from the back using a negative index. </li>
-</ul>
-
+<h1 id="Build-the-estimator">Build the estimator<a class="anchor-link" href="#Build-the-estimator">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Build the Estimator</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">Estimator</span><span class="p">(</span><span class="n">model_fn</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>INFO:tensorflow:Using default config.
+WARNING:tensorflow:Using temporary folder as model directory: /tmp/tmpu7vjLA
+INFO:tensorflow:Using config: {&#39;_save_checkpoints_secs&#39;: 600, &#39;_session_config&#39;: None, &#39;_keep_checkpoint_max&#39;: 5, &#39;_tf_random_seed&#39;: 1, &#39;_keep_checkpoint_every_n_hours&#39;: 10000, &#39;_log_step_count_steps&#39;: 100, &#39;_save_checkpoints_steps&#39;: None, &#39;_model_dir&#39;: &#39;/tmp/tmpu7vjLA&#39;, &#39;_save_summary_steps&#39;: 100}
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&quot;Slice&quot;-a-list-using-[-:-]">"Slice" a list using <code>[ : ]</code><a class="anchor-link" href="#&quot;Slice&quot;-a-list-using-[-:-]">&#182;</a></h2><ul>
-<li>Just as with strings, we can get multiple items from a list using slicing</li>
-<li>Note that the first index is included, while the second is excluded</li>
-</ul>
-
+<h1 id="Train-the-Model">Train the Model<a class="anchor-link" href="#Train-the-Model">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Train the Model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">input_fn</span><span class="p">,</span> <span class="n">steps</span><span class="o">=</span><span class="n">num_steps</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>INFO:tensorflow:Create CheckpointSaverHook.
+INFO:tensorflow:Saving checkpoints for 1 into /tmp/tmpu7vjLA/model.ckpt.
+INFO:tensorflow:loss = 2.44919, step = 1
+INFO:tensorflow:global_step/sec: 602.544
+INFO:tensorflow:loss = 0.344767, step = 101 (0.167 sec)
+INFO:tensorflow:global_step/sec: 618.839
+INFO:tensorflow:loss = 0.277633, step = 201 (0.162 sec)
+INFO:tensorflow:global_step/sec: 626.418
+INFO:tensorflow:loss = 0.407796, step = 301 (0.160 sec)
+INFO:tensorflow:global_step/sec: 624.765
+INFO:tensorflow:loss = 0.376889, step = 401 (0.160 sec)
+INFO:tensorflow:global_step/sec: 624.091
+INFO:tensorflow:loss = 0.319697, step = 501 (0.160 sec)
+INFO:tensorflow:global_step/sec: 616.907
+INFO:tensorflow:loss = 0.39049, step = 601 (0.162 sec)
+INFO:tensorflow:global_step/sec: 623.371
+INFO:tensorflow:loss = 0.336831, step = 701 (0.161 sec)
+INFO:tensorflow:global_step/sec: 617.429
+INFO:tensorflow:loss = 0.312776, step = 801 (0.162 sec)
+INFO:tensorflow:global_step/sec: 620.825
+INFO:tensorflow:loss = 0.312817, step = 901 (0.161 sec)
+INFO:tensorflow:Saving checkpoints for 1000 into /tmp/tmpu7vjLA/model.ckpt.
+INFO:tensorflow:Loss for final step: 0.24931.
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[7]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;tensorflow.python.estimator.estimator.Estimator at 0x7f21ac597690&gt;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Leave an index blank to get everything from the beginning / end</li>
-</ul>
-
+<h1 id="Evaluate-Model">Evaluate Model<a class="anchor-link" href="#Evaluate-Model">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">[:</span><span class="mi">4</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Evaluate the Model</span>
+<span class="c1"># Define the input function for evaluating</span>
+<span class="n">input_fn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">numpy_input_fn</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;images&#39;</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span><span class="p">},</span> <span class="n">y</span><span class="o">=</span><span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">labels</span><span class="p">,</span>
+    <span class="n">batch_size</span><span class="o">=</span><span class="n">batch_size</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Use the Estimator &#39;evaluate&#39; method</span>
+<span class="n">model</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="n">input_fn</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>INFO:tensorflow:Starting evaluation at 2017-08-21-13:57:02
+INFO:tensorflow:Restoring parameters from /tmp/tmpu7vjLA/model.ckpt-1000
+INFO:tensorflow:Finished evaluation at 2017-08-21-13:57:02
+INFO:tensorflow:Saving dict for global step 1000: accuracy = 0.9189, global_step = 1000, loss = 0.286567
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[8]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;accuracy&#39;: 0.91890001, &#39;global_step&#39;: 1000, &#39;loss&#39;: 0.28656715}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Predict single images</span>
+<span class="n">n_images</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="c1"># Get images from test set</span>
+<span class="n">test_images</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span><span class="p">[:</span><span class="n">n_images</span><span class="p">]</span>
+<span class="c1"># Prepare the input data</span>
+<span class="n">input_fn</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">estimator</span><span class="o">.</span><span class="n">inputs</span><span class="o">.</span><span class="n">numpy_input_fn</span><span class="p">(</span>
+    <span class="n">x</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;images&#39;</span><span class="p">:</span> <span class="n">test_images</span><span class="p">},</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1"># Use the model to predict the images class</span>
+<span class="n">preds</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">input_fn</span><span class="p">))</span>
+
+<span class="c1"># Display</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_images</span><span class="p">):</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">test_images</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">[</span><span class="mi">28</span><span class="p">,</span> <span class="mi">28</span><span class="p">]),</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;gray&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Model prediction:&quot;</span><span class="p">,</span> <span class="n">preds</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Lists&#8217;-values-can-be-replaced-by-assigning-to-specific-indices.">Lists&#8217; values can be replaced by assigning to specific indices.<a class="anchor-link" href="#Lists&#8217;-values-can-be-replaced-by-assigning-to-specific-indices.">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Iran&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Country List is now:&#39;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>This makes lists different from strings. </li>
-<li>You cannot change the characters in a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#string">string</a> after it has been created.<ul>
-<li><em>Immutable</em>: cannot be changed after creation.</li>
-<li>In contrast, lists are <em>mutable</em>: they can be modified in place.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="s2">&quot;Donut&quot;</span>
-<span class="n">mystring</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;C&#39;</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Mutability-has-consequences.">Mutability has consequences.<a class="anchor-link" href="#Mutability-has-consequences.">&#182;</a></h3><p>The fact that lists are mutable also means that any other variables pointing to a list will <em>also</em> changed if that list gets changed:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_list</span> <span class="o">=</span> <span class="n">country_list</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original list: &quot;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new list: &quot;</span><span class="p">,</span> <span class="n">new_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">()</span>
-
-<span class="n">country_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;India&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original list: &quot;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new list: &quot;</span><span class="p">,</span> <span class="n">new_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>But it goes both ways! If a variable pointing to that list is changed, then the original list itself is changed.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Austria&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original list: &quot;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new list: &quot;</span><span class="p">,</span> <span class="n">new_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h4 id="Slicing-creates-copies.">Slicing creates copies.<a class="anchor-link" href="#Slicing-creates-copies.">&#182;</a></h4><p>On the other hand, variables created by assigning their value to a slice of a list are "copies" of that slice of the list, and they <em>do not</em> change when the original list gets changed:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">derived_list</span> <span class="o">=</span> <span class="n">country_list</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;first three countries:&quot;</span><span class="p">,</span> <span class="n">derived_list</span><span class="p">)</span>
-
-<span class="n">country_list</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Thailand&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;changed country_list: &quot;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;first three countries:&quot;</span><span class="p">,</span> <span class="n">derived_list</span><span class="p">,</span> <span class="s2">&quot;...still!&quot;</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>So if you want to make an exact copy of a list that won't change when the original list does, then you can simply slice the entire list.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countries</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Austria&#39;</span><span class="p">,</span> <span class="s1">&#39;Switzerland&#39;</span><span class="p">,</span> <span class="s1">&#39;Germany&#39;</span><span class="p">]</span>
-
-<span class="n">new_countries</span> <span class="o">=</span> <span class="n">countries</span><span class="p">[:]</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;countries&#39;</span><span class="p">,</span> <span class="n">countries</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;new countries&#39;</span><span class="p">,</span> <span class="n">new_countries</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now let's change the first item in <code>countries</code>, and print both lists.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">countries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Liechtenstein&#39;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;countries&#39;</span><span class="p">,</span> <span class="n">countries</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;new countries&#39;</span><span class="p">,</span> <span class="n">new_countries</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Only <code>countries</code> changed! Same thing if we change <code>new_countries</code>.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_countries</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;Italy&#39;</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;countries&#39;</span><span class="p">,</span> <span class="n">countries</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;new countries&#39;</span><span class="p">,</span> <span class="n">new_countries</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>These are the normal behaviors of lists and other mutable data types in Python, but they can sometimes have unexpected results, especially with nested data structures. (If you need to make certain that data don't change, you can use the <code>copy</code> and <code>deepcopy</code> functions, but these are too much for this introduction.)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Lists-have-Methods">Lists have Methods<a class="anchor-link" href="#Lists-have-Methods">&#182;</a></h2><ul>
-<li>Just like strings have methods, lists do too. <ul>
-<li>Remember that a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#method">method</a> is like a function, but tied to a particular object.</li>
-<li>Use <code>object_name.method_name</code> to call methods.</li>
-<li>IPython lets us do tab completion after a dot ('.') to see what an object has to offer.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_list</span><span class="o">.</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>If you want to append items to the end of a list, use the <code>append</code> method.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">country_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;United States&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Use-del-to-remove-items-from-a-list-entirely.">Use del to remove items from a list entirely.<a class="anchor-link" href="#Use-del-to-remove-items-from-a-list-entirely.">&#182;</a></h2><ul>
-<li><code>del list_name[index]</code> removes an item from a list and shortens the list.</li>
-<li>Not a function or a method, but a statement in the language.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;original list was:&quot;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-<span class="k">del</span> <span class="n">country_list</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;the list is now:&quot;</span><span class="p">,</span> <span class="n">country_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Lists-may-contain-values-of-different-types.">Lists may contain values of different types.<a class="anchor-link" href="#Lists-may-contain-values-of-different-types.">&#182;</a></h2><ul>
-<li>A single list may contain numbers, strings, and anything else.</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">complex_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;life&#39;</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="s1">&#39;the universe&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">complex_list</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ul>
-<li>Notice that we put a list inside of a list, which can itself be indexed. The same could be done for a string. </li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">complex_list</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="n">complex_list</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-empty-list-contains-no-values.">The empty list contains no values.<a class="anchor-link" href="#The-empty-list-contains-no-values.">&#182;</a></h2><ul>
-<li>Use <code>[]</code> on its own to represent a list that doesn't contain any values.<ul>
-<li>"The zero of lists."</li>
-</ul>
-</li>
-<li>Helpful as a starting point for collecting values
-(which we will see in the next episode.)</li>
-</ul>
-<h2 id="Indexing-beyond-the-end-of-the-collection-is-an-error.">Indexing beyond the end of the collection is an error.<a class="anchor-link" href="#Indexing-beyond-the-end-of-the-collection-is-an-error.">&#182;</a></h2><ul>
-<li>Python reports an <code>IndexError</code> if we attempt to access a value that doesn't exist.<ul>
-<li>This is a kind of <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Day_3/15_Errors.ipynb">runtime error</a>.</li>
-<li>Cannot be detected as the code is parsed
-because the index might be calculated based on data.</li>
-</ul>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">country_list</span><span class="p">[</span><span class="mi">99</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Challenge-1:-Slice-It">Challenge 1: Slice It<a class="anchor-link" href="#Challenge-1:-Slice-It">&#182;</a></h2><p>If <code>thing</code> is a list and <code>low</code> and <code>high</code> are both non-negative integers:</p>
-<ol>
-<li>What does <code>thing[low:high]</code> do?</li>
-<li>What does <code>thing[low:]</code> (without a value after the colon) do?</li>
-<li>What does <code>thing[:high]</code> (without a value before the colon) do?</li>
-<li>What does <code>thing[:]</code> (just a colon) do?</li>
-<li>How long is the list <code>thing[low:high]</code>?</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Challenge-2:-Making-Strides">Challenge 2: Making Strides<a class="anchor-link" href="#Challenge-2:-Making-Strides">&#182;</a></h2><p>What does the following program print?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">city</span> <span class="o">=</span> <span class="s1">&#39;Berkeley&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">[::</span><span class="mi">2</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">city</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li>If we write a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#slice">slice</a> as low:high:stride, what does stride do?</li>
-<li>What expression would select all of the even-numbered items from a collection of consecutive integers?</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Challenge-3:-Append-vs.-Extend">Challenge 3: Append vs. Extend<a class="anchor-link" href="#Challenge-3:-Append-vs.-Extend">&#182;</a></h2><p>Using the program below, can you tell the difference between the <code>append</code> method and the <code>extend</code> method?</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pantry_1</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bread&#39;</span><span class="p">,</span> <span class="s1">&#39;pasta&#39;</span><span class="p">,</span> <span class="s1">&#39;beans&#39;</span><span class="p">,</span> <span class="s1">&#39;cereal&#39;</span><span class="p">]</span>
-<span class="n">pantry_2</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bread&#39;</span><span class="p">,</span> <span class="s1">&#39;pasta&#39;</span><span class="p">,</span> <span class="s1">&#39;beans&#39;</span><span class="p">,</span> <span class="s1">&#39;cereal&#39;</span><span class="p">]</span>
-<span class="n">new_items</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;granola bars&#39;</span><span class="p">,</span> <span class="s1">&#39;cookies&#39;</span><span class="p">]</span>
-<span class="n">pantry_1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_items</span><span class="p">)</span>
-<span class="n">pantry_2</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">new_items</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;append does this:&#39;</span><span class="p">,</span> <span class="n">pantry_1</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;extend does this:&#39;</span><span class="p">,</span> <span class="n">pantry_2</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Challenge-4:-Index">Challenge 4: Index<a class="anchor-link" href="#Challenge-4:-Index">&#182;</a></h2><p>I've created a (long) list for you below. Use the <code>.index()</code> method to find out what the index number is for <code>Waldo</code></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">Wheres_Waldo</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Anna&quot;</span><span class="p">,</span> <span class="s2">&quot;Shad&quot;</span><span class="p">,</span> <span class="s2">&quot;Rachel&quot;</span><span class="p">,</span> <span class="s2">&quot;Maura&quot;</span><span class="p">,</span> <span class="s2">&quot;Jason&quot;</span><span class="p">,</span> <span class="s2">&quot;Matt&quot;</span><span class="p">,</span> <span class="s2">&quot;Konrad&quot;</span><span class="p">,</span> <span class="s2">&quot;Justine&quot;</span><span class="p">,</span> <span class="s2">&quot;Sarah&quot;</span><span class="p">,</span> <span class="s2">&quot;Laura&quot;</span><span class="p">,</span> \
-                <span class="s2">&quot;Chelsea&quot;</span><span class="p">,</span> <span class="s2">&quot;Nina&quot;</span><span class="p">,</span> <span class="s2">&quot;Dierdre&quot;</span><span class="p">,</span> <span class="s2">&quot;Julian&quot;</span><span class="p">,</span> <span class="s2">&quot;Waldo&quot;</span><span class="p">,</span> <span class="s2">&quot;Naniette&quot;</span><span class="p">,</span> <span class="s2">&quot;Melissa&quot;</span><span class="p">,</span> <span class="s2">&quot;Biz&quot;</span><span class="p">,</span> <span class="s2">&quot;Elsa&quot;</span><span class="p">,</span> <span class="s2">&quot;Demetria&quot;</span><span class="p">,</span>\
-                <span class="s2">&quot;Liz&quot;</span><span class="p">,</span> <span class="s2">&quot;Olivia&quot;</span><span class="p">,</span> <span class="s2">&quot;Will&quot;</span><span class="p">,</span> <span class="s2">&quot;Ogi&quot;</span><span class="p">,</span> <span class="s2">&quot;Melanie&quot;</span><span class="p">,</span> <span class="s2">&quot;Jessica&quot;</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Challenge-5:--Join">Challenge 5:  Join<a class="anchor-link" href="#Challenge-5:--Join">&#182;</a></h2><p>Read the help file (or the <a href="https://docs.python.org/3/library/stdtypes.html?highlight=str.join#str.join">Python documentation</a>) for <code>join()</code>, a string method.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span>str.join<span class="o">?</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Using the join method, concatenate all the values in this list into one string:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">letters</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;s&#39;</span><span class="p">,</span> <span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;m&#39;</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
 
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>INFO:tensorflow:Restoring parameters from /tmp/tmpu7vjLA/model.ckpt-1000
+</pre>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+/LPVtEE0qL0Nal8SvbWrm71d3uqMff2Qz8c2bo8N6nf7DWpvg9qXRG/tqqs3DvuBpAg/kFTd4R+t
+efslg9rboPYl0Vu7aumt1nN+APWpe88PoCa1hN/2Mtv7bB+w/UAdPTRi+7DtXbZfrXuIsWoYtJO2
+d0+ZNs/2s7bfqn5PO0xaTb2ts320eu1etb28pt4W2P6j7Tds77H97Wp6ra9doa9aXre+H/bbniVp
+v6Q7JI1LelnSvRHxRl8bacD2YUnDEVH7NWHbX5J0RtIjEXFNNe0hSRMR8cPqH+fciPjegPS2TtKZ
+ukdurgaUGZo6srSkuyR9QzW+doW+7lENr1sde/4bJR2IiEMR8XdJv5a0ooY+Bl5EbJd07qgZKyRt
+rB5v1OQfT9816G0gRMSxiHilenxa0kcjS9f62hX6qkUd4b9U0pEpz8c1WEN+h6SttnfaHqm7mWnM
+r4ZNl6TjkubX2cw0mo7c3E/njCw9MK9dOyNedxtv+H3ckoi4TtL/SVpTHd4OpJg8ZxukyzUtjdzc
+L9OMLP0vdb527Y543W11hP+opAVTnn+umjYQIuJo9fukpN9p8EYfPvHRIKnV75M19/MvgzRy83Qj
+S2sAXrtBGvG6jvC/LOkK25+3/WlJX5O0pYY+Psb2hdUbMbJ9oaQva/BGH94iaVX1eJWkJ2rs5T8M
+ysjNjUaWVs2v3cCNeB0Rff+RtFyT7/gflPT9Onpo0Nd/S3qt+tlTd2+SHtXkYeA/NPneyDclXSRp
+m6S3JP1B0rwB6u1XknZJel2TQRuqqbclmjykf13Sq9XP8rpfu0JftbxufMIPSIo3/ICkCD+QFOEH
+kiL8QFKEH0iK8ANJEX4gKcIPJPVP82g/p9/JjhUAAAAASUVORK5CYII=
+"
+>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model prediction: 7
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+TkSuQmCC
+"
+>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model prediction: 2
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAP8AAAD8CAYAAAC4nHJkAAAABHNCSVQICAgIfAhkiAAAAAlwSFlz
+AAALEgAACxIB0t1+/AAADCRJREFUeJzt3X/oXfV9x/Hne1n6h2n/MKvGYMV0RaclYjK+iGCYHdXi
+RND8I1UYkcnSPxqwsD8m7o8JYyCydgz/KKQ0NJXOZkSDWqdtJ8N0MKpRM383OvmWJsREUahVpDN5
+74/viXzV7z33m3vPvecm7+cDLt9zz+eee94c8srn/LrnE5mJpHr+oO8CJPXD8EtFGX6pKMMvFWX4
+paIMv1SU4ZeKMvxSUYZfKuoPp7myiPB2QmnCMjOW87mxev6IuCYifhURr0XE7eN8l6TpilHv7Y+I
+FcAB4GrgIPAUcFNmvtSyjD2/NGHT6PkvA17LzNcz8/fAj4Hrx/g+SVM0TvjPBX6z6P3BZt7HRMTW
+iNgXEfvGWJekjk38hF9mbge2g7v90iwZp+c/BJy36P0XmnmSTgHjhP8p4IKI+GJEfAb4OvBQN2VJ
+mrSRd/sz88OI2Ab8FFgB7MjMFzurTNJEjXypb6SVecwvTdxUbvKRdOoy/FJRhl8qyvBLRRl+qSjD
+LxVl+KWiDL9UlOGXijL8UlGGXyrK8EtFGX6pKMMvFWX4paIMv1SU4ZeKMvxSUYZfKsrwS0UZfqmo
+qQ7RrXouvPDCgW2vvPJK67K33XZba/s999wzUk1aYM8vFWX4paIMv1SU4ZeKMvxSUYZfKsrwS0WN
+dZ0/IuaBd4FjwIeZOddFUTp9bNy4cWDb8ePHW5c9ePBg1+VokS5u8vnzzHyrg++RNEXu9ktFjRv+
+BH4WEU9HxNYuCpI0HePu9m/KzEMRcTbw84h4JTP3Lv5A85+C/zFIM2asnj8zDzV/jwJ7gMuW+Mz2
+zJzzZKA0W0YOf0SsiojPnZgGvga80FVhkiZrnN3+NcCeiDjxPf+amY91UpWkiRs5/Jn5OnBph7Xo
+NLRhw4aBbe+9917rsnv27Om6HC3ipT6pKMMvFWX4paIMv1SU4ZeKMvxSUT66W2NZv359a/u2bdsG
+tt17771dl6OTYM8vFWX4paIMv1SU4ZeKMvxSUYZfKsrwS0V5nV9jueiii1rbV61aNbBt165dXZej
+k2DPLxVl+KWiDL9UlOGXijL8UlGGXyrK8EtFRWZOb2UR01uZpuLJJ59sbT/rrLMGtg17FsCwR3tr
+aZkZy/mcPb9UlOGXijL8UlGGXyrK8EtFGX6pKMMvFTX09/wRsQO4DjiameubeauBXcA6YB64MTPf
+mVyZ6su6deta2+fm5lrbDxw4MLDN6/j9Wk7P/wPgmk/Mux14PDMvAB5v3ks6hQwNf2buBd7+xOzr
+gZ3N9E7gho7rkjRhox7zr8nMw830G8CajuqRNCVjP8MvM7Ptnv2I2ApsHXc9kro1as9/JCLWAjR/
+jw76YGZuz8y5zGw/MyRpqkYN/0PAlmZ6C/BgN+VImpah4Y+I+4D/Bv4kIg5GxK3AXcDVEfEqcFXz
+XtIpZOgxf2beNKDpqx3Xohl05ZVXjrX8m2++2VEl6pp3+ElFGX6pKMMvFWX4paIMv1SU4ZeKcohu
+tbrkkkvGWv7uu+/uqBJ1zZ5fKsrwS0UZfqkowy8VZfilogy/VJThl4pyiO7iLr/88tb2Rx55pLV9
+fn6+tf2KK64Y2PbBBx+0LqvROES3pFaGXyrK8EtFGX6pKMMvFWX4paIMv1SUv+cv7qqrrmptX716
+dWv7Y4891trutfzZZc8vFWX4paIMv1SU4ZeKMvxSUYZfKsrwS0UNvc4fETuA64Cjmbm+mXcn8NfA
+ifGX78jMf59UkZqcSy+9tLV92PMedu/e3WU5mqLl9Pw/AK5ZYv4/Z+aG5mXwpVPM0PBn5l7g7SnU
+ImmKxjnm3xYRz0XEjog4s7OKJE3FqOH/LvAlYANwGPj2oA9GxNaI2BcR+0Zcl6QJGCn8mXkkM49l
+5nHge8BlLZ/dnplzmTk3apGSujdS+CNi7aK3m4EXuilH0rQs51LffcBXgM9HxEHg74GvRMQGIIF5
+4BsTrFHSBPjc/tPcOeec09q+f//+1vZ33nmntf3iiy8+6Zo0WT63X1Irwy8VZfilogy/VJThl4oy
+/FJRPrr7NHfLLbe0tp999tmt7Y8++miH1WiW2PNLRRl+qSjDLxVl+KWiDL9UlOGXijL8UlFe5z/N
+nX/++WMtP+wnvTp12fNLRRl+qSjDLxVl+KWiDL9UlOGXijL8UlFe5z/NXXfddWMt//DDD3dUiWaN
+Pb9UlOGXijL8UlGGXyrK8EtFGX6pKMMvFTX0On9EnAf8EFgDJLA9M/8lIlYDu4B1wDxwY2b64+8e
+bNq0aWDbsCG6Vddyev4Pgb/JzC8DlwPfjIgvA7cDj2fmBcDjzXtJp4ih4c/Mw5n5TDP9LvAycC5w
+PbCz+dhO4IZJFSmpeyd1zB8R64CNwC+BNZl5uGl6g4XDAkmniGXf2x8RnwXuB76Vmb+NiI/aMjMj
+IgcstxXYOm6hkrq1rJ4/IlayEPwfZeYDzewjEbG2aV8LHF1q2czcnplzmTnXRcGSujE0/LHQxX8f
+eDkzv7Oo6SFgSzO9BXiw+/IkTcpydvuvAP4SeD4i9jfz7gDuAv4tIm4Ffg3cOJkSNczmzZsHtq1Y
+saJ12Weffba1fe/evSPVpNk3NPyZ+V9ADGj+arflSJoW7/CTijL8UlGGXyrK8EtFGX6pKMMvFeWj
+u08BZ5xxRmv7tddeO/J37969u7X92LFjI3+3Zps9v1SU4ZeKMvxSUYZfKsrwS0UZfqkowy8VFZlL
+Pn1rMisb8KgvtVu5cmVr+xNPPDGw7ejRJR+w9JGbb765tf39999vbdfsycxBP8H/GHt+qSjDLxVl
++KWiDL9UlOGXijL8UlGGXyrK6/zSacbr/JJaGX6pKMMvFWX4paIMv1SU4ZeKMvxSUUPDHxHnRcR/
+RsRLEfFiRNzWzL8zIg5FxP7mNfrD4yVN3dCbfCJiLbA2M5+JiM8BTwM3ADcCv8vMf1r2yrzJR5q4
+5d7kM3TEnsw8DBxupt+NiJeBc8crT1LfTuqYPyLWARuBXzaztkXEcxGxIyLOHLDM1ojYFxH7xqpU
+UqeWfW9/RHwWeAL4x8x8ICLWAG8BCfwDC4cGfzXkO9ztlyZsubv9ywp/RKwEfgL8NDO/s0T7OuAn
+mbl+yPcYfmnCOvthT0QE8H3g5cXBb04EnrAZeOFki5TUn+Wc7d8E/AJ4HjjezL4DuAnYwMJu/zzw
+jebkYNt32fNLE9bpbn9XDL80ef6eX1Irwy8VZfilogy/VJThl4oy/FJRhl8qyvBLRRl+qSjDLxVl
++KWiDL9UlOGXijL8UlFDH+DZsbeAXy96//lm3iya1dpmtS6wtlF1Wdv5y/3gVH/P/6mVR+zLzLne
+Cmgxq7XNal1gbaPqqzZ3+6WiDL9UVN/h397z+tvMam2zWhdY26h6qa3XY35J/em755fUk17CHxHX
+RMSvIuK1iLi9jxoGiYj5iHi+GXm41yHGmmHQjkbEC4vmrY6In0fEq83fJYdJ66m2mRi5uWVk6V63
+3ayNeD313f6IWAEcAK4GDgJPATdl5ktTLWSAiJgH5jKz92vCEfFnwO+AH54YDSki7gbezsy7mv84
+z8zMv52R2u7kJEdunlBtg0aWvoUet12XI153oY+e/zLgtcx8PTN/D/wYuL6HOmZeZu4F3v7E7OuB
+nc30Thb+8UzdgNpmQmYezsxnmul3gRMjS/e67Vrq6kUf4T8X+M2i9weZrSG/E/hZRDwdEVv7LmYJ
+axaNjPQGsKbPYpYwdOTmafrEyNIzs+1GGfG6a57w+7RNmfmnwF8A32x2b2dSLhyzzdLlmu8CX2Jh
+GLfDwLf7LKYZWfp+4FuZ+dvFbX1uuyXq6mW79RH+Q8B5i95/oZk3EzLzUPP3KLCHhcOUWXLkxCCp
+zd+jPdfzkcw8kpnHMvM48D163HbNyNL3Az/KzAea2b1vu6Xq6mu79RH+p4ALIuKLEfEZ4OvAQz3U
+8SkRsao5EUNErAK+xuyNPvwQsKWZ3gI82GMtHzMrIzcPGlmanrfdzI14nZlTfwHXsnDG/3+Bv+uj
+hgF1/THwP83rxb5rA+5jYTfw/1g4N3Ir8EfA48CrwH8Aq2eotntZGM35ORaCtran2jaxsEv/HLC/
+eV3b97ZrqauX7eYdflJRnvCTijL8UlGGXyrK8EtFGX6pKMMvFWX4paIMv1TU/wNRj+er2ohshAAA
+AABJRU5ErkJggg==
+"
+>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model prediction: 1
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+ZZUAAAAASUVORK5CYII=
+"
+>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Model prediction: 0
+</pre>
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Now use the <code>join</code> method to make one string with all the names from the list <code>Wheres_Waldo</code>, which prints each name on a separate line. (HINT: Remember a new line is represented by <code>'\n'</code>.)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Reverse the order of the names:</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Keypoints">Keypoints<a class="anchor-link" href="#Keypoints">&#182;</a></h1><ol>
-<li>A list stores many values in a single structure.</li>
-<li>Use an item’s index to fetch it from a list.</li>
-<li>Lists’ values can be replaced by assigning to them.</li>
-<li>Appending items to a list lengthens it.</li>
-<li>Use del to remove items from a list entirely.</li>
-<li>The empty list contains no values.</li>
-<li>Lists may contain values of different types.</li>
-<li>Character strings are immutable.</li>
-<li>Indexing beyond the end of the collection is an error.</li>
-</ol>
 
-</div>
-</div>
 </div>
     </div>
   </div>

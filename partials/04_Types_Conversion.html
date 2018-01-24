@@ -11768,6 +11768,18 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
+
+  <div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+	<div class="topcoat-navigation-bar__item left quarter">
+	  <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
+		<span class="topcoat-icon home-icon"></span>
+	  </a>
+	</div>
+	<div class="topcoat-navigation-bar__item center half">
+	  <h1 class="topcoat-navigation-bar__title">Type Conversions</h1>
+	</div>
+  </div>
+  
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11775,44 +11787,71 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Every-value-has-a-type.">Every value has a type.<a class="anchor-link" href="#Every-value-has-a-type.">&#182;</a></h1><h1 id="Every-value-in-a-program-has-a-specific-type.">Every value in a program has a specific type.<a class="anchor-link" href="#Every-value-in-a-program-has-a-specific-type.">&#182;</a></h1><h1 id="Integer-(int):-counting-numbers-like-3-or--512.">Integer (<code>int</code>): counting numbers like 3 or -512.<a class="anchor-link" href="#Integer-(int):-counting-numbers-like-3-or--512.">&#182;</a></h1><h1 id="Floating-point-number-(float):-fractional-numbers-like-3.14159-or--2.5.">Floating point number (<code>float</code>): fractional numbers like 3.14159 or -2.5.<a class="anchor-link" href="#Floating-point-number-(float):-fractional-numbers-like-3.14159-or--2.5.">&#182;</a></h1><h1 id="Integers-are-used-to-count,-floats-are-used-to-measure.">Integers are used to count, floats are used to measure.<a class="anchor-link" href="#Integers-are-used-to-count,-floats-are-used-to-measure.">&#182;</a></h1><h1 id="Character-string-(usually-just-called-&quot;string&quot;,-str):-text.">Character string (usually just called "string", <code>str</code>): text.<a class="anchor-link" href="#Character-string-(usually-just-called-&quot;string&quot;,-str):-text.">&#182;</a></h1><h1 id="Written-in-either-single-quotes-or-double-quotes-(as-long-as-they-match).">Written in either single quotes or double quotes (as long as they match).<a class="anchor-link" href="#Written-in-either-single-quotes-or-double-quotes-(as-long-as-they-match).">&#182;</a></h1><h1 id="The-quotation-marks-aren't-printed-when-the-string-is-displayed.">The quotation marks aren't printed when the string is displayed.<a class="anchor-link" href="#The-quotation-marks-aren't-printed-when-the-string-is-displayed.">&#182;</a></h1><h2 id="Use-the-built-in-function-type-to-find-the-type-of-a-value.">Use the built-in function <code>type</code> to find the type of a value.<a class="anchor-link" href="#Use-the-built-in-function-type-to-find-the-type-of-a-value.">&#182;</a></h2><h1 id="Use-the-built-in-function-type-to-find-out-what-type-a-value-has.">Use the built-in function <code>type</code> to find out what type a value has.<a class="anchor-link" href="#Use-the-built-in-function-type-to-find-out-what-type-a-value-has.">&#182;</a></h1><h1 id="Works-on-variables-as-well.">Works on variables as well.<a class="anchor-link" href="#Works-on-variables-as-well.">&#182;</a></h1><h1 id="But-remember:-the-value-has-the-type-----the-variable-is-just-a-label.">But remember: the <em>value</em> has the type --- the <em>variable</em> is just a label.<a class="anchor-link" href="#But-remember:-the-value-has-the-type-----the-variable-is-just-a-label.">&#182;</a></h1>
+<h1 id="Data-Types-and-Type-Conversion">Data Types and Type Conversion<a class="anchor-link" href="#Data-Types-and-Type-Conversion">&#182;</a></h1><p><strong>Time</strong></p>
+<ul>
+<li>Teaching: 5 min</li>
+<li>Challenges: 15 min</li>
+</ul>
+<p><strong>Questions</strong></p>
+<ul>
+<li>"What kinds of data do programs store?"</li>
+<li>"How can I convert one <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#type">type</a> to another?"</li>
+</ul>
+<p><strong>Learning Objectives</strong></p>
+<ul>
+<li>"Explain key differences between <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#integer">integers</a> and <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#floating-point-number">floating point numbers</a>."</li>
+<li>"Explain key differences between numbers and <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#string">character strings</a>."</li>
+<li>"Use built-in functions to convert between integers, floating point numbers, and strings."</li>
+</ul>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Every-value-has-a-type.">Every value has a type.<a class="anchor-link" href="#Every-value-has-a-type.">&#182;</a></h2><ul>
+<li>Every value in a program has a specific type.</li>
+<li>Integer (<code>int</code>): counting numbers like 3 or -512.</li>
+<li>Floating point number (<code>float</code>): fractional numbers like 3.14159 or -2.5.<ul>
+<li>Integers are used to count, floats are used to measure.</li>
+</ul>
+</li>
+<li>Character string (usually just called "string", <code>str</code>): text.<ul>
+<li>Written in either single quotes or double quotes (as long as they match).</li>
+<li>The quotation marks aren't printed when the string is displayed.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Use-the-built-in-function-type-to-find-the-type-of-a-value.">Use the built-in function <code>type</code> to find the type of a value.<a class="anchor-link" href="#Use-the-built-in-function-type-to-find-the-type-of-a-value.">&#182;</a></h2><ul>
+<li>Use the built-in function <code>type</code> to find out what type a value has.</li>
+<li>Works on variables as well.<ul>
+<li>But remember: the <em>value</em> has the type --- the <em>variable</em> is just a label.</li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">63</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="mi">52</span><span class="p">))</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;class &#39;int&#39;&gt;
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pi</span> <span class="o">=</span> <span class="mf">3.14159</span>
@@ -11823,53 +11862,17 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;class &#39;float&#39;&gt;
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="s1">&#39;aakash&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="s1">&#39;aakash&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">fitness</span> <span class="o">=</span> <span class="s1">&#39;average&#39;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">fitness</span><span class="p">))</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>&lt;class &#39;str&#39;&gt;
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11878,44 +11881,29 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Types-control-what-operations-can-be-done-on-values.">Types control what operations can be done on values.<a class="anchor-link" href="#Types-control-what-operations-can-be-done-on-values.">&#182;</a></h1><h1 id="A-value's-type-determines-what-the-program-can-do-to-it.">A value's type determines what the program can do to it.<a class="anchor-link" href="#A-value's-type-determines-what-the-program-can-do-to-it.">&#182;</a></h1>
+<h2 id="Types-control-what-operations-can-be-done-on-values.">Types control what operations can be done on values.<a class="anchor-link" href="#Types-control-what-operations-can-be-done-on-values.">&#182;</a></h2><ul>
+<li>A value's type determines what the program can do to it.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">9</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">5</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>6
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;hello&#39;</span> <span class="o">-</span> <span class="s1">&#39;h&#39;</span><span class="p">)</span>
@@ -11925,44 +11913,24 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-5-35e8597b28d6&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#39;hello&#39;</span> <span class="ansi-blue-fg">-</span> <span class="ansi-blue-fg">&#39;h&#39;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for -: &#39;str&#39; and &#39;str&#39;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Strings-can-be-added-and-multiplied.">Strings can be added and multiplied.<a class="anchor-link" href="#Strings-can-be-added-and-multiplied.">&#182;</a></h1><h1 id="&quot;Adding&quot;-character-strings-concatenates-them.">"Adding" character strings concatenates them.<a class="anchor-link" href="#&quot;Adding&quot;-character-strings-concatenates-them.">&#182;</a></h1>
+<h2 id="Strings-can-be-added-and-multiplied.">Strings can be added and multiplied.<a class="anchor-link" href="#Strings-can-be-added-and-multiplied.">&#182;</a></h2><ul>
+<li>"Adding" character strings concatenates them.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_name</span> <span class="o">=</span> <span class="s1">&#39;Aakash&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39;Ravi&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_name</span> <span class="o">=</span> <span class="s1">&#39;Ahmed&#39;</span> <span class="o">+</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="s1">&#39;Walsh&#39;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">full_name</span><span class="p">)</span>
 </pre></div>
 
@@ -11970,39 +11938,27 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Aakash Ravi
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*-&#160;-Multiplying-a-character-string-by-an-integer-replicates-it.">* &#160; Multiplying a character string by an <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#integer">integer</a> replicates it.<a class="anchor-link" href="#*-&#160;-Multiplying-a-character-string-by-an-integer-replicates-it.">&#182;</a></h1><h1 id="Since-multiplication-is-just-repeated-addition.">Since multiplication is just repeated addition.<a class="anchor-link" href="#Since-multiplication-is-just-repeated-addition.">&#182;</a></h1>
+<ul>
+<li>Multiplying a character string by an <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#integer">integer</a> replicates it.<ul>
+<li>Since multiplication is just repeated addition.</li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">separator</span> <span class="o">=</span> <span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">9</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">separator</span> <span class="o">=</span> <span class="s1">&#39;=&#39;</span> <span class="o">*</span> <span class="mi">10</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">separator</span><span class="p">)</span>
 </pre></div>
 
@@ -12010,36 +11966,21 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>=========
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Strings-have-a-length-(but-numbers-don't).">Strings have a length (but numbers don't).<a class="anchor-link" href="#Strings-have-a-length-(but-numbers-don't).">&#182;</a></h1><h1 id="The-built-in-function-len-counts-the-number-of-characters-in-a-string.">The built-in function <code>len</code> counts the number of characters in a string.<a class="anchor-link" href="#The-built-in-function-len-counts-the-number-of-characters-in-a-string.">&#182;</a></h1>
+<h2 id="Strings-have-a-length-(but-numbers-don't).">Strings have a length (but numbers don't).<a class="anchor-link" href="#Strings-have-a-length-(but-numbers-don't).">&#182;</a></h2><ul>
+<li>The built-in function <code>len</code> counts the number of characters in a string.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">full_name</span><span class="p">))</span>
@@ -12049,36 +11990,21 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>11
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*---But-numbers-don't-have-a-length-(not-even-zero).">*   But numbers don't have a length (not even zero).<a class="anchor-link" href="#*---But-numbers-don't-have-a-length-(not-even-zero).">&#182;</a></h1>
+<ul>
+<li>But numbers don't have a length (not even zero).</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="mi">52</span><span class="p">))</span>
@@ -12088,41 +12014,21 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-9-8e77a6522867&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>len<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">52</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">TypeError</span>: object of type &#39;int&#39; has no len()</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Must-coerce-numbers-to-strings-or-vice-versa-when-operating-on-them.">Must coerce numbers to strings or vice versa when operating on them.<a class="anchor-link" href="#Must-coerce-numbers-to-strings-or-vice-versa-when-operating-on-them.">&#182;</a></h1><h1 id="Cannot-add-numbers-and-strings.">Cannot add numbers and strings.<a class="anchor-link" href="#Cannot-add-numbers-and-strings.">&#182;</a></h1>
+<h2 id="Must-convert-numbers-to-strings-or-vice-versa-when-operating-on-them.">Must convert numbers to strings or vice versa when operating on them.<a class="anchor-link" href="#Must-convert-numbers-to-strings-or-vice-versa-when-operating-on-them.">&#182;</a></h2><ul>
+<li>Cannot add numbers and strings.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="s1">&#39;2&#39;</span><span class="p">)</span>
@@ -12132,41 +12038,22 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-10-013270d67d3d&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span> <span class="ansi-blue-fg">+</span> <span class="ansi-blue-fg">&#39;2&#39;</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">TypeError</span>: unsupported operand type(s) for +: &#39;int&#39; and &#39;str&#39;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*-&#160;-Not-allowed-because-it's-ambiguous:-should-1-+-'2'-be-3-or-'12'?">* &#160; Not allowed because it's ambiguous: should <code>1 + '2'</code> be <code>3</code> or <code>'12'</code>?<a class="anchor-link" href="#*-&#160;-Not-allowed-because-it's-ambiguous:-should-1-+-'2'-be-3-or-'12'?">&#182;</a></h1><h1 id="Use-the-name-of-a-type-as-a-function-to-convert-a-value-to-that-type.">Use the name of a type as a function to convert a value to that type.<a class="anchor-link" href="#Use-the-name-of-a-type-as-a-function-to-convert-a-value-to-that-type.">&#182;</a></h1><h1 id="This-conversion-is-also-called-coercing-a-value.">This conversion is also called <em>coercing</em> a value.<a class="anchor-link" href="#This-conversion-is-also-called-coercing-a-value.">&#182;</a></h1>
+<ul>
+<li>Not allowed because it's ambiguous: should <code>1 + '2'</code> be <code>3</code> or <code>'12'</code>?</li>
+<li>Use the name of a type as a function to convert a value to that type.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="s1">&#39;2&#39;</span><span class="p">))</span>
@@ -12177,45 +12064,52 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>3
-12
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Can-mix-integers-and-floats-freely-in-operations.">Can mix integers and floats freely in operations.<a class="anchor-link" href="#Can-mix-integers-and-floats-freely-in-operations.">&#182;</a></h1><h1 id="Integers-and-floating-point-numbers-can-be-mixed-in-arithmetic.">Integers and floating-point numbers can be mixed in arithmetic.<a class="anchor-link" href="#Integers-and-floating-point-numbers-can-be-mixed-in-arithmetic.">&#182;</a></h1><h1 id="Python-automatically-converts-integers-to-floats-as-needed.">Python automatically converts integers to floats as needed.<a class="anchor-link" href="#Python-automatically-converts-integers-to-floats-as-needed.">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Variables-only-change-value-when-something-is-assigned-to-them.">Variables only change value when something is assigned to them.<a class="anchor-link" href="#Variables-only-change-value-when-something-is-assigned-to-them.">&#182;</a></h1><h1 id="If-we-make-one-cell-in-a-spreadsheet-depend-on-another,">If we make one cell in a spreadsheet depend on another,<a class="anchor-link" href="#If-we-make-one-cell-in-a-spreadsheet-depend-on-another,">&#182;</a></h1><h1 id="and-update-the-latter,">and update the latter,<a class="anchor-link" href="#and-update-the-latter,">&#182;</a></h1><h1 id="the-former-updates-automatically.">the former updates automatically.<a class="anchor-link" href="#the-former-updates-automatically.">&#182;</a></h1><h1 id="This-does-not-happen-in-programming-languages.">This does <em>not</em> happen in programming languages.<a class="anchor-link" href="#This-does-not-happen-in-programming-languages.">&#182;</a></h1>
+<h2 id="Can-mix-integers-and-floats-freely-in-operations.">Can mix integers and floats freely in operations.<a class="anchor-link" href="#Can-mix-integers-and-floats-freely-in-operations.">&#182;</a></h2><ul>
+<li>Integers and floating-point numbers can be mixed in arithmetic.<ul>
+<li>Python automatically converts integers to floats as needed.</li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;half is&#39;</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;three squared is&#39;</span><span class="p">,</span> <span class="mf">3.0</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Variables-only-change-value-when-something-is-assigned-to-them.">Variables only change value when something is assigned to them.<a class="anchor-link" href="#Variables-only-change-value-when-something-is-assigned-to-them.">&#182;</a></h2><ul>
+<li>If we make one cell in a spreadsheet depend on another,
+and update the latter,
+the former updates automatically.</li>
+<li>This does <em>not</em> happen in programming languages.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">first</span> <span class="o">=</span> <span class="mi">1</span>
@@ -12228,21 +12122,66 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The computer reads the value of <code>first</code> when doing the multiplication,
+creates a new value, and assigns it to <code>second</code>.</li>
+<li>After that, <code>second</code> does not remember where it came from.</li>
+</ul>
 
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>first is 2 and second is 5
-</pre>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>The computer reads the value of <code>first</code> when doing the multiplication,
+creates a new value, and assigns it to <code>second</code>.</li>
+<li>After that, <code>second</code> does not remember where it came from.</li>
+</ul>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-1:-Making-and-Coercing-Variables">Challenge 1: Making and Coercing Variables<a class="anchor-link" href="#Challenge-1:-Making-and-Coercing-Variables">&#182;</a></h2><ol>
+<li>Make a variable <code>year</code> and <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#assign">assign</a> it as the year you were born</li>
+<li>Coerce that variable to a float, and assign it to a new variable <code>year_float</code></li>
+<li>Coerce <code>year_float</code> to a string, and assign it to a new variable <code>year_string</code></li>
+<li>Someone in your class says they were born in 1997. Really? Really. Find out what your age difference is, using only <code>year_string</code>.</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-2:-Division-Types">Challenge 2: Division Types<a class="anchor-link" href="#Challenge-2:-Division-Types">&#182;</a></h2><p>The <code>//</code> operator calculates the whole-number result of division, while the '%' operator calculates the remainder from division:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;5 // 3:&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="o">//</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;5 % 3:&#39;</span><span class="p">,</span> <span class="mi">5</span><span class="o">%</span><span class="k">3</span>)
+</pre></div>
+
+</div>
 </div>
 </div>
 
@@ -12251,7 +12190,112 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*-&#160;-The-computer-reads-the-value-of-first-when-doing-the-multiplication,">* &#160; The computer reads the value of <code>first</code> when doing the multiplication,<a class="anchor-link" href="#*-&#160;-The-computer-reads-the-value-of-first-when-doing-the-multiplication,">&#182;</a></h1><h1 id="creates-a-new-value,-and-assigns-it-to-second.">creates a new value, and assigns it to <code>second</code>.<a class="anchor-link" href="#creates-a-new-value,-and-assigns-it-to-second.">&#182;</a></h1><h1 id="After-that,-second-does-not-remember-where-it-came-from.">After that, <code>second</code> does not remember where it came from.<a class="anchor-link" href="#After-that,-second-does-not-remember-where-it-came-from.">&#182;</a></h1>
+<p>You have been tasked with organizing an event for undergraduate outreach for your department. Central to this task is the provision of pizza.</p>
+<p>You have ordered 8 pizzas, with 8 slices each, for a total of 64 slices. With the help of advanced formulas you have estimated that each of these hungry undergraduates will eat exactly 3 slices of pizza.</p>
+<p>Write an expression that calculates how many students you can satisfactorily feed with 64 slices of pizza, provided that each will eat 3 slices.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">slices</span> <span class="o">=</span> <span class="mi">64</span>
+<span class="n">slices_per_student</span> <span class="o">=</span> <span class="mi">3</span>
+
+<span class="c1"># YOUR CODE HERE</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-3:-Strings-to-Numbers">Challenge 3: Strings to Numbers<a class="anchor-link" href="#Challenge-3:-Strings-to-Numbers">&#182;</a></h2><p><code>float</code> will convert a string to a floating point number, and <code>int</code> will convert a floating point number to an integer:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;string to float:&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span><span class="s2">&quot;3.4&quot;</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;float to int:&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mf">3.4</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Given that, what do you expect this program to do? What does it actually do? Why do you think it does that?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;fractional string to int:&quot;</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="s2">&quot;3.4&quot;</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-4:-Arithmetic-with-Different-Types">Challenge 4: Arithmetic with Different Types<a class="anchor-link" href="#Challenge-4:-Arithmetic-with-Different-Types">&#182;</a></h2><p>Which of the following will print 2.0?</p>
+<p>Note: there may be more than one right answer.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">first</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">second</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span>
+<span class="n">third</span> <span class="o">=</span> <span class="s2">&quot;1.1&quot;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li><code>first + float(second)</code></li>
+<li><code>float(second) + float(third)</code></li>
+<li><code>first + int(third)</code></li>
+<li><code>first + int(float(third))</code></li>
+<li><code>int(first) + int(float(third))</code></li>
+<li><code>2.0 * second</code></li>
+</ol>
+
 </div>
 </div>
 </div>
@@ -12259,7 +12303,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*-&#160;-The-computer-reads-the-value-of-first-when-doing-the-multiplication,">* &#160; The computer reads the value of <code>first</code> when doing the multiplication,<a class="anchor-link" href="#*-&#160;-The-computer-reads-the-value-of-first-when-doing-the-multiplication,">&#182;</a></h1><h1 id="creates-a-new-value,-and-assigns-it-to-second.">creates a new value, and assigns it to <code>second</code>.<a class="anchor-link" href="#creates-a-new-value,-and-assigns-it-to-second.">&#182;</a></h1><h1 id="After-that,-second-does-not-remember-where-it-came-from.">After that, <code>second</code> does not remember where it came from.<a class="anchor-link" href="#After-that,-second-does-not-remember-where-it-came-from.">&#182;</a></h1>
+<p>Is <code>first == second</code> ?</p>
+
 </div>
 </div>
 </div>
@@ -12267,7 +12312,199 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*"><strong>*</strong><a class="anchor-link" href="#*">&#182;</a></h1><h1 id="Keypoints">Keypoints<a class="anchor-link" href="#Keypoints">&#182;</a></h1><h1 id="--&quot;Every-value-has-a-type.&quot;">- "Every value has a type."<a class="anchor-link" href="#--&quot;Every-value-has-a-type.&quot;">&#182;</a></h1><h1 id="--&quot;Use-the-built-in-function-type-to-find-the-type-of-a-value.&quot;">- "Use the built-in function <code>type</code> to find the type of a value."<a class="anchor-link" href="#--&quot;Use-the-built-in-function-type-to-find-the-type-of-a-value.&quot;">&#182;</a></h1><h1 id="--&quot;Types-control-what-operations-can-be-done-on-values.&quot;">- "Types control what operations can be done on values."<a class="anchor-link" href="#--&quot;Types-control-what-operations-can-be-done-on-values.&quot;">&#182;</a></h1><h1 id="--&quot;Strings-can-be-added-and-multiplied.&quot;">- "Strings can be added and multiplied."<a class="anchor-link" href="#--&quot;Strings-can-be-added-and-multiplied.&quot;">&#182;</a></h1><h1 id="--&quot;Strings-have-a-length-(but-numbers-don't).&quot;">- "Strings have a length (but numbers don't)."<a class="anchor-link" href="#--&quot;Strings-have-a-length-(but-numbers-don't).&quot;">&#182;</a></h1><h1 id="--&quot;Must-convert-numbers-to-strings-or-vice-versa-when-operating-on-them.&quot;">- "Must convert numbers to strings or vice versa when operating on them."<a class="anchor-link" href="#--&quot;Must-convert-numbers-to-strings-or-vice-versa-when-operating-on-them.&quot;">&#182;</a></h1><h1 id="--&quot;Can-mix-integers-and-floats-freely-in-operations.&quot;">- "Can mix integers and floats freely in operations."<a class="anchor-link" href="#--&quot;Can-mix-integers-and-floats-freely-in-operations.&quot;">&#182;</a></h1><h1 id="--&quot;Variables-only-change-value-when-something-is-assigned-to-them.&quot;">- "Variables only change value when something is assigned to them."<a class="anchor-link" href="#--&quot;Variables-only-change-value-when-something-is-assigned-to-them.&quot;">&#182;</a></h1>
+<p>Change the code below to yield <code>True</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">first</span> <span class="o">==</span> <span class="n">second</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-5:-More-Number-Types">Challenge 5: More Number Types<a class="anchor-link" href="#Challenge-5:-More-Number-Types">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Predict the output of the following:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">8</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="mi">8</span><span class="o">/</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">8</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="mi">8</span><span class="o">/</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mf">4.5</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="mi">8</span><span class="o">*</span><span class="mf">4.5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Change the following code to make the output <code>True</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">num1</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">num2</span> <span class="o">=</span> <span class="mf">35.0</span>
+
+<span class="nb">type</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span> <span class="o">==</span> <span class="nb">type</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-6:-String-Syntax">Challenge 6: String Syntax<a class="anchor-link" href="#Challenge-6:-String-Syntax">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Why does the following code produce an error?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&#39;)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>And this one?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;I am &quot;</span> <span class="o">+</span> <span class="mi">27</span> <span class="o">+</span> <span class="s2">&quot; years old.&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Fix the above cells.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Keypoints">Keypoints<a class="anchor-link" href="#Keypoints">&#182;</a></h1><ul>
+<li>"Every value has a type."</li>
+<li>"Use the built-in function <code>type</code> to find the type of a value."</li>
+<li>"Types control what operations can be done on values."</li>
+<li>"Strings can be added and multiplied."</li>
+<li>"Strings have a length (but numbers don't)."</li>
+<li>"Must convert numbers to strings or vice versa when operating on them."</li>
+<li>"Can mix integers and floats freely in operations."</li>
+<li>"Variables only change value when something is assigned to them."</li>
+</ul>
+
 </div>
 </div>
 </div>

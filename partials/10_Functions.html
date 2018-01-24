@@ -11768,6 +11768,19 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
+
+  <div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+	<div class="topcoat-navigation-bar__item left quarter">
+	  <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
+		<span class="topcoat-icon home-icon"></span>
+	  </a>
+	</div>
+	<div class="topcoat-navigation-bar__item center half">
+	  <h1 class="topcoat-navigation-bar__title">Functions</h1>
+	</div>
+  </div>
+  
+  
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11775,13 +11788,62 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Functions-are-the-basic-building-blocks-of-programs.">Functions are the basic building blocks of programs.<a class="anchor-link" href="#Functions-are-the-basic-building-blocks-of-programs.">&#182;</a></h1><h1 id="Functions-are-the-basic-building-blocks-that-we-use-to-store-chunks-of-code-we'll-want-to-use-again-later.">Functions are the basic building blocks that we use to store chunks of code we'll want to use again later.<a class="anchor-link" href="#Functions-are-the-basic-building-blocks-that-we-use-to-store-chunks-of-code-we'll-want-to-use-again-later.">&#182;</a></h1><h1 id="Specifically,-they-do-three-things:">Specifically, they do three things:<a class="anchor-link" href="#Specifically,-they-do-three-things:">&#182;</a></h1><h1 id="They-name-pieces-of-code-the-way-variables-name-strings-and-numbers.">They name pieces of code the way variables name strings and numbers.<a class="anchor-link" href="#They-name-pieces-of-code-the-way-variables-name-strings-and-numbers.">&#182;</a></h1><h1 id="They-take-arguments,-or-data-that-you-want-to-do-something-on.">They take arguments, or data that you want to do something on.<a class="anchor-link" href="#They-take-arguments,-or-data-that-you-want-to-do-something-on.">&#182;</a></h1><h1 id="Using-1-and-2-they-let-you-make-your-own-&quot;mini-scripts&quot;-or-&quot;tiny-commands.&quot;">Using 1 and 2 they let you make your own "mini-scripts" or "tiny commands."<a class="anchor-link" href="#Using-1-and-2-they-let-you-make-your-own-&quot;mini-scripts&quot;-or-&quot;tiny-commands.&quot;">&#182;</a></h1><h1 id="The-details-are-pretty-simple,-but-this-is-one-of-those-ideas-where-it's-good-to-get-lots-of-practice!">The details are pretty simple, but this is one of those ideas where it's good to get lots of practice!<a class="anchor-link" href="#The-details-are-pretty-simple,-but-this-is-one-of-those-ideas-where-it's-good-to-get-lots-of-practice!">&#182;</a></h1><h1 id="Define-a-function-using-def-with-a-name,-parameters,-and-a-block-of-code.">Define a function using <code>def</code> with a name, parameters, and a block of code.<a class="anchor-link" href="#Define-a-function-using-def-with-a-name,-parameters,-and-a-block-of-code.">&#182;</a></h1>
+<h1 id="Functions">Functions<a class="anchor-link" href="#Functions">&#182;</a></h1><p><strong>Time</strong></p>
+<ul>
+<li>Teaching: 10 min</li>
+<li>Exercises: 15 min</li>
+</ul>
+<p><strong>Questions</strong>:</p>
+<ul>
+<li>"How can I avoid rewriting code that I will use again?"</li>
+</ul>
+<p><strong>Learning Objectives</strong>:</p>
+<ul>
+<li>"Understand what a function is and why it's helpful."</li>
+<li>"Understand how to define a function and its arguments."</li>
+<li>"Understand what <code>return</code> does."</li>
+<li>"Write a basic function."</li>
+</ul>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Functions-are-the-basic-building-blocks-of-programs.">Functions are the basic building blocks of programs.<a class="anchor-link" href="#Functions-are-the-basic-building-blocks-of-programs.">&#182;</a></h2><ul>
+<li>Functions are the basic building blocks that we use to store chunks of code we'll want to use again later. </li>
+<li>Specifically, they do three things:<ol>
+<li>They name pieces of code the way variables name strings and numbers.</li>
+<li>They take arguments, or data that you want to do something on.</li>
+<li>Using 1 and 2 they let you make your own "mini-scripts" or "tiny commands."</li>
+</ol>
+</li>
+<li>The details are pretty simple, but this is one of those ideas where it's good to get lots of practice!</li>
+</ul>
+<h2 id="Define-a-function-using-def-with-a-name,-parameters,-and-a-block-of-code.">Define a function using <code>def</code> with a name, parameters, and a block of code.<a class="anchor-link" href="#Define-a-function-using-def-with-a-name,-parameters,-and-a-block-of-code.">&#182;</a></h2><ul>
+<li>Begin the definition of a new function with <code>def</code>.</li>
+<li>Followed by the name of the function.<ul>
+<li>Must obey the same rules as variable names.</li>
+</ul>
+</li>
+<li>The <em>parameters</em> are defined in parentheses.<ul>
+<li>Empty parentheses if the function doesn't take any inputs.</li>
+<li>We will discuss this in detail in a moment.</li>
+</ul>
+</li>
+<li>Then a colon.</li>
+<li>Then an indented block of code.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_greeting</span><span class="p">():</span>
@@ -11797,13 +11859,20 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Defining-a-function-does-not-run-it!!!">Defining a function does not run it!!!<a class="anchor-link" href="#Defining-a-function-does-not-run-it!!!">&#182;</a></h1><h1 id="Like-assigning-a-value-to-a-variable.">Like assigning a value to a variable.<a class="anchor-link" href="#Like-assigning-a-value-to-a-variable.">&#182;</a></h1><h1 id="Must-call-the-function-to-execute-the-code-it-contains.">Must call the function to execute the code it contains.<a class="anchor-link" href="#Must-call-the-function-to-execute-the-code-it-contains.">&#182;</a></h1>
+<h2 id="Defining-a-function-does-not-run-it!!!">Defining a function does not run it!!!<a class="anchor-link" href="#Defining-a-function-does-not-run-it!!!">&#182;</a></h2><ul>
+<li>Defining a function does not run it.<ul>
+<li>Like assigning a value to a variable.</li>
+</ul>
+</li>
+<li>Must call the function to execute the code it contains.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_greeting</span><span class="p">()</span>
@@ -11813,36 +11882,26 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello!
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Arguments-in-call-are-matched-to-parameters-in-definition.">Arguments in call are matched to parameters in definition.<a class="anchor-link" href="#Arguments-in-call-are-matched-to-parameters-in-definition.">&#182;</a></h1><h1 id="Functions-are-most-useful-when-they-can-operate-on-different-data.">Functions are most useful when they can operate on different data.<a class="anchor-link" href="#Functions-are-most-useful-when-they-can-operate-on-different-data.">&#182;</a></h1><h1 id="Specify-parameters-when-defining-a-function.">Specify <em>parameters</em> when defining a function.<a class="anchor-link" href="#Specify-parameters-when-defining-a-function.">&#182;</a></h1><h1 id="These-become-variables-when-the-function-is-executed.">These become variables when the function is executed.<a class="anchor-link" href="#These-become-variables-when-the-function-is-executed.">&#182;</a></h1><h1 id="Are-assigned-the-arguments-in-the-call-(i.e.,-the-values-passed-to-the-function).">Are assigned the arguments in the call (i.e., the values passed to the function).<a class="anchor-link" href="#Are-assigned-the-arguments-in-the-call-(i.e.,-the-values-passed-to-the-function).">&#182;</a></h1>
+<h2 id="Arguments-in-call-are-matched-to-parameters-in-definition.">Arguments in call are matched to parameters in definition.<a class="anchor-link" href="#Arguments-in-call-are-matched-to-parameters-in-definition.">&#182;</a></h2><ul>
+<li>Functions are most useful when they can operate on different data.</li>
+<li>Specify <em>parameters</em> when defining a function.<ul>
+<li>These become variables when the function is executed.</li>
+<li>Are assigned the arguments in the call (i.e., the values passed to the function).</li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_date</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">):</span>
@@ -11856,36 +11915,32 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1871/3/19
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="&#160;">&#160;<a class="anchor-link" href="#&#160;">&#182;</a></h1><h2 id="Functions-may-return-a-result-to-their-caller-using-return.">Functions may return a result to their caller using <code>return</code>.<a class="anchor-link" href="#Functions-may-return-a-result-to-their-caller-using-return.">&#182;</a></h2><h1 id="Use-return-...-to-give-one-(and-only-one)-value-back-to-the-caller.">Use <code>return ...</code> to give one (and only one) value back to the caller.<a class="anchor-link" href="#Use-return-...-to-give-one-(and-only-one)-value-back-to-the-caller.">&#182;</a></h1><h1 id="May-occur-anywhere-in-the-function.">May occur anywhere in the function.<a class="anchor-link" href="#May-occur-anywhere-in-the-function.">&#182;</a></h1><h1 id="But-functions-are-easier-to-understand-if-return-occurs:">But functions are easier to understand if <code>return</code> occurs:<a class="anchor-link" href="#But-functions-are-easier-to-understand-if-return-occurs:">&#182;</a></h1><h1 id="At-the-start-to-handle-special-cases.">At the start to handle special cases.<a class="anchor-link" href="#At-the-start-to-handle-special-cases.">&#182;</a></h1><h1 id="At-the-very-end,-with-a-final-result.">At the very end, with a final result.<a class="anchor-link" href="#At-the-very-end,-with-a-final-result.">&#182;</a></h1>
+<ul>
+<li>Via <a href="https://twitter.com/minisciencegirl/status/693486088963272705">Twitter</a>:
+<code>()</code> contains the ingredients for the function
+while the <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#body">body</a> contains the recipe.</li>
+</ul>
+<h2 id="Functions-may-return-a-result-to-their-caller-using-return.">Functions may return a result to their caller using <code>return</code>.<a class="anchor-link" href="#Functions-may-return-a-result-to-their-caller-using-return.">&#182;</a></h2><ul>
+<li>Use <code>return ...</code> to give one (and only one) value back to the caller.</li>
+<li>May occur anywhere in the function.</li>
+<li>But functions are easier to understand if <code>return</code> occurs:<ul>
+<li>At the start to handle special cases.</li>
+<li>At the very end, with a final result.</li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">average</span><span class="p">(</span><span class="n">values</span><span class="p">):</span>
@@ -11901,7 +11956,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="n">average</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
@@ -11912,28 +11967,10 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>average of actual values: 2.6666666666666665
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;average of empty list:&#39;</span><span class="p">,</span> <span class="n">average</span><span class="p">([]))</span>
@@ -11943,28 +11980,22 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>average of empty list: None
-</pre>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Remember: <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Day_1/06_Built-ins.ipynb">every function returns something</a>.</li>
+<li>A function that doesn't explicitly <code>return</code> a value automatically returns <code>None</code>.</li>
+</ul>
 
 </div>
 </div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">print_date</span><span class="p">(</span><span class="mi">1871</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>
@@ -11975,22 +12006,28 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-1:-Definition-and-Use">Challenge 1: Definition and Use<a class="anchor-link" href="#Challenge-1:-Definition-and-Use">&#182;</a></h2><p>What does the following program print? Why?</p>
 
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>1871/3/19
-result of call is: None
-</pre>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">pressure</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pressure is&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">value</span><span class="p">))</span>
+    
+<span class="nb">print</span><span class="p">(</span><span class="n">pressure</span><span class="p">,</span> <span class="mf">22.5</span><span class="p">)</span>
+</pre></div>
 
+</div>
 </div>
 </div>
 
@@ -11999,7 +12036,198 @@ result of call is: None
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*"><strong>*</strong><a class="anchor-link" href="#*">&#182;</a></h1><h2 id="Keypoints">Keypoints<a class="anchor-link" href="#Keypoints">&#182;</a></h2><h1 id="Functions-are-the-basic-building-blocks-of-programs.">Functions are the basic building blocks of programs.<a class="anchor-link" href="#Functions-are-the-basic-building-blocks-of-programs.">&#182;</a></h1><h1 id="Define-a-function-using-def-with-a-name,-parameters,-and-a-block-of-code.">Define a function using <code>def</code> with a name, parameters, and a block of code.<a class="anchor-link" href="#Define-a-function-using-def-with-a-name,-parameters,-and-a-block-of-code.">&#182;</a></h1><h1 id="Defining-a-function-does-not-run-it">Defining a function does not run it<a class="anchor-link" href="#Defining-a-function-does-not-run-it">&#182;</a></h1><h1 id="Arguments-in-call-are-matched-to-parameters-in-definition.">Arguments in call are matched to parameters in definition.<a class="anchor-link" href="#Arguments-in-call-are-matched-to-parameters-in-definition.">&#182;</a></h1><h1 id="Functions-may-return-a-result-to-their-caller-using-return.">Functions may return a result to their caller using return.<a class="anchor-link" href="#Functions-may-return-a-result-to-their-caller-using-return.">&#182;</a></h1>
+<p>What do you think the intent behind this program was, and how would you fix the code to match it?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-2:-Change-the-Names">Challenge 2: Change the Names<a class="anchor-link" href="#Challenge-2:-Change-the-Names">&#182;</a></h2><p>Fill in the blanks to create a function that takes a name like "Rochelle Terman" and returns that name in uppercase and reversed, like "TERMAN, ROCHELLE". Then call the function and print the name.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">long_function</span><span class="p">(</span><span class="n">name_string</span><span class="p">):</span>
+    <span class="n">upper_case</span> <span class="o">=</span> <span class="n">name_string</span><span class="o">.</span><span class="n">____</span> <span class="c1"># make upper</span>
+    <span class="n">upper_case_list</span> <span class="o">=</span> <span class="n">upper_case</span><span class="o">.</span><span class="n">_____</span> <span class="c1"># turn into a list</span>
+    <span class="n">first_name</span> <span class="o">=</span> <span class="n">______</span> <span class="c1"># take first name</span>
+    <span class="n">last_name</span> <span class="o">=</span> <span class="n">_______</span> <span class="c1"># take last name</span>
+    <span class="n">reversed_name</span> <span class="o">=</span> <span class="n">________</span> <span class="c1"># reverse and separate by a comma and space</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">reversed_name</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-3:-Order-of-Operations">Challenge 3: Order of Operations<a class="anchor-link" href="#Challenge-3:-Order-of-Operations">&#182;</a></h2><p>See what the following programs prints</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">print_date</span><span class="p">(</span><span class="mi">1871</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">19</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;result of call is:&#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Explain why the two lines of output appeared in the order they did.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-4:-Calling-by-Name">Challenge 4: Calling by Name<a class="anchor-link" href="#Challenge-4:-Calling-by-Name">&#182;</a></h2><p>What does this short program print?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_date</span><span class="p">(</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="p">):</span>
+    <span class="n">joined</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">year</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">month</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">day</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">joined</span><span class="p">)</span>
+
+<span class="n">print_date</span><span class="p">(</span><span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2003</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>When and why is it useful to call functions this way?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-5:-Find-the-substring">Challenge 5: Find the substring<a class="anchor-link" href="#Challenge-5:-Find-the-substring">&#182;</a></h2><p>In our project, we'll be dealing with texts like this (from Djibouti's 2013 review):</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rec_1</span> <span class="o">=</span> <span class="s2">&quot;143.1 Pursue efforts to ratify international human rights instruments (Kuwait);&quot;</span> 
+<span class="n">rec_2</span> <span class="o">=</span> <span class="s2">&quot;143.2 Ratify the international human rights instruments to which Djibouti is not yet party (Niger);&quot;</span> 
+<span class="n">rec_3</span> <span class="o">=</span> <span class="s2">&quot;143.3 Carry on with the ratification of international conventions (Democratic Republic of Congo);&quot;</span> 
+<span class="n">rec_4</span> <span class="o">=</span> <span class="s2">&quot;143.4 Speed up measures aimed at ratifying the Optional Protocol to CEDAW (Republic of Moldova);&quot;</span> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As you see, the recommending country is always at the end of the line in parentheses.</p>
+<p>Write a function that accepts a recommendation (a string) and returns the recommending country (also a string)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_country</span><span class="p">:</span>
+    <span class="c1"># your code here</span>
+
+<span class="c1"># uncomment to test your code</span>
+<span class="n">get_country</span><span class="p">(</span><span class="n">rec_1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Modify the function above to return a <a href="http://www.tutorialspoint.com/python/python_tuples.htm"><code>tuple</code></a> with element 0 being the country name, and element 1 being the recommendation as a string:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">get_country_rec</span><span class="p">:</span>
+    <span class="c1"># your code here</span>
+
+
+<span class="c1"># uncomment to test your code</span>
+<span class="n">get_country_rec</span><span class="p">(</span><span class="n">rec_1</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h2 id="Keypoints">Keypoints<a class="anchor-link" href="#Keypoints">&#182;</a></h2><ol>
+<li>Functions are the basic building blocks of programs.</li>
+<li>Define a function using <code>def</code> with a name, parameters, and a block of code.</li>
+<li>Defining a function does not run it</li>
+<li>Arguments in call are matched to parameters in definition.</li>
+<li>Functions may return a result to their caller using return.</li>
+</ol>
+
 </div>
 </div>
 </div>

@@ -11768,6 +11768,18 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
+  
+
+  <div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+	<div class="topcoat-navigation-bar__item left quarter">
+	  <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
+		<span class="topcoat-icon home-icon"></span>
+	  </a>
+	</div>
+	<div class="topcoat-navigation-bar__item center half">
+	  <h1 class="topcoat-navigation-bar__title">Built Ins</h1>
+	</div>
+  </div>
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11775,41 +11787,59 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="A-function-may-take-zero-or-more-arguments.">A function may take zero or more arguments.<a class="anchor-link" href="#A-function-may-take-zero-or-more-arguments.">&#182;</a></h1><h1 id="We-have-seen-some-functions-already-----now-let's-take-a-closer-look.">We have seen some functions already --- now let's take a closer look.<a class="anchor-link" href="#We-have-seen-some-functions-already-----now-let's-take-a-closer-look.">&#182;</a></h1><h1 id="An-argument-is-a-value-passed-into-a-function.">An <em>argument</em> is a value passed into a function.<a class="anchor-link" href="#An-argument-is-a-value-passed-into-a-function.">&#182;</a></h1><h1 id="len-takes-exactly-one."><code>len</code> takes exactly one.<a class="anchor-link" href="#len-takes-exactly-one.">&#182;</a></h1><h1 id="int,-str,-and-float-create-a-new-value-from-an-existing-one."><code>int</code>, <code>str</code>, and <code>float</code> create a new value from an existing one.<a class="anchor-link" href="#int,-str,-and-float-create-a-new-value-from-an-existing-one.">&#182;</a></h1><h1 id="print-takes-zero-or-more."><code>print</code> takes zero or more.<a class="anchor-link" href="#print-takes-zero-or-more.">&#182;</a></h1><h1 id="print-with-no-arguments-prints-a-blank-line."><code>print</code> with no arguments prints a blank line.<a class="anchor-link" href="#print-with-no-arguments-prints-a-blank-line.">&#182;</a></h1><h1 id="Must-always-use-parentheses,-even-if-they're-empty,">Must always use parentheses, even if they're empty,<a class="anchor-link" href="#Must-always-use-parentheses,-even-if-they're-empty,">&#182;</a></h1><h1 id="so-that-Python-knows-a-function-is-being-called.">so that Python knows a function is being called.<a class="anchor-link" href="#so-that-Python-knows-a-function-is-being-called.">&#182;</a></h1>
+<h1 id="Built-in-Functions-and-Help">Built-in Functions and Help<a class="anchor-link" href="#Built-in-Functions-and-Help">&#182;</a></h1><p><strong>Time</strong>:</p>
+<ul>
+<li>Teaching: 10 min</li>
+<li>Exercises: 20 min</li>
+</ul>
+<p><strong>Questions</strong></p>
+<ul>
+<li>"How can I use built-in functions?"</li>
+<li>"How can I find out what they do?"</li>
+</ul>
+<p><strong>Learning Objectives</strong></p>
+<ul>
+<li>"Explain the purpose of functions."</li>
+<li>"Correctly call built-in Python functions."</li>
+<li>"Correctly nest calls to built-in functions."</li>
+<li>"Use help to display <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#documentation">documentation</a> for built-in functions."</li>
+</ul>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-function-may-take-zero-or-more-arguments.">A function may take zero or more arguments.<a class="anchor-link" href="#A-function-may-take-zero-or-more-arguments.">&#182;</a></h2><ul>
+<li>We have seen some functions already --- now let's take a closer look.</li>
+<li>An <em>argument</em> is a value passed into a function.</li>
+<li><code>len</code> takes exactly one.</li>
+<li><code>int</code>, <code>str</code>, and <code>float</code> create a new value from an existing one.</li>
+<li><code>print</code> takes zero or more.</li>
+<li><code>print</code> with no arguments prints a blank line.<ul>
+<li>Must always use parentheses, even if they're empty,
+so that Python knows a function is being called.</li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;now&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;before&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;later&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;after&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>now
-
-later
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11818,39 +11848,28 @@ later
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Commonly-used-built-in-functions-include-max,-min,-and-round.">Commonly-used built-in functions include <code>max</code>, <code>min</code>, and <code>round</code>.<a class="anchor-link" href="#Commonly-used-built-in-functions-include-max,-min,-and-round.">&#182;</a></h1><h1 id="Use-max-to-find-the-largest-value-of-one-or-more-values.">Use <code>max</code> to find the largest value of one or more values.<a class="anchor-link" href="#Use-max-to-find-the-largest-value-of-one-or-more-values.">&#182;</a></h1><h1 id="Use-min-to-find-the-smallest.">Use <code>min</code> to find the smallest.<a class="anchor-link" href="#Use-min-to-find-the-smallest.">&#182;</a></h1><h1 id="Both-work-on-character-strings-as-well-as-numbers.">Both work on character strings as well as numbers.<a class="anchor-link" href="#Both-work-on-character-strings-as-well-as-numbers.">&#182;</a></h1><h1 id="&quot;Larger&quot;-and-&quot;smaller&quot;-use-(0-9,-A-Z,-a-z)-to-compare-letters.">"Larger" and "smaller" use (0-9, A-Z, a-z) to compare letters.<a class="anchor-link" href="#&quot;Larger&quot;-and-&quot;smaller&quot;-use-(0-9,-A-Z,-a-z)-to-compare-letters.">&#182;</a></h1>
+<h2 id="Commonly-used-built-in-functions-include-max,-min,-and-round.">Commonly-used built-in functions include <code>max</code>, <code>min</code>, and <code>round</code>.<a class="anchor-link" href="#Commonly-used-built-in-functions-include-max,-min,-and-round.">&#182;</a></h2><ul>
+<li>Use <code>max</code> to find the largest value of one or more values.</li>
+<li>Use <code>min</code> to find the smallest.</li>
+<li>Both work on character strings as well as numbers.<ul>
+<li>"Larger" and "smaller" use (0-9, A-Z, a-z) to compare letters.</li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">36</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="s1">&#39;0&#39;</span><span class="p">))</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>36
-A
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11859,13 +11878,20 @@ A
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Functions-may-only-work-for-certain-(combinations-of)-arguments.">Functions may only work for certain (combinations of) arguments.<a class="anchor-link" href="#Functions-may-only-work-for-certain-(combinations-of)-arguments.">&#182;</a></h1><h1 id="max-and-min-must-be-given-at-least-one-argument."><code>max</code> and <code>min</code> must be given at least one argument.<a class="anchor-link" href="#max-and-min-must-be-given-at-least-one-argument.">&#182;</a></h1><h1 id="&quot;Largest-of-the-empty-set&quot;-is-a-meaningless-question.">"Largest of the empty set" is a meaningless question.<a class="anchor-link" href="#&quot;Largest-of-the-empty-set&quot;-is-a-meaningless-question.">&#182;</a></h1><h1 id="And-they-must-be-given-things-that-can-meaningfully-be-compared.">And they must be given things that can meaningfully be compared.<a class="anchor-link" href="#And-they-must-be-given-things-that-can-meaningfully-be-compared.">&#182;</a></h1>
+<h2 id="Functions-may-only-work-for-certain-(combinations-of)-arguments.">Functions may only work for certain (combinations of) arguments.<a class="anchor-link" href="#Functions-may-only-work-for-certain-(combinations-of)-arguments.">&#182;</a></h2><ul>
+<li><code>max</code> and <code>min</code> must be given at least one argument.<ul>
+<li>"Largest of the empty set" is a meaningless question.</li>
+</ul>
+</li>
+<li>And they must be given things that can meaningfully be compared.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">))</span>
@@ -11875,123 +11901,70 @@ A
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">TypeError</span>                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-3-3f049acf3762&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>max<span class="ansi-blue-fg">(</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">&#39;a&#39;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">TypeError</span>: &#39;&gt;&#39; not supported between instances of &#39;str&#39; and &#39;int&#39;</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Functions-may-have-default-values-for-some-arguments.">Functions may have default values for some arguments.<a class="anchor-link" href="#Functions-may-have-default-values-for-some-arguments.">&#182;</a></h1><h1 id="round-will-round-off-a-floating-point-number."><code>round</code> will round off a floating-point number.<a class="anchor-link" href="#round-will-round-off-a-floating-point-number.">&#182;</a></h1><h1 id="By-default,-rounds-to-zero-decimal-places.">By default, rounds to zero decimal places.<a class="anchor-link" href="#By-default,-rounds-to-zero-decimal-places.">&#182;</a></h1>
+<h2 id="Functions-may-have-default-values-for-some-arguments.">Functions may have default values for some arguments.<a class="anchor-link" href="#Functions-may-have-default-values-for-some-arguments.">&#182;</a></h2><ul>
+<li><code>round</code> will round off a floating-point number.</li>
+<li>By default, rounds to zero decimal places.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.71234567</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.712</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[4]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>4</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*---We-can-specify-the-number-of-decimal-places-we-want.">*   We can specify the number of decimal places we want.<a class="anchor-link" href="#*---We-can-specify-the-number-of-decimal-places-we-want.">&#182;</a></h1>
+<ul>
+<li>We can specify the number of decimal places we want.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.71234567</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">round</span><span class="p">(</span><span class="mf">3.712</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[5]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3.7120000000000002</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Use-the-built-in-function-help-to-get-help-for-a-function.">Use the built-in function <code>help</code> to get help for a function.<a class="anchor-link" href="#Use-the-built-in-function-help-to-get-help-for-a-function.">&#182;</a></h1><h1 id="Every-built-in-function-has-online-documentation.">Every built-in function has online documentation.<a class="anchor-link" href="#Every-built-in-function-has-online-documentation.">&#182;</a></h1>
+<h2 id="Use-the-built-in-function-help-to-get-help-for-a-function.">Use the built-in function <code>help</code> to get help for a function.<a class="anchor-link" href="#Use-the-built-in-function-help-to-get-help-for-a-function.">&#182;</a></h2><ul>
+<li>Every built-in function has online documentation.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="nb">round</span><span class="p">)</span>
@@ -12001,47 +11974,32 @@ A
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Help on built-in function round in module builtins:
-
-round(...)
-    round(number[, ndigits]) -&gt; number
-    
-    Round a number to a given precision in decimal digits (default 0 digits).
-    This returns an int when called with one argument, otherwise the
-    same type as the number. ndigits may be negative.
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-Jupyter-Notebook-has-two-ways-to-get-help.">The Jupyter Notebook has two ways to get help.<a class="anchor-link" href="#The-Jupyter-Notebook-has-two-ways-to-get-help.">&#182;</a></h1><h1 id="Place-the-cursor-inside-the-parenthesis-of-the-function,">Place the cursor inside the parenthesis of the function,<a class="anchor-link" href="#Place-the-cursor-inside-the-parenthesis-of-the-function,">&#182;</a></h1><h1 id="hold-down-shift,">hold down <code>shift</code>,<a class="anchor-link" href="#hold-down-shift,">&#182;</a></h1><h1 id="and-press-tab.">and press <code>tab</code>.<a class="anchor-link" href="#and-press-tab.">&#182;</a></h1><h1 id="Or-type-a-function-name-with-a-question-mark-after-it.">Or type a function name with a question mark after it.<a class="anchor-link" href="#Or-type-a-function-name-with-a-question-mark-after-it.">&#182;</a></h1><h2 id="Every-function-returns-something.">Every function returns something.<a class="anchor-link" href="#Every-function-returns-something.">&#182;</a></h2><h1 id="Every-function-call-produces-some-result.">Every <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#function-call">function call</a> produces some result.<a class="anchor-link" href="#Every-function-call-produces-some-result.">&#182;</a></h1><h1 id="If-the-function-doesn't-have-a-useful-result-to-return,it-usually-returns-the-special-value-None.">If the function doesn't have a useful result to return,it usually returns the special value <code>None</code>.<a class="anchor-link" href="#If-the-function-doesn't-have-a-useful-result-to-return,it-usually-returns-the-special-value-None.">&#182;</a></h1>
+<h2 id="The-Jupyter-Notebook-has-two-ways-to-get-help.">The Jupyter Notebook has two ways to get help.<a class="anchor-link" href="#The-Jupyter-Notebook-has-two-ways-to-get-help.">&#182;</a></h2><ul>
+<li>Place the cursor inside the parenthesis of the function,
+hold down <code>shift</code>,
+and press <code>tab</code>.</li>
+<li>Or type a function name with a question mark after it.</li>
+</ul>
+<h2 id="Every-function-returns-something.">Every function returns something.<a class="anchor-link" href="#Every-function-returns-something.">&#182;</a></h2><ul>
+<li>Every <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#function-call">function call</a> produces some result.</li>
+<li>If the function doesn't have a useful result to return,
+it usually returns the special value <code>None</code>.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;aakash&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;example&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;result of print is&#39;</span><span class="p">,</span> <span class="n">result</span><span class="p">)</span>
 </pre></div>
 
@@ -12049,22 +12007,48 @@ round(...)
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Difference-between-Function,-Method,-Object">Difference between Function, Method, Object<a class="anchor-link" href="#Difference-between-Function,-Method,-Object">&#182;</a></h2><p>A <strong>function</strong> is a piece of code that is called by name. It can be passed data to operate on (ie. the parameters) and can optionally return data (the return value).</p>
+<p>A <strong>method</strong> is a function which is tied to a particular object. Each of an object's methods typically implements one of the things it can do, or one of the questions it can answer. It is called using the dot notation: e.g. <code>object.method()</code></p>
+<p>An <strong>object</strong> is a collection of conceptually related grouping of variables (called "members") and functions using those variables (called "methods"). Every <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#object">object</a> is an instance of a <code>class</code>, which is like a blueprint for an object.</p>
+<ul>
+<li>Everything that exists is an object.</li>
+<li>Everything that happens is a function call.</li>
+</ul>
+<p>Read more about objects, classes and methods <a href="https://www.jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming">here</a></p>
+<p>Check out our Python glossary <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md">here</a>.</p>
 
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>aakash
-result of print is None
-</pre>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-1:-What-Happens-When">Challenge 1: What Happens When<a class="anchor-link" href="#Challenge-1:-What-Happens-When">&#182;</a></h2><ol>
+<li>Explain in simple terms the order of operations in the following program:
+ when does the addition happen, when does the subtraction happen,
+ when is each function called, etc.</li>
+<li>What is the final value of <code>radiance</code>?</li>
+</ol>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">radiance</span> <span class="o">=</span> <span class="mf">1.0</span>
+<span class="n">radiance</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mf">2.1</span><span class="p">,</span> <span class="mf">2.0</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">radiance</span><span class="p">,</span> <span class="mf">1.1</span> <span class="o">*</span> <span class="n">radiance</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">))</span>
+</pre></div>
+
+</div>
 </div>
 </div>
 
@@ -12073,7 +12057,175 @@ result of print is None
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*"><strong>*</strong><a class="anchor-link" href="#*">&#182;</a></h1><h1 id="Keypoints:">Keypoints:<a class="anchor-link" href="#Keypoints:">&#182;</a></h1><h1 id="--&quot;A-function-may-take-zero-or-more-arguments.&quot;">- "A function may take zero or more arguments."<a class="anchor-link" href="#--&quot;A-function-may-take-zero-or-more-arguments.&quot;">&#182;</a></h1><h1 id="--&quot;Commonly-used-built-in-functions-include-max,-min,-and-round.&quot;">- "Commonly-used built-in functions include <code>max</code>, <code>min</code>, and <code>round</code>."<a class="anchor-link" href="#--&quot;Commonly-used-built-in-functions-include-max,-min,-and-round.&quot;">&#182;</a></h1><h1 id="--&quot;Functions-may-only-work-for-certain-(combinations-of)-arguments.&quot;">- "Functions may only work for certain (combinations of) arguments."<a class="anchor-link" href="#--&quot;Functions-may-only-work-for-certain-(combinations-of)-arguments.&quot;">&#182;</a></h1><h1 id="--&quot;Functions-may-have-default-values-for-some-arguments.&quot;">- "Functions may have default values for some arguments."<a class="anchor-link" href="#--&quot;Functions-may-have-default-values-for-some-arguments.&quot;">&#182;</a></h1><h1 id="--&quot;Use-the-built-in-function-help-to-get-help-for-a-function.&quot;">- "Use the built-in function <code>help</code> to get help for a function."<a class="anchor-link" href="#--&quot;Use-the-built-in-function-help-to-get-help-for-a-function.&quot;">&#182;</a></h1><h1 id="--&quot;The-Jupyter-Notebook-has-two-ways-to-get-help.&quot;">- "The Jupyter Notebook has two ways to get help."<a class="anchor-link" href="#--&quot;The-Jupyter-Notebook-has-two-ways-to-get-help.&quot;">&#182;</a></h1><h1 id="--&quot;Every-function-returns-something.&quot;">- "Every function returns something."<a class="anchor-link" href="#--&quot;Every-function-returns-something.&quot;">&#182;</a></h1>
+<h2 id="Challenge-2:-Spot-the-Difference">Challenge 2: Spot the Difference<a class="anchor-link" href="#Challenge-2:-Spot-the-Difference">&#182;</a></h2><ol>
+<li>Predict what each of the <code>print</code> statements in the program below will print.</li>
+<li>Does <code>max(len(rich), poor)</code> run or produce an error message?
+If it runs, does its result make any sense?</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">rich</span> <span class="o">=</span> <span class="s2">&quot;gold&quot;</span>
+<span class="n">poor</span> <span class="o">=</span> <span class="s2">&quot;tin&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">rich</span><span class="p">,</span> <span class="n">poor</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">rich</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">poor</span><span class="p">)))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-3:-Why-Not?">Challenge 3: Why Not?<a class="anchor-link" href="#Challenge-3:-Why-Not?">&#182;</a></h2><p>Why don't <code>max</code> and <code>min</code> return <code>None</code> when they are given no arguments?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-4:-Counting-Text">Challenge 4: Counting Text<a class="anchor-link" href="#Challenge-4:-Counting-Text">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below is a string of Robert Frost's "The Road Not Taken":</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">poem</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Two roads diverged in a yellow wood,</span>
+<span class="s1">And sorry I could not travel both</span>
+<span class="s1">And be one traveler, long I stood</span>
+<span class="s1">And looked down one as far as I could</span>
+<span class="s1">To where it bent in the undergrowth;</span>
+
+<span class="s1">Then took the other, as just as fair,</span>
+<span class="s1">And having perhaps the better claim,</span>
+<span class="s1">Because it was grassy and wanted wear;</span>
+<span class="s1">Though as for that the passing there</span>
+<span class="s1">Had worn them really about the same,</span>
+
+<span class="s1">And both that morning equally lay</span>
+<span class="s1">In leaves no step had trodden black.</span>
+<span class="s1">Oh, I kept the first for another day!</span>
+<span class="s1">Yet knowing how way leads on to way,</span>
+<span class="s1">I doubted if I should ever come back.</span>
+
+<span class="s1">I shall be telling this with a sigh</span>
+<span class="s1">Somewhere ages and ages hence:</span>
+<span class="s1">Two roads diverged in a wood, and I—</span>
+<span class="s1">I took the one less traveled by,</span>
+<span class="s1">And that has made all the difference.&#39;&#39;&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using the <code>len</code> function and the string methods, answer the following questions:</p>
+<p>How many characters (letters) are in the poem?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">no_white</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How many words?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How many lines? (HINT: A line break is represented as  <code>\n</code>  )</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How many stanzas?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How many unique words? (HINT: look up what <code>set</code> does)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Remove commas and check the number of unique words again. Why is it different?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h1 id="Keypoints:">Keypoints:<a class="anchor-link" href="#Keypoints:">&#182;</a></h1><ul>
+<li>"A function may take zero or more arguments."</li>
+<li>"Commonly-used built-in functions include <code>max</code>, <code>min</code>, and <code>round</code>."</li>
+<li>"Functions may only work for certain (combinations of) arguments."</li>
+<li>"Functions may have default values for some arguments."</li>
+<li>"Use the built-in function <code>help</code> to get help for a function."</li>
+<li>"The Jupyter Notebook has two ways to get help."</li>
+<li>"Every function returns something."</li>
+</ul>
+
 </div>
 </div>
 </div>

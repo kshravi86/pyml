@@ -11768,6 +11768,20 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
+
+  <div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+	<div class="topcoat-navigation-bar__item left quarter">
+	  <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
+		<span class="topcoat-icon home-icon"></span>
+	  </a>
+	</div>
+	<div class="topcoat-navigation-bar__item center half">
+	  <h1 class="topcoat-navigation-bar__title">Libraries</h1>
+	</div>
+  </div>
+  
+  
+  
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11775,92 +11789,86 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Python-Libraries">Python Libraries<a class="anchor-link" href="#Python-Libraries">&#182;</a></h1>
+<h1 id="Libraries">Libraries<a class="anchor-link" href="#Libraries">&#182;</a></h1><p><strong>Time</strong></p>
+<ul>
+<li>Teaching: 5 min</li>
+<li>Exercises: 5 min</li>
+</ul>
+<p><strong>Questions</strong>:</p>
+<ul>
+<li>"How can I use software that other people have written?"</li>
+<li>"How can I find out what that software does?"</li>
+</ul>
+<p><strong>Learning Objectives</strong>:</p>
+<ul>
+<li>"Explain what software libraries are and why programmers create and use them."</li>
+<li>"Write programs that <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#import">import</a> and use libraries from Python's standard library."</li>
+<li>"Find and read <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#documentation">documentation</a> for standard libraries interactively (in the interpreter) and online."</li>
+</ul>
+<hr>
+<h2 id="Most-of-the-power-of-a-programming-language-is-in-its-libraries.">Most of the power of a programming language is in its libraries.<a class="anchor-link" href="#Most-of-the-power-of-a-programming-language-is-in-its-libraries.">&#182;</a></h2><ul>
+<li>A <em>library</em> is a collection of functions that can be used by other programs.<ul>
+<li>May also contain data values (e.g., numerical constants).</li>
+<li>Library's contents are supposed to be related, but there's no way to enforce that.</li>
+</ul>
+</li>
+<li>Python's <a href="https://docs.python.org/3/library/">standard library</a> is installed with it.</li>
+<li>Many additional libraries are available from <a href="https://pypi.python.org/pypi">PyPI</a> (the Python Package Index).</li>
+<li>We will see later how to write new libraries.</li>
+</ul>
+<h2 id="A-program-must-import-a-library-in-order-to-use-it.">A program must import a library in order to use it.<a class="anchor-link" href="#A-program-must-import-a-library-in-order-to-use-it.">&#182;</a></h2><ul>
+<li>Use <code>import</code> to load a library into a program's memory.</li>
+<li>Then refer to things from the library as <code>library_name.thing_name</code>.<ul>
+<li>Python uses <code>.</code> to mean "part of".</li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;pi is&#39;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;cos(pi) is&#39;</span><span class="p">,</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sqrt of 144 is&#39;</span><span class="p">,</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">144</span><span class="p">))</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>pi is 3.1415926535897931
-cos(pi) is -1.0
-sqrt of 144 is 12.0
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*---Have-to-refer-to-each-item-with-the-library's-name.">*   Have to refer to each item with the library's name.<a class="anchor-link" href="#*---Have-to-refer-to-each-item-with-the-library's-name.">&#182;</a></h1><h1 id="math.cos(pi)-won't-work:-the-reference-to-pi-doesn't-somewhow-&quot;inherit&quot;-the-function's-reference-to-math."><code>math.cos(pi)</code> won't work: the reference to <code>pi</code> doesn't somewhow "inherit" the function's reference to <code>math</code>.<a class="anchor-link" href="#math.cos(pi)-won't-work:-the-reference-to-pi-doesn't-somewhow-&quot;inherit&quot;-the-function's-reference-to-math.">&#182;</a></h1><h2 id="Use-help-to-find-out-more-about-a-library's-contents.">Use <code>help</code> to find out more about a library's contents.<a class="anchor-link" href="#Use-help-to-find-out-more-about-a-library's-contents.">&#182;</a></h2><h1 id="Works-just-like-help-for-a-function.">Works just like help for a function.<a class="anchor-link" href="#Works-just-like-help-for-a-function.">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Import-specific-items-from-a-library-to-shorten-programs.">Import specific items from a library to shorten programs.<a class="anchor-link" href="#Import-specific-items-from-a-library-to-shorten-programs.">&#182;</a></h1><h1 id="Use-from...import...-to-load-only-specific-items-from-a-library.">Use <code>from...import...</code> to load only specific items from a library.<a class="anchor-link" href="#Use-from...import...-to-load-only-specific-items-from-a-library.">&#182;</a></h1><h1 id="Then-refer-to-them-directly-without-the-library-name-as-prefix.">Then refer to them directly without the library name as prefix.<a class="anchor-link" href="#Then-refer-to-them-directly-without-the-library-name-as-prefix.">&#182;</a></h1>
+<ul>
+<li>Have to refer to each item with the library's name.<ul>
+<li><code>math.cos(pi)</code> won't work: the reference to <code>pi</code> doesn't somewhow "inherit" the function's reference to <code>math</code>.</li>
+</ul>
+</li>
+</ul>
+<h2 id="Use-help-to-find-out-more-about-a-library's-contents.">Use <code>help</code> to find out more about a library's contents.<a class="anchor-link" href="#Use-help-to-find-out-more-about-a-library's-contents.">&#182;</a></h2><ul>
+<li>Works just like help for a function.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="nb">pow</span><span class="p">,</span><span class="n">tan</span><span class="p">,</span><span class="n">pi</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;tan(pi) is&#39;</span><span class="p">,</span> <span class="n">tan</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">math</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>tan(pi) is -1.2246467991473532e-16
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11869,39 +11877,52 @@ sqrt of 144 is 12.0
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Create-an-alias-for-a-library-when-importing-it-to-shorten-programs.">Create an alias for a library when importing it to shorten programs.<a class="anchor-link" href="#Create-an-alias-for-a-library-when-importing-it-to-shorten-programs.">&#182;</a></h1><h1 id="Use-import...as...-to-give-a-library-a-short-alias-while-importing-it.">Use <code>import...as...</code> to give a library a short <em>alias</em> while importing it.<a class="anchor-link" href="#Use-import...as...-to-give-a-library-a-short-alias-while-importing-it.">&#182;</a></h1><h1 id="Then-refer-to-items-in-the-library-using-that-shortened-name.">Then refer to items in the library using that shortened name.<a class="anchor-link" href="#Then-refer-to-items-in-the-library-using-that-shortened-name.">&#182;</a></h1>
+<h2 id="Import-specific-items-from-a-library-to-shorten-programs.">Import specific items from a library to shorten programs.<a class="anchor-link" href="#Import-specific-items-from-a-library-to-shorten-programs.">&#182;</a></h2><ul>
+<li>Use <code>from...import...</code> to load only specific items from a library.</li>
+<li>Then refer to them directly without the library name as prefix.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="n">cos</span><span class="p">,</span> <span class="n">pi</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;cos(pi) is&#39;</span><span class="p">,</span> <span class="n">cos</span><span class="p">(</span><span class="n">pi</span><span class="p">))</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Create-an-alias-for-a-library-when-importing-it-to-shorten-programs.">Create an alias for a library when importing it to shorten programs.<a class="anchor-link" href="#Create-an-alias-for-a-library-when-importing-it-to-shorten-programs.">&#182;</a></h2><ul>
+<li>Use <code>import...as...</code> to give a library a short <em>alias</em> while importing it.</li>
+<li>Then refer to items in the library using that shortened name.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;sin(pi) is&#39;</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;cos(pi) is&#39;</span><span class="p">,</span> <span class="n">m</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">pi</span><span class="p">))</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>sin(pi) is 1.2246467991473532e-16
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11910,7 +11931,15 @@ sqrt of 144 is 12.0
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*---Commonly-used-for-libraries-that-are-frequently-used-or-have-long-names.">*   Commonly used for libraries that are frequently used or have long names.<a class="anchor-link" href="#*---Commonly-used-for-libraries-that-are-frequently-used-or-have-long-names.">&#182;</a></h1><h1 id="E.g.,-matplotlib-plotting-library-is-often-aliased-as-mpl.">E.g., <code>matplotlib</code> plotting library is often aliased as <code>mpl</code>.<a class="anchor-link" href="#E.g.,-matplotlib-plotting-library-is-often-aliased-as-mpl.">&#182;</a></h1><h1 id="But-can-make-programs-harder-to-understand,">But can make programs harder to understand,<a class="anchor-link" href="#But-can-make-programs-harder-to-understand,">&#182;</a></h1><h1 id="since-readers-must-learn-your-program's-aliases.">since readers must learn your program's aliases.<a class="anchor-link" href="#since-readers-must-learn-your-program's-aliases.">&#182;</a></h1>
+<ul>
+<li>Commonly used for libraries that are frequently used or have long names.<ul>
+<li>E.g., <code>matplotlib</code> plotting library is often aliased as <code>mpl</code>.</li>
+</ul>
+</li>
+<li>But can make programs harder to understand,
+since readers must learn your program's aliases.</li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -11926,13 +11955,19 @@ sqrt of 144 is 12.0
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="While-the-Anaconda-distribution-comes-with-many-additional-libraries-beyond-the-standard,-it-may-happen-that-you-find-a-library-online-that-isn't-yet-installed-on-your-computer.-Most-of-the-time,-this-library-will-be-available-in-PyPI-(the-Python-Package-Index).">While the Anaconda distribution comes with many additional libraries beyond the standard, it may happen that you find a library online that isn't yet installed on your computer. Most of the time, this library will be available in <a href="https://pypi.python.org/pypi">PyPI</a> (the Python Package Index).<a class="anchor-link" href="#While-the-Anaconda-distribution-comes-with-many-additional-libraries-beyond-the-standard,-it-may-happen-that-you-find-a-library-online-that-isn't-yet-installed-on-your-computer.-Most-of-the-time,-this-library-will-be-available-in-PyPI-(the-Python-Package-Index).">&#182;</a></h1><h1 id="To-install-from-PyPI,-simply-open-a-terminal/shell-window-and-type:">To install from PyPI, simply open a terminal/shell window and type:<a class="anchor-link" href="#To-install-from-PyPI,-simply-open-a-terminal/shell-window-and-type:">&#182;</a></h1><h1 id="pip-install-&quot;name-of-package&quot;"><code>pip install "name of package"</code><a class="anchor-link" href="#pip-install-&quot;name-of-package&quot;">&#182;</a></h1><h1 id="Let's-install-a-popular-fuzzy-matching-library-by-typing:">Let's install a popular fuzzy matching library by typing:<a class="anchor-link" href="#Let's-install-a-popular-fuzzy-matching-library-by-typing:">&#182;</a></h1><h1 id="pip-install-fuzzywuzzy"><code>pip install fuzzywuzzy</code><a class="anchor-link" href="#pip-install-fuzzywuzzy">&#182;</a></h1><h1 id="Once-installed,-we-can-import-the-library-and-use-the-fuzz.ratio-method-to-compare-two-strings:">Once installed, we can import the library and use the <code>fuzz.ratio</code> method to compare two strings:<a class="anchor-link" href="#Once-installed,-we-can-import-the-library-and-use-the-fuzz.ratio-method-to-compare-two-strings:">&#182;</a></h1>
+<p>While the Anaconda distribution comes with many additional libraries beyond the standard, it may happen that you find a library online that isn't yet installed on your computer. Most of the time, this library will be available in <a href="https://pypi.python.org/pypi">PyPI</a> (the Python Package Index).</p>
+<p>To install from PyPI, simply open a terminal/shell window and type:</p>
+<p><code>pip install "name of package"</code></p>
+<p>Let's install a popular fuzzy matching library by typing:</p>
+<p><code>pip install fuzzywuzzy</code></p>
+<p>Once installed, we can import the library and use the <code>fuzz.ratio</code> method to compare two strings:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">fuzzywuzzy</span> <span class="k">import</span> <span class="n">fuzz</span>
@@ -11944,24 +11979,143 @@ sqrt of 144 is 12.0
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>93
-</pre>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-1:-Locating-the-Right-Library">Challenge 1: Locating the Right Library<a class="anchor-link" href="#Challenge-1:-Locating-the-Right-Library">&#182;</a></h2><p>You want to select a random value from your data:</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> <span class="n">ids</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+</pre></div>
 
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ol>
+<li>What <a href="https://docs.python.org/3/library/">standard library</a>    would you most expect to help?</li>
+<li>Which function would you select from that library? Are there alternatives?</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-2:-Exploring-the-Math-Library">Challenge 2: Exploring the Math Library<a class="anchor-link" href="#Challenge-2:-Exploring-the-Math-Library">&#182;</a></h2><ol>
+<li>What function from the <code>math</code> library can you use to calculate a square root
+<em>without</em> using <code>sqrt</code>?</li>
+<li>Since the library contains this function, why does <code>sqrt</code> exist?</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-3:-When-Is-Help-Available?">Challenge 3: When Is Help Available?<a class="anchor-link" href="#Challenge-3:-When-Is-Help-Available?">&#182;</a></h2><p>When a colleague of yours types <code>help(math)</code>,
+Python reports an error:</p>
+<blockquote>
+<pre><code>NameError: name 'math' is not defined</code></pre>
+</blockquote>
+<p>What has your colleague forgotten to do?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-4:--Importing-With-Aliases">Challenge 4:  Importing With Aliases<a class="anchor-link" href="#Challenge-4:--Importing-With-Aliases">&#182;</a></h2><ol>
+<li>Fill in the blanks so that the program below prints <code>90.0</code>.</li>
+<li>Rewrite the program so that it uses <code>import</code> <em>without</em> <code>as</code>.</li>
+<li>Which form do you find easier to read?</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">math</span> <span class="k">as</span> <span class="nn">m</span>
+<span class="n">angle</span> <span class="o">=</span> <span class="n">____</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">____</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">____</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-5:-Importing-Everything">Challenge 5: Importing Everything<a class="anchor-link" href="#Challenge-5:-Importing-Everything">&#182;</a></h2><p>We can uses the <code>*</code> character to import everything from a library, and then refer to each item by name without a prefix.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">math</span> <span class="k">import</span> <span class="o">*</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pi</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Why would't programmers always use this form of import?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h2 id="Keypoints">Keypoints<a class="anchor-link" href="#Keypoints">&#182;</a></h2><ul>
+<li>"Most of the power of a programming language is in its libraries."</li>
+<li>"A program must import a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#library">library</a> in order to use it."</li>
+<li>"Use <code>help</code> to find out more about a library's contents."</li>
+<li>"Import specific items from a library to shorten programs."</li>
+<li>"Create an alias for a library when importing it to shorten programs."</li>
+</ul>
+
+</div>
+</div>
 </div>
     </div>
   </div>

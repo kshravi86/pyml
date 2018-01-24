@@ -11768,6 +11768,19 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
+
+  <div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+	<div class="topcoat-navigation-bar__item left quarter">
+	  <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
+		<span class="topcoat-icon home-icon"></span>
+	  </a>
+	</div>
+	<div class="topcoat-navigation-bar__item center half">
+	  <h1 class="topcoat-navigation-bar__title">Dictionary</h1>
+	</div>
+  </div>
+  
+  
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11775,7 +11788,24 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="A-python-dictionary-is-a-collection-of-key,-value-pairs.">A python dictionary is a collection of key, value pairs.<a class="anchor-link" href="#A-python-dictionary-is-a-collection-of-key,-value-pairs.">&#182;</a></h1>
+<h1 id="Dictionaries">Dictionaries<a class="anchor-link" href="#Dictionaries">&#182;</a></h1><p><strong>Time</strong></p>
+<ul>
+<li>Teaching: 15 min</li>
+<li>Exercises: 10 min</li>
+</ul>
+<p><strong>Questions</strong>:</p>
+<ul>
+<li>"How can I store more complicated data?"</li>
+<li>"How can I retrieve complicated data efficiently?"</li>
+</ul>
+<p><strong>Learning Objectives</strong>:</p>
+<ul>
+<li>"Understand the fundamentals of a dictionary."</li>
+<li>"Understand advantages and disadvantages of a dictionary compared to a list."</li>
+<li>"Iterate through dictionaries."</li>
+</ul>
+<hr>
+
 </div>
 </div>
 </div>
@@ -11783,19 +11813,24 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="key-is-a-way-to-name-the-data,-and-the-value**-is-the-data-itself.">key<strong> is a way to name the data, and the </strong>value** is the data itself.<a class="anchor-link" href="#key-is-a-way-to-name-the-data,-and-the-value**-is-the-data-itself.">&#182;</a></h1>
+<h2 id="A-python-dictionary-is-a-collection-of-key,-value-pairs.">A python dictionary is a collection of key, value pairs.<a class="anchor-link" href="#A-python-dictionary-is-a-collection-of-key,-value-pairs.">&#182;</a></h2><ul>
+<li>The <strong>key</strong> is a way to name the data, and the <strong>value</strong> is the data itself. </li>
+<li>Dictionaries are very powerful, especially when working with data</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cricket_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Virat&quot;</span><span class="p">,</span> 
-            <span class="s2">&quot;year of birth&quot;</span><span class="p">:</span> <span class="mi">1985</span><span class="p">,</span> 
-            <span class="s2">&quot;Country&quot;</span><span class="p">:</span> <span class="s2">&quot;India&quot;</span><span class="p">,</span> 
-            <span class="s2">&quot;place of birth&quot;</span><span class="p">:</span><span class="s2">&quot;Delhi&quot;</span><span class="p">}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">poets_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Forough Farrokhzad&quot;</span><span class="p">,</span> \
+            <span class="s2">&quot;year of birth&quot;</span><span class="p">:</span> <span class="mi">1935</span><span class="p">,</span> \
+            <span class="s2">&quot;year of death&quot;</span><span class="p">:</span> <span class="mi">1967</span><span class="p">,</span> \
+            <span class="s2">&quot;place of birth&quot;</span><span class="p">:</span> <span class="s2">&quot;Iran&quot;</span><span class="p">,</span> \
+            <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;Persian&quot;</span><span class="p">}</span>
 </pre></div>
 
 </div>
@@ -11807,7 +11842,8 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="--The-keys-have-to-be-unique-and-immutable.">- The keys have to be <strong>unique</strong> and <strong>immutable</strong>.<a class="anchor-link" href="#--The-keys-have-to-be-unique-and-immutable.">&#182;</a></h1><ul>
+<ul>
+<li>The keys have to be <strong>unique</strong> and <strong>immutable</strong>. The usual suspects are strings and integers.</li>
 <li>The values can be anything, including lists, and even other dictionaries</li>
 </ul>
 
@@ -11816,14 +11852,15 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cricket_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Virat&quot;</span><span class="p">,</span> 
-            <span class="s2">&quot;year of birth&quot;</span><span class="p">:</span> <span class="mi">1985</span><span class="p">,</span> 
-            <span class="s2">&quot;Country&quot;</span><span class="p">:</span> <span class="s2">&quot;India&quot;</span><span class="p">,</span> 
-            <span class="s2">&quot;place of birth&quot;</span><span class="p">:</span><span class="s2">&quot;Delhi&quot;</span><span class="p">,</span>
-               <span class="s2">&quot;roles&quot;</span><span class="p">:[</span><span class="s1">&#39;T20 captain&#39;</span><span class="p">,</span><span class="s1">&#39;Odi captain&#39;</span><span class="p">]}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">poets_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Forough Farrokhzad&quot;</span><span class="p">,</span> \
+            <span class="s2">&quot;year of birth&quot;</span><span class="p">:</span> <span class="mi">1935</span><span class="p">,</span> \
+            <span class="s2">&quot;year of death&quot;</span><span class="p">:</span> <span class="mi">1967</span><span class="p">,</span> \
+            <span class="s2">&quot;place of birth&quot;</span><span class="p">:</span> <span class="s2">&quot;Iran&quot;</span><span class="p">,</span> \
+            <span class="s2">&quot;language&quot;</span><span class="p">:</span> <span class="s2">&quot;Persian&quot;</span><span class="p">,</span> \
+            <span class="s2">&quot;works&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Remembrance of a Day&quot;</span><span class="p">,</span><span class="s2">&quot;Unison&quot;</span><span class="p">,</span><span class="s2">&quot;The Shower of Your Hair&quot;</span><span class="p">,</span><span class="s2">&quot;Portrait of Forough&quot;</span><span class="p">]}</span>
 </pre></div>
 
 </div>
@@ -11835,37 +11872,22 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="--key/value-pairs-are-unordered.-Even-though-they-print-in-a-particular-way,-this-doesn't-mean-that-one-comes-before-the-other.">- key/value pairs are <strong>unordered</strong>. Even though they print in a particular way, this doesn't mean that one comes before the other.<a class="anchor-link" href="#--key/value-pairs-are-unordered.-Even-though-they-print-in-a-particular-way,-this-doesn't-mean-that-one-comes-before-the-other.">&#182;</a></h1>
+<ul>
+<li>key/value pairs are <strong>unordered</strong>. Even though they print in a particular way, this doesn't mean that one comes before the other.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cricket_dict</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">poets_dict</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;name&#39;: &#39;Virat&#39;, &#39;year of birth&#39;: 1985, &#39;Country&#39;: &#39;India&#39;, &#39;place of birth&#39;: &#39;Delhi&#39;, &#39;roles&#39;: [&#39;T20 captain&#39;, &#39;Odi captain&#39;]}
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11874,39 +11896,23 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Use-dictionary-keys-to-access-the-values">Use dictionary keys to access the values<a class="anchor-link" href="#Use-dictionary-keys-to-access-the-values">&#182;</a></h1><h1 id="Instead-of-using-indices-to-extract-items,-dictionaries-uses-key-value-pairs-to-find-and-retrieve-information.">Instead of using indices to extract items, dictionaries uses key-value pairs to find and retrieve information.<a class="anchor-link" href="#Instead-of-using-indices-to-extract-items,-dictionaries-uses-key-value-pairs-to-find-and-retrieve-information.">&#182;</a></h1>
+<h2 id="Use-dictionary-keys-to-access-the-values">Use dictionary keys to access the values<a class="anchor-link" href="#Use-dictionary-keys-to-access-the-values">&#182;</a></h2><ul>
+<li>Instead of using indices to extract items, dictionaries uses key-value pairs to find and retrieve information.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">cricket_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cricket_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">poets_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">poets_dict</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>dict_keys([&#39;name&#39;, &#39;year of birth&#39;, &#39;year of death&#39;, &#39;place of birth&#39;, &#39;roles&#39;])
-dict_values([&#39;Virat&#39;, 1935, 1967, &#39;Delhi&#39;, [&#39;T20 captain&#39;, &#39;Odi captain&#39;]])
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11924,131 +11930,37 @@ dict_values([&#39;Virat&#39;, 1935, 1967, &#39;Delhi&#39;, [&#39;T20 captain&#39
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cricket_dict</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">poets_dict</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[9]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;Virat&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="--Or-perhaps-you-wanted-the-last-element-of-the-roles-list-inside-dictionary">- Or perhaps you wanted the last element of the roles list inside dictionary<a class="anchor-link" href="#--Or-perhaps-you-wanted-the-last-element-of-the-roles-list-inside-dictionary">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cricket_dict</span><span class="p">[</span><span class="s2">&quot;roles&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[11]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;Odi captain&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dictionaries-are-different-from-lists">Dictionaries are different from lists<a class="anchor-link" href="#Dictionaries-are-different-from-lists">&#182;</a></h1><h1 id="-"> <a class="anchor-link" href="#-">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="If-the-data-is-complex-and-hierarchical,-the-dictionary's-key-/-value-structure-is-very-helpful.-If-you-are-only-concerned-about-membership-in-a-collection,-dictionaries-will-always-be-much-faster-to-reference,-as-the-computer-doesn't-have-to-keep-track-of-order.-And-of-course,-you-can-put-a-list-(or-even-another-dictionary!)-inside-a-dictionary-as-the-value.">If the data is complex and hierarchical, the dictionary's <code>key</code> / <code>value</code> structure is very helpful. If you are only concerned about membership in a collection, dictionaries will always be much faster to reference, as the computer doesn't have to keep track of order. And of course, you can put a list (or even another dictionary!) inside a dictionary as the <code>value</code>.<a class="anchor-link" href="#If-the-data-is-complex-and-hierarchical,-the-dictionary's-key-/-value-structure-is-very-helpful.-If-you-are-only-concerned-about-membership-in-a-collection,-dictionaries-will-always-be-much-faster-to-reference,-as-the-computer-doesn't-have-to-keep-track-of-order.-And-of-course,-you-can-put-a-list-(or-even-another-dictionary!)-inside-a-dictionary-as-the-value.">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Once-a-dictionary-has-been-created,-you-can-change-the-values-of-the-data.">Once a dictionary has been created, you can change the values of the data.<a class="anchor-link" href="#Once-a-dictionary-has-been-created,-you-can-change-the-values-of-the-data.">&#182;</a></h1><p>This is because its a <em>mutable</em> object.</p>
+<ul>
+<li>Or perhaps you wanted the last element of the <code>works</code> list</li>
+</ul>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cricket_dict</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;sachin&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cricket_dict</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">poets_dict</span><span class="p">[</span><span class="s2">&quot;works&quot;</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;name&#39;: &#39;sachin&#39;, &#39;year of birth&#39;: 1985, &#39;Country&#39;: &#39;India&#39;, &#39;place of birth&#39;: &#39;Delhi&#39;, &#39;roles&#39;: [&#39;T20 captain&#39;, &#39;Odi captain&#39;]}
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12057,44 +11969,31 @@ dict_values([&#39;Virat&#39;, 1935, 1967, &#39;Delhi&#39;, [&#39;T20 captain&#39
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Remember,-this-means-that-if-you-assign-this-dictionary-to-a-new-variable,-a-change-to-either-variable-will-change-the-dictionary.">Remember, this means that if you assign this dictionary to a new variable, a change to either variable will change the dictionary.<a class="anchor-link" href="#Remember,-this-means-that-if-you-assign-this-dictionary-to-a-new-variable,-a-change-to-either-variable-will-change-the-dictionary.">&#182;</a></h1>
+<h2 id="Dictionaries-are-different-from-lists">Dictionaries are different from lists<a class="anchor-link" href="#Dictionaries-are-different-from-lists">&#182;</a></h2><p>In general, if you need data to be ordered or you have only simple data not needing to be subsetted, use a list.</p>
+<p>If the data is complex and hierarchical, the dictionary's <code>key</code> / <code>value</code> structure is very helpful. If you are only concerned about membership in a collection, dictionaries will always be much faster to reference, as the computer doesn't have to keep track of order. And of course, you can put a list (or even another dictionary!) inside a dictionary as the <code>value</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Once-a-dictionary-has-been-created,-you-can-change-the-values-of-the-data.">Once a dictionary has been created, you can change the values of the data.<a class="anchor-link" href="#Once-a-dictionary-has-been-created,-you-can-change-the-values-of-the-data.">&#182;</a></h2><p>This is because its a <em>mutable</em> object.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_cricket_dict</span> <span class="o">=</span> <span class="n">cricket_dict</span>
-
-<span class="n">cricket_dict</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Persian&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new dict: &quot;</span><span class="p">,</span> <span class="n">new_cricket_dict</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
-
-<span class="n">new_cricket_dict</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Farsi&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;first dict: &quot;</span><span class="p">,</span> <span class="n">cricket_dict</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">poets_dict</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Farsi&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">poets_dict</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>new dict:  Persian
-first dict:  Persian
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12103,7 +12002,35 @@ first dict:  Persian
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="You-can-also-add-new-keys-to-the-dictionary.">You can also add new keys to the dictionary.<a class="anchor-link" href="#You-can-also-add-new-keys-to-the-dictionary.">&#182;</a></h1><ul>
+<p>Remember, this means that if you assign this dictionary to a new variable, a change to either variable will change the dictionary.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_poets_dict</span> <span class="o">=</span> <span class="n">poets_dict</span>
+
+<span class="n">poets_dict</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Persian&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;new dict: &quot;</span><span class="p">,</span> <span class="n">new_poets_dict</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">])</span>
+
+<span class="n">new_poets_dict</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Farsi&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;first dict: &quot;</span><span class="p">,</span> <span class="n">poets_dict</span><span class="p">[</span><span class="s2">&quot;language&quot;</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="You-can-also-add-new-keys-to-the-dictionary.">You can also add new keys to the dictionary.<a class="anchor-link" href="#You-can-also-add-new-keys-to-the-dictionary.">&#182;</a></h2><ul>
 <li>Note that dictionaries are "indexed" with square braces, just like lists--they look the same, even though they're very different.</li>
 </ul>
 
@@ -12112,32 +12039,14 @@ first dict:  Persian
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cricket_dict</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;male&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">cricket_dict</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">poets_dict</span><span class="p">[</span><span class="s2">&quot;gender&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Female&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">poets_dict</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;name&#39;: &#39;Persian&#39;, &#39;year of birth&#39;: 1985, &#39;Country&#39;: &#39;India&#39;, &#39;place of birth&#39;: &#39;Delhi&#39;, &#39;roles&#39;: [&#39;T20 captain&#39;, &#39;Odi captain&#39;], &#39;language&#39;: &#39;Farsi&#39;, &#39;gender&#39;: &#39;male&#39;}
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12146,7 +12055,7 @@ first dict:  Persian
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dictionaries-have-their-own-methods.">Dictionaries have their own methods.<a class="anchor-link" href="#Dictionaries-have-their-own-methods.">&#182;</a></h1><ul>
+<h2 id="Dictionaries-have-their-own-methods.">Dictionaries have their own methods.<a class="anchor-link" href="#Dictionaries-have-their-own-methods.">&#182;</a></h2><ul>
 <li>We saw this above when we accessed the <strong>keys</strong> and <strong>values</strong>.</li>
 <li>You can also get a list of keys <em>and</em> values</li>
 </ul>
@@ -12156,33 +12065,13 @@ first dict:  Persian
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">cricket_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">poets_dict</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[15]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>dict_items([(&#39;name&#39;, &#39;Persian&#39;), (&#39;year of birth&#39;, 1985), (&#39;Country&#39;, &#39;India&#39;), (&#39;place of birth&#39;, &#39;Delhi&#39;), (&#39;roles&#39;, [&#39;T20 captain&#39;, &#39;Odi captain&#39;]), (&#39;language&#39;, &#39;Farsi&#39;), (&#39;gender&#39;, &#39;male&#39;)])</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -12191,7 +12080,7 @@ first dict:  Persian
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="You-can-loop-through-dictionaries">You can loop through dictionaries<a class="anchor-link" href="#You-can-loop-through-dictionaries">&#182;</a></h1><ul>
+<h2 id="You-can-loop-through-dictionaries">You can loop through dictionaries<a class="anchor-link" href="#You-can-loop-through-dictionaries">&#182;</a></h2><ul>
 <li>There are several ways to loop through dictionaries. Looping over <code>.keys()</code> is the most common.</li>
 <li>Note the order is non-deterministic.</li>
 </ul>
@@ -12201,7 +12090,7 @@ first dict:  Persian
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apples&#39;</span><span class="p">:</span> <span class="mf">0.49</span><span class="p">,</span> <span class="s1">&#39;oranges&#39;</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">,</span> <span class="s1">&#39;pears&#39;</span><span class="p">:</span> <span class="mf">1.49</span><span class="p">,</span> <span class="s1">&#39;bananas&#39;</span><span class="p">:</span> <span class="mf">0.32</span><span class="p">}</span>
@@ -12211,27 +12100,6 @@ first dict:  Persian
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>apples 0.48999999999999999
-oranges 0.98999999999999999
-pears 1.49
-bananas 0.32000000000000001
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12249,7 +12117,7 @@ bananas 0.32000000000000001
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># add tax</span>
@@ -12265,24 +12133,117 @@ bananas 0.32000000000000001
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-1:-Make-your-own">Challenge 1: Make your own<a class="anchor-link" href="#Challenge-1:-Make-your-own">&#182;</a></h2><p>Dictionaries can be nested, which means that dictionary keys can contain dictionaries themselves.</p>
+<ol>
+<li><p>Create two dictionaries, each representing one of your favorite musical artists. Each dictionary should have the following keys / value-type: <code>name</code>: (string) , <code>genre</code>: (string), <code>songs</code> (list), <code>age</code>: (integer)</p>
+</li>
+<li><p>Create an outer dictionary called <code>musical_artists</code> that contain the two inner dictionaries.</p>
+</li>
+</ol>
 
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>{&#39;apples&#39;: 0.51000000000000001, &#39;oranges&#39;: 1.04, &#39;pears&#39;: 1.5600000000000001, &#39;bananas&#39;: 0.34000000000000002}
-</pre>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-2:-Compute-the-cost">Challenge 2: Compute the cost<a class="anchor-link" href="#Challenge-2:-Compute-the-cost">&#182;</a></h2><p>Using the dictionary below and a for loop, calculate how much it'll cost you to buy 2 pieces of each fruit.</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apples&#39;</span><span class="p">:</span> <span class="mf">0.49</span><span class="p">,</span> <span class="s1">&#39;oranges&#39;</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">,</span> <span class="s1">&#39;pears&#39;</span><span class="p">:</span> <span class="mf">1.49</span><span class="p">,</span> <span class="s1">&#39;bananas&#39;</span><span class="p">:</span> <span class="mf">0.32</span><span class="p">}</span>
+</pre></div>
 
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-3:-Check-to-see-a-key">Challenge 3: Check to see a key<a class="anchor-link" href="#Challenge-3:-Check-to-see-a-key">&#182;</a></h2><p>To see if something is in a container, use the <code>in</code> operator. This works for both lists and dictionaries:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Afghanistan&quot;</span><span class="p">,</span> <span class="s2">&quot;Canada&quot;</span><span class="p">,</span> <span class="s2">&quot;Sierra Leone&quot;</span><span class="p">,</span> <span class="s2">&quot;Denmark&quot;</span><span class="p">,</span> <span class="s2">&quot;Japan&quot;</span><span class="p">]</span>
+<span class="n">d</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;apples&#39;</span><span class="p">:</span> <span class="mf">0.49</span><span class="p">,</span> <span class="s1">&#39;oranges&#39;</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">,</span> <span class="s1">&#39;pears&#39;</span><span class="p">:</span> <span class="mf">1.49</span><span class="p">,</span> <span class="s1">&#39;bananas&#39;</span><span class="p">:</span> <span class="mf">0.32</span><span class="p">}</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Canada&#39;</span> <span class="ow">in</span> <span class="n">l</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;grapefruit&#39;</span> <span class="ow">in</span> <span class="n">d</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;grapefruit&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">d</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below, I've given you a <strong>list</strong> containing 5 <strong>dictionaries</strong> representing some American states.</p>
+<ol>
+<li>Loop through all the dictionaries in the list</li>
+<li>Check to see if "state bird" is in the dictionary</li>
+<li>If the key is NOT in the dictionary, add the key and <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#assign">assign</a> the value "unknown" to it</li>
+</ol>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">states</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mf">11.6</span><span class="p">,</span> <span class="s1">&#39;year in union&#39;</span><span class="p">:</span> <span class="mi">1803</span><span class="p">,</span> <span class="s1">&#39;state bird&#39;</span><span class="p">:</span> <span class="s1">&#39;Northern cardinal&#39;</span><span class="p">,</span> <span class="s1">&#39;capital&#39;</span><span class="p">:</span> <span class="s1">&#39;Columbus&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;Michigan&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mf">9.9</span><span class="p">,</span> <span class="s1">&#39;year in union&#39;</span><span class="p">:</span> <span class="mi">1837</span><span class="p">,</span> <span class="s1">&#39;capital&#39;</span><span class="p">:</span> <span class="s1">&#39;Lansing&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mf">39.1</span><span class="p">,</span> <span class="s1">&#39;year in union&#39;</span><span class="p">:</span> <span class="mi">1850</span><span class="p">,</span> <span class="s1">&#39;state bird&#39;</span><span class="p">:</span> <span class="s1">&#39;California quail&#39;</span><span class="p">,</span> <span class="s1">&#39;capital&#39;</span><span class="p">:</span> <span class="s1">&#39;Sacramento&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;Florida&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mf">20.2</span><span class="p">,</span> <span class="s1">&#39;year in union&#39;</span><span class="p">:</span> <span class="mi">1834</span><span class="p">,</span> <span class="s1">&#39;capital&#39;</span><span class="p">:</span> <span class="s1">&#39;Tallahassee&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mf">4.9</span><span class="p">,</span> <span class="s1">&#39;year in union&#39;</span><span class="p">:</span> <span class="mi">1819</span><span class="p">,</span> <span class="s1">&#39;capital&#39;</span><span class="p">:</span> <span class="s1">&#39;Montgomery&#39;</span><span class="p">}]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h2 id="Keypoints">Keypoints<a class="anchor-link" href="#Keypoints">&#182;</a></h2><ol>
+<li>A python dictionary is a collection of key, value pairs.</li>
+<li>Use dictionary keys to access the values.</li>
+<li>Once a dictionary has been created, you can change the values of the data and assign new keys.</li>
+<li>Dictionaries have their own methods, and you can loop through key/value pairs.</li>
+<li>Dictionaries are different from lists in important ways.</li>
+</ol>
+
+</div>
+</div>
 </div>
     </div>
   </div>

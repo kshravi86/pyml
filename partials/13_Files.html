@@ -11768,6 +11768,19 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
+
+  <div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+	<div class="topcoat-navigation-bar__item left quarter">
+	  <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
+		<span class="topcoat-icon home-icon"></span>
+	  </a>
+	</div>
+	<div class="topcoat-navigation-bar__item center half">
+	  <h1 class="topcoat-navigation-bar__title">Files</h1>
+	</div>
+  </div>
+  
+  
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11775,13 +11788,44 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Reading-from-a-file">Reading from a file<a class="anchor-link" href="#Reading-from-a-file">&#182;</a></h1><h1 id="Reading-a-file-requires-three-steps:">Reading a file requires three steps:<a class="anchor-link" href="#Reading-a-file-requires-three-steps:">&#182;</a></h1><h1 id="1.-Opening-the-file">1. Opening the file<a class="anchor-link" href="#1.-Opening-the-file">&#182;</a></h1><h1 id="2.-Reading-the-file">2. Reading the file<a class="anchor-link" href="#2.-Reading-the-file">&#182;</a></h1><h1 id="3.-Closing-the-file">3. Closing the file<a class="anchor-link" href="#3.-Closing-the-file">&#182;</a></h1>
+<h1 id="Files">Files<a class="anchor-link" href="#Files">&#182;</a></h1><p><strong>Time</strong></p>
+<ul>
+<li>Teaching: 10 min</li>
+<li>Exercises: 5 min</li>
+</ul>
+<p><strong>Questions</strong>:</p>
+<ul>
+<li>"How do a open a file and read its contents?"</li>
+<li>"How do I write a file with the variables I generated?"</li>
+</ul>
+<p><strong>Learning Objectives</strong>:</p>
+<ul>
+<li>"Learn the Pythonic way of reading in files."</li>
+<li>"Understand how to read/write text files and csv files."</li>
+</ul>
+<hr>
+<p>In this lesson we will cover how to read and write files.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Reading-from-a-file">Reading from a file<a class="anchor-link" href="#Reading-from-a-file">&#182;</a></h2><p>Reading a file requires three steps:</p>
+<ol>
+<li>Opening the file</li>
+<li>Reading the file</li>
+<li>Closing the file</li>
+</ol>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;example.txt&quot;</span><span class="p">,</span> <span class="s2">&quot;r&quot;</span><span class="p">)</span>
@@ -11795,41 +11839,22 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>This is line 1.
-This is line 2.
-This is line 3.
-This is line 4.
-This is line 5.
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="--However,-use-the-with-open-syntax-and-this-will-automatically-close-files-for-you.">- However, use the <code>with open</code> syntax and this will automatically close files for you.<a class="anchor-link" href="#--However,-use-the-with-open-syntax-and-this-will-automatically-close-files-for-you.">&#182;</a></h1><h1 id="The-'r'-indicates-that-you-are-reading-the-file,-as-opposed-to,-say,-writing-to-it.">The <code>'r'</code> indicates that you are reading the file, as opposed to, say, writing to it.<a class="anchor-link" href="#The-'r'-indicates-that-you-are-reading-the-file,-as-opposed-to,-say,-writing-to-it.">&#182;</a></h1>
+<ul>
+<li>However, use the <code>with open</code> syntax and this will automatically close files for you. </li>
+<li>The <code>'r'</code> indicates that you are reading the file, as opposed to, say, writing to it.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># better code</span>
@@ -11843,35 +11868,13 @@ This is line 5.
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>This is line 1.
-This is line 2.
-This is line 3.
-This is line 4.
-This is line 5.
-
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="with-will-keep-the-file-open-as-long-as-the-program-is-still-in-the-indented-block,-once-outside,-the-file-is-no-longer-open,-and-you-can't-access-the-contents,-only-what-you-have-saved-to-a-variable."><code>with</code> will keep the file open as long as the program is still in the indented block, once outside, the file is no longer open, and you can't access the contents, only what you have saved to a variable.<a class="anchor-link" href="#with-will-keep-the-file-open-as-long-as-the-program-is-still-in-the-indented-block,-once-outside,-the-file-is-no-longer-open,-and-you-can't-access-the-contents,-only-what-you-have-saved-to-a-variable.">&#182;</a></h1>
+<p><code>with</code> will keep the file open as long as the program is still in the indented block, once outside, the file is no longer open, and you can't access the contents, only what you have saved to a variable.</p>
+
 </div>
 </div>
 </div>
@@ -11879,13 +11882,17 @@ This is line 5.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Reading-a-file-as-a-list">Reading a file as a list<a class="anchor-link" href="#Reading-a-file-as-a-list">&#182;</a></h1><h1 id="Very-often-we-want-to-read-in-a-file-line-by-line,-storing-those-lines-as-a-list.">Very often we want to read in a file line by line, storing those lines as a list.<a class="anchor-link" href="#Very-often-we-want-to-read-in-a-file-line-by-line,-storing-those-lines-as-a-list.">&#182;</a></h1><h1 id="To-do-that,-we-can-use-the-for-line-in-my_file-syntax:">To do that, we can use the <code>for line in my_file</code> syntax:<a class="anchor-link" href="#To-do-that,-we-can-use-the-for-line-in-my_file-syntax:">&#182;</a></h1>
+<h2 id="Reading-a-file-as-a-list">Reading a file as a list<a class="anchor-link" href="#Reading-a-file-as-a-list">&#182;</a></h2><ul>
+<li>Very often we want to read in a file line by line, storing those lines as a list.</li>
+<li>To do that, we can use the <code>for line in my_file</code> syntax:</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stored</span> <span class="o">=</span> <span class="p">[]</span>
@@ -11901,7 +11908,7 @@ This is line 5.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stored</span>
@@ -11911,36 +11918,13 @@ This is line 5.
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[4]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;This is line 1.\n&#39;,
- &#39;This is line 2.\n&#39;,
- &#39;This is line 3.\n&#39;,
- &#39;This is line 4.\n&#39;,
- &#39;This is line 5.\n&#39;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Remember-that-the-variable-name-can-be-anything.-It-does-not-have-to-be-line.-Files-are-simply-always-read-line-by-line.">Remember that the variable name can be anything. It does not have to be <code>line</code>. Files are simply always read line by line.<a class="anchor-link" href="#Remember-that-the-variable-name-can-be-anything.-It-does-not-have-to-be-line.-Files-are-simply-always-read-line-by-line.">&#182;</a></h1>
+<p>Remember that the variable name can be anything. It does not have to be <code>line</code>. Files are simply always read line by line.</p>
+
 </div>
 </div>
 </div>
@@ -11948,13 +11932,16 @@ This is line 5.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="--We-can-use-the-strip-method-to-get-rid-of-those-line-breaks-at-the-end">- We can use the <code>strip</code> <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#method">method</a> to get rid of those line breaks at the end<a class="anchor-link" href="#--We-can-use-the-strip-method-to-get-rid-of-those-line-breaks-at-the-end">&#182;</a></h1>
+<ul>
+<li>We can use the <code>strip</code> <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#method">method</a> to get rid of those line breaks at the end</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stored</span> <span class="o">=</span> <span class="p">[]</span>
@@ -11970,7 +11957,7 @@ This is line 5.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">stored</span>
@@ -11980,42 +11967,19 @@ This is line 5.
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[6]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[&#39;This is line 1.&#39;,
- &#39;This is line 2.&#39;,
- &#39;This is line 3.&#39;,
- &#39;This is line 4.&#39;,
- &#39;This is line 5.&#39;]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Writing-to-a-file">Writing to a file<a class="anchor-link" href="#Writing-to-a-file">&#182;</a></h1><h1 id="We-can-use-the-with-open-syntax-for-writing-files-as-well.">We can use the <code>with open</code> syntax for writing files as well.<a class="anchor-link" href="#We-can-use-the-with-open-syntax-for-writing-files-as-well.">&#182;</a></h1>
+<h2 id="Writing-to-a-file">Writing to a file<a class="anchor-link" href="#Writing-to-a-file">&#182;</a></h2><p>We can use the <code>with open</code> syntax for writing files as well.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this is okay...</span>
@@ -12033,7 +11997,7 @@ This is line 5.
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># but this is better...</span>
@@ -12052,72 +12016,23 @@ This is line 5.
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Let's-take-a-look-at-the-file-we-wrote.">Let's take a look at the file we wrote.<a class="anchor-link" href="#Let's-take-a-look-at-the-file-we-wrote.">&#182;</a></h1><h1 id="An-exclamation-point-!-puts-you-in-bash">An exclamation point <code>!</code> puts you in bash<a class="anchor-link" href="#An-exclamation-point-!-puts-you-in-bash">&#182;</a></h1>
+<p>Let's take a look at the file we wrote.</p>
+<ul>
+<li>An exclamation point <code>!</code> puts you in bash</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># for Macs use the `cat` command</span>
-<span class="o">!</span>cat example2.txt
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>cat example2.txt
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>bears
-beets
-Battlestar Galactica
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># for windows use the `type` command</span>
-<span class="o">!</span><span class="nb">type</span> example2.txt
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>example2.txt: not found
-</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -12126,13 +12041,18 @@ Battlestar Galactica
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Using-the-CSV-Module">Using the CSV Module<a class="anchor-link" href="#Using-the-CSV-Module">&#182;</a></h1><h1 id="A-common-task-in-programming-is-reading-a-csv-file.">A common task in programming is reading a csv file.<a class="anchor-link" href="#A-common-task-in-programming-is-reading-a-csv-file.">&#182;</a></h1><h1 id="In-python,-a-common-way-to-do-that-is-to-read-a-csv-as-a-list-of-dictionaries.">In python, a common way to do that is to read a csv as a list of dictionaries.<a class="anchor-link" href="#In-python,-a-common-way-to-do-that-is-to-read-a-csv-as-a-list-of-dictionaries.">&#182;</a></h1><h1 id="For-this,-we-use-the-csv-module">For this, we use the <code>csv</code> module<a class="anchor-link" href="#For-this,-we-use-the-csv-module">&#182;</a></h1>
+<h2 id="Using-the-CSV-Module">Using the CSV Module<a class="anchor-link" href="#Using-the-CSV-Module">&#182;</a></h2><p>A common task in programming is reading a csv file.</p>
+<ul>
+<li>In python, a common way to do that is to read a csv as a list of dictionaries. </li>
+<li>For this, we use the <code>csv</code> module</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">csv</span>
@@ -12145,7 +12065,7 @@ Battlestar Galactica
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#read csv and read into a list of dictionaries</span>
@@ -12163,7 +12083,7 @@ Battlestar Galactica
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">capitals</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
@@ -12173,57 +12093,21 @@ Battlestar Galactica
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[13]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[OrderedDict([(&#39;Country&#39;, &#39;Afghanistan&#39;),
-              (&#39;Capital&#39;, &#39;Kabul&#39;),
-              (&#39;Latitude&#39;, &#34;34¡28&#39;N&#34;),
-              (&#39;Longitude&#39;, &#34;69¡11&#39;E&#34;)]),
- OrderedDict([(&#39;Country&#39;, &#39;Albania&#39;),
-              (&#39;Capital&#39;, &#39;Tirane&#39;),
-              (&#39;Latitude&#39;, &#34;41¡18&#39;N&#34;),
-              (&#39;Longitude&#39;, &#34;19¡49&#39;E&#34;)]),
- OrderedDict([(&#39;Country&#39;, &#39;Algeria&#39;),
-              (&#39;Capital&#39;, &#39;Algiers&#39;),
-              (&#39;Latitude&#39;, &#34;36¡42&#39;N&#34;),
-              (&#39;Longitude&#39;, &#34;03¡08&#39;E&#34;)]),
- OrderedDict([(&#39;Country&#39;, &#39;American Samoa&#39;),
-              (&#39;Capital&#39;, &#39;Pago Pago&#39;),
-              (&#39;Latitude&#39;, &#34;14¡16&#39;S&#34;),
-              (&#39;Longitude&#39;, &#34;170¡43&#39;W&#34;)]),
- OrderedDict([(&#39;Country&#39;, &#39;Andorra&#39;),
-              (&#39;Capital&#39;, &#39;Andorra la Vella&#39;),
-              (&#39;Latitude&#39;, &#34;42¡31&#39;N&#34;),
-              (&#39;Longitude&#39;, &#34;01¡32&#39;E&#34;)])]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="--Writing-a-list-of-dictionaries-as-a-CSV-is-similar:">- Writing a list of dictionaries as a CSV is similar:<a class="anchor-link" href="#--Writing-a-list-of-dictionaries-as-a-CSV-is-similar:">&#182;</a></h1>
+<ul>
+<li>Writing a list of dictionaries as a CSV is similar:</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># get the keys in each dictionary</span>
@@ -12235,30 +12119,10 @@ Battlestar Galactica
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[14]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>odict_keys([&#39;Country&#39;, &#39;Capital&#39;, &#39;Latitude&#39;, &#39;Longitude&#39;])</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># write rows</span>
@@ -12266,6 +12130,41 @@ Battlestar Galactica
     <span class="n">dict_writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">DictWriter</span><span class="p">(</span><span class="n">output_file</span><span class="p">,</span> <span class="n">keys</span><span class="p">)</span>
     <span class="n">dict_writer</span><span class="o">.</span><span class="n">writeheader</span><span class="p">()</span>
     <span class="n">dict_writer</span><span class="o">.</span><span class="n">writerows</span><span class="p">(</span><span class="n">capitals</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-1:-Read-in-a-list">Challenge 1: Read in a list<a class="anchor-link" href="#Challenge-1:-Read-in-a-list">&#182;</a></h2><p>The file <code>counties.txt</code> has a column of counties in California. Read in the data into a list called <code>counties</code>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-2:-Writing-a-CSV-file">Challenge 2: Writing a CSV file<a class="anchor-link" href="#Challenge-2:-Writing-a-CSV-file">&#182;</a></h2><p>Below is a list of dictionaries representing US states. Write this <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#object">object</a> as a CSV file called <code>states.csv</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">states</span> <span class="o">=</span> <span class="p">[{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;Ohio&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mf">11.6</span><span class="p">,</span> <span class="s1">&#39;year in union&#39;</span><span class="p">:</span> <span class="mi">1803</span><span class="p">,</span> <span class="s1">&#39;state bird&#39;</span><span class="p">:</span> <span class="s1">&#39;Northern cardinal&#39;</span><span class="p">,</span> <span class="s1">&#39;capital&#39;</span><span class="p">:</span> <span class="s1">&#39;Columbus&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;Michigan&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mf">9.9</span><span class="p">,</span> <span class="s1">&#39;year in union&#39;</span><span class="p">:</span> <span class="mi">1837</span><span class="p">,</span> <span class="s1">&#39;capital&#39;</span><span class="p">:</span> <span class="s1">&#39;Lansing&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;California&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mf">39.1</span><span class="p">,</span> <span class="s1">&#39;year in union&#39;</span><span class="p">:</span> <span class="mi">1850</span><span class="p">,</span> <span class="s1">&#39;state bird&#39;</span><span class="p">:</span> <span class="s1">&#39;California quail&#39;</span><span class="p">,</span> <span class="s1">&#39;capital&#39;</span><span class="p">:</span> <span class="s1">&#39;Sacramento&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;Florida&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mf">20.2</span><span class="p">,</span> <span class="s1">&#39;year in union&#39;</span><span class="p">:</span> <span class="mi">1834</span><span class="p">,</span> <span class="s1">&#39;capital&#39;</span><span class="p">:</span> <span class="s1">&#39;Tallahassee&#39;</span><span class="p">},</span>
+          <span class="p">{</span><span class="s1">&#39;state&#39;</span><span class="p">:</span> <span class="s1">&#39;Alabama&#39;</span><span class="p">,</span> <span class="s1">&#39;population&#39;</span><span class="p">:</span> <span class="mf">4.9</span><span class="p">,</span> <span class="s1">&#39;year in union&#39;</span><span class="p">:</span> <span class="mi">1819</span><span class="p">,</span> <span class="s1">&#39;capital&#39;</span><span class="p">:</span> <span class="s1">&#39;Montgomery&#39;</span><span class="p">}]</span>
 </pre></div>
 
 </div>

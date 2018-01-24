@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>17_Beautiful-Code</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>logistic_regression</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11771,28 +11771,16 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Programming-Style">Programming Style<a class="anchor-link" href="#Programming-Style">&#182;</a></h1><h2 id="Good-Python-Code-is-Readable">Good Python Code is Readable<a class="anchor-link" href="#Good-Python-Code-is-Readable">&#182;</a></h2><h1 id="If-you-ask-Python-programmers-what-they-like-most-in-Python,-they-will-often-say-its-high-readability.">If you ask Python programmers what they like most in Python, they will often say its high readability.<a class="anchor-link" href="#If-you-ask-Python-programmers-what-they-like-most-in-Python,-they-will-often-say-its-high-readability.">&#182;</a></h1><h1 id="Indeed,-a-high-level-of-readability-is-at-the-heart-of-the-design-of-the-Python-language,-following-the-recognised-fact-that-code-is-read-much-more-often-than-it-is-written.">Indeed, a high level of readability is at the heart of the design of the Python language, following the recognised fact that code is read much more often than it is written.<a class="anchor-link" href="#Indeed,-a-high-level-of-readability-is-at-the-heart-of-the-design-of-the-Python-language,-following-the-recognised-fact-that-code-is-read-much-more-often-than-it-is-written.">&#182;</a></h1><h1 id="How-do-you-help-readers-of-your-code?">How do you help readers of your code?<a class="anchor-link" href="#How-do-you-help-readers-of-your-code?">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="The-Pythonic-Way">The Pythonic Way<a class="anchor-link" href="#The-Pythonic-Way">&#182;</a></h2>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">this</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">tensorflow</span> <span class="k">as</span> <span class="nn">tf</span>
+
+<span class="c1"># Import MINST data</span>
+<span class="kn">from</span> <span class="nn">tensorflow.examples.tutorials.mnist</span> <span class="k">import</span> <span class="n">input_data</span>
+<span class="n">mnist</span> <span class="o">=</span> <span class="n">input_data</span><span class="o">.</span><span class="n">read_data_sets</span><span class="p">(</span><span class="s2">&quot;/tmp/data/&quot;</span><span class="p">,</span> <span class="n">one_hot</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11809,27 +11797,10 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>The Zen of Python, by Tim Peters
-
-Beautiful is better than ugly.
-Explicit is better than implicit.
-Simple is better than complex.
-Complex is better than complicated.
-Flat is better than nested.
-Sparse is better than dense.
-Readability counts.
-Special cases aren&#39;t special enough to break the rules.
-Although practicality beats purity.
-Errors should never pass silently.
-Unless explicitly silenced.
-In the face of ambiguity, refuse the temptation to guess.
-There should be one-- and preferably only one --obvious way to do it.
-Although that way may not be obvious at first unless you&#39;re Dutch.
-Now is better than never.
-Although never is often better than *right* now.
-If the implementation is hard to explain, it&#39;s a bad idea.
-If the implementation is easy to explain, it may be a good idea.
-Namespaces are one honking great idea -- let&#39;s do more of those!
+<pre>Extracting /tmp/data/train-images-idx3-ubyte.gz
+Extracting /tmp/data/train-labels-idx1-ubyte.gz
+Extracting /tmp/data/t10k-images-idx3-ubyte.gz
+Extracting /tmp/data/t10k-labels-idx1-ubyte.gz
 </pre>
 </div>
 </div>
@@ -11838,45 +11809,35 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Docstrings-and-Comments">Docstrings and Comments<a class="anchor-link" href="#Docstrings-and-Comments">&#182;</a></h1><h1 id="Docstrings-=-How-to-use-code">Docstrings = <strong>How to use</strong> code<a class="anchor-link" href="#Docstrings-=-How-to-use-code">&#182;</a></h1><h1 id="Comments-=-Why-(rationale)-&amp;-how-code-works">Comments = <strong>Why</strong> (rationale) &amp; <strong>how</strong> code works<a class="anchor-link" href="#Comments-=-Why-(rationale)-&amp;-how-code-works">&#182;</a></h1><h1 id="Both-of-these-groups-include-you,-so-write-good-docstrings-and-comments!">Both of these groups include <strong>you</strong>, so write good docstrings and comments!<a class="anchor-link" href="#Both-of-these-groups-include-you,-so-write-good-docstrings-and-comments!">&#182;</a></h1><h1 id="Comments-explain-why,-and-are-for-the-maintainers-of-your-code.-Examples-include-notes-to-yourself,-like:">Comments explain why, and are for the maintainers of your code. Examples include notes to yourself, like:<a class="anchor-link" href="#Comments-explain-why,-and-are-for-the-maintainers-of-your-code.-Examples-include-notes-to-yourself,-like:">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Docstrings-explain-how-to-use-code,-and-are-for-the-users-of-your-code.-Uses-of-docstrings:">Docstrings explain how to use code, and are for the <strong>users</strong> of your code. Uses of docstrings:<a class="anchor-link" href="#Docstrings-explain-how-to-use-code,-and-are-for-the-users-of-your-code.-Uses-of-docstrings:">&#182;</a></h1><h1 id="Explain-the-purpose-of-the-function-even-if-it-seems-obvious-to-you,-because-it-might-not-be-obvious-to-someone-else-later-on.">Explain the purpose of the function even if it seems obvious to you, because it might not be obvious to someone else later on.<a class="anchor-link" href="#Explain-the-purpose-of-the-function-even-if-it-seems-obvious-to-you,-because-it-might-not-be-obvious-to-someone-else-later-on.">&#182;</a></h1><h1 id="Describe-the-parameters-expected,-the-return-values,-and-any-exceptions-raised.">Describe the parameters expected, the return values, and any exceptions raised.<a class="anchor-link" href="#Describe-the-parameters-expected,-the-return-values,-and-any-exceptions-raised.">&#182;</a></h1><h1 id="If-the-method-is-tightly-coupled-with-a-single-caller,-make-some-mention-of-the-caller-(though-be-careful-as-the-caller-might-change-later).">If the <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#method">method</a> is tightly coupled with a single caller, make some mention of the caller (though be careful as the caller might change later).<a class="anchor-link" href="#If-the-method-is-tightly-coupled-with-a-single-caller,-make-some-mention-of-the-caller-(though-be-careful-as-the-caller-might-change-later).">&#182;</a></h1>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">even_or_odd</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    &quot;Find whether a number x is even or odd.</span>
-<span class="sd">     &gt;&gt;&gt; even_or_odd(10)</span>
-<span class="sd">     &#39;10 is Even!&#39;</span>
-<span class="sd">     &gt;&gt;&gt; even_or_odd(5)</span>
-<span class="sd">     &#39;5 is Odd!&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Parameters</span>
+<span class="n">learning_rate</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">training_epochs</span> <span class="o">=</span> <span class="mi">25</span>
+<span class="n">batch_size</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">display_step</span> <span class="o">=</span> <span class="mi">1</span>
 
-<span class="sd">     note that whenever a float is provided, then</span>
-<span class="sd">     the closest [integer](https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#integer) is used 22 &gt;&gt;&gt; even_or_odd(3.2)</span>
-<span class="sd">     &gt;&gt;&gt; even_or_odd(3.2)</span>
-<span class="sd">    &#39;3 is Odd!&#39;</span>
-<span class="sd">     in case of negative numbers, the positive is taken</span>
-<span class="sd">     &gt;&gt;&gt; even_or_odd(-2) 28 &#39;-2 is Even!&#39;</span>
-<span class="sd">     &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">x</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-         <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> is Even!&quot;</span> <span class="o">%</span> <span class="n">x</span> 
-    <span class="k">return</span> <span class="s2">&quot;</span><span class="si">%d</span><span class="s2"> is Odd!&quot;</span> <span class="o">%</span> <span class="n">x</span>
+<span class="c1"># tf Graph Input</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">784</span><span class="p">])</span> <span class="c1"># mnist data image of shape 28*28=784</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">placeholder</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="mi">10</span><span class="p">])</span> <span class="c1"># 0-9 digits recognition =&gt; 10 classes</span>
+
+<span class="c1"># Set model weights</span>
+<span class="n">W</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">784</span><span class="p">,</span> <span class="mi">10</span><span class="p">]))</span>
+<span class="n">b</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">Variable</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">zeros</span><span class="p">([</span><span class="mi">10</span><span class="p">]))</span>
+
+<span class="c1"># Construct model</span>
+<span class="n">pred</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span> <span class="c1"># Softmax</span>
+
+<span class="c1"># Minimize error using cross entropy</span>
+<span class="n">cost</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="o">-</span><span class="n">tf</span><span class="o">.</span><span class="n">reduce_sum</span><span class="p">(</span><span class="n">y</span><span class="o">*</span><span class="n">tf</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">pred</span><span class="p">),</span> <span class="n">reduction_indices</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span class="c1"># Gradient Descent</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">GradientDescentOptimizer</span><span class="p">(</span><span class="n">learning_rate</span><span class="p">)</span><span class="o">.</span><span class="n">minimize</span><span class="p">(</span><span class="n">cost</span><span class="p">)</span>
+
+<span class="c1"># Initialize the variables (i.e. assign their default value)</span>
+<span class="n">init</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">global_variables_initializer</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -11884,160 +11845,67 @@ Namespaces are one honking great idea -- let&#39;s do more of those!
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="When-using-Python-in-interactive-mode-from-the-shell,-you-can-use-the-help()-function-to-see-the-docstring.-In-Jupyter,-you-can-see-it-like-so:">When using Python in interactive mode from the shell, you can use the help() function to see the docstring. In Jupyter, you can see it like so:<a class="anchor-link" href="#When-using-Python-in-interactive-mode-from-the-shell,-you-can-use-the-help()-function-to-see-the-docstring.-In-Jupyter,-you-can-see-it-like-so:">&#182;</a></h1>
-</div>
-</div>
-</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="o">?</span>even_or_odd
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Start training</span>
+<span class="k">with</span> <span class="n">tf</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">sess</span><span class="p">:</span>
+    <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">init</span><span class="p">)</span>
+
+    <span class="c1"># Training cycle</span>
+    <span class="k">for</span> <span class="n">epoch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">training_epochs</span><span class="p">):</span>
+        <span class="n">avg_cost</span> <span class="o">=</span> <span class="mf">0.</span>
+        <span class="n">total_batch</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">num_examples</span><span class="o">/</span><span class="n">batch_size</span><span class="p">)</span>
+        <span class="c1"># Loop over all batches</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total_batch</span><span class="p">):</span>
+            <span class="n">batch_xs</span><span class="p">,</span> <span class="n">batch_ys</span> <span class="o">=</span> <span class="n">mnist</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">next_batch</span><span class="p">(</span><span class="n">batch_size</span><span class="p">)</span>
+            <span class="c1"># Fit training using batch data</span>
+            <span class="n">_</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">sess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="n">optimizer</span><span class="p">,</span> <span class="n">cost</span><span class="p">],</span> <span class="n">feed_dict</span><span class="o">=</span><span class="p">{</span><span class="n">x</span><span class="p">:</span> <span class="n">batch_xs</span><span class="p">,</span>
+                                                          <span class="n">y</span><span class="p">:</span> <span class="n">batch_ys</span><span class="p">})</span>
+            <span class="c1"># Compute average loss</span>
+            <span class="n">avg_cost</span> <span class="o">+=</span> <span class="n">c</span> <span class="o">/</span> <span class="n">total_batch</span>
+        <span class="c1"># Display logs per epoch step</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">display_step</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span> <span class="s2">&quot;Epoch:&quot;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">%04d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">epoch</span><span class="o">+</span><span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;cost=&quot;</span><span class="p">,</span> <span class="s2">&quot;</span><span class="si">{:.9f}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">avg_cost</span><span class="p">))</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Optimization Finished!&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Test model</span>
+    <span class="n">correct_prediction</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">equal</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="n">tf</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+    <span class="c1"># Calculate accuracy for 3000 examples</span>
+    <span class="n">accuracy</span> <span class="o">=</span> <span class="n">tf</span><span class="o">.</span><span class="n">reduce_mean</span><span class="p">(</span><span class="n">tf</span><span class="o">.</span><span class="n">cast</span><span class="p">(</span><span class="n">correct_prediction</span><span class="p">,</span> <span class="n">tf</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Accuracy:&quot;</span><span class="p">,</span> <span class="n">accuracy</span><span class="o">.</span><span class="n">eval</span><span class="p">({</span><span class="n">x</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">images</span><span class="p">[:</span><span class="mi">3000</span><span class="p">],</span> <span class="n">y</span><span class="p">:</span> <span class="n">mnist</span><span class="o">.</span><span class="n">test</span><span class="o">.</span><span class="n">labels</span><span class="p">[:</span><span class="mi">3000</span><span class="p">]}))</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="False-comments-&amp;-docstrings-are-worse-than-none-at-all.-So-keep-them-up-to-date!-When-you-make-changes,-make-sure-the-comments-&amp;-docstrings-are-consistent-with-the-code,-and-don't-contradict-it.">False comments &amp; docstrings are worse than none at all. So keep them up to date! When you make changes, make sure the comments &amp; docstrings are consistent with the code, and don't contradict it.<a class="anchor-link" href="#False-comments-&amp;-docstrings-are-worse-than-none-at-all.-So-keep-them-up-to-date!-When-you-make-changes,-make-sure-the-comments-&amp;-docstrings-are-consistent-with-the-code,-and-don't-contradict-it.">&#182;</a></h1><h1 id="There's-an-entire-PEP-about-docstrings,-PEP-257,-&quot;Docstring-Conventions&quot;:">There's an entire PEP about docstrings, PEP 257, "Docstring Conventions":<a class="anchor-link" href="#There's-an-entire-PEP-about-docstrings,-PEP-257,-&quot;Docstring-Conventions&quot;:">&#182;</a></h1><h1 id="http://www.python.org/dev/peps/pep-0257/"><a href="http://www.python.org/dev/peps/pep-0257/">http://www.python.org/dev/peps/pep-0257/</a><a class="anchor-link" href="#http://www.python.org/dev/peps/pep-0257/">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Long-Lines-&amp;-Continuations">Long Lines &amp; Continuations<a class="anchor-link" href="#Long-Lines-&amp;-Continuations">&#182;</a></h1><h1 id="Keep-lines-below-80-characters-in-length.">Keep lines below 80 characters in length.<a class="anchor-link" href="#Keep-lines-below-80-characters-in-length.">&#182;</a></h1><h1 id="Use-implied-line-continuation-inside-parentheses:">Use implied line continuation inside parentheses:<a class="anchor-link" href="#Use-implied-line-continuation-inside-parentheses:">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Or-a-backslash,-although-this-is-not-as-recommended:">Or a backslash, although this is not as recommended:<a class="anchor-link" href="#Or-a-backslash,-although-this-is-not-as-recommended:">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Naming-Conventions">Naming Conventions<a class="anchor-link" href="#Naming-Conventions">&#182;</a></h1><h1 id="&quot;The-best-programmer-is-the-one-who-can-come-up-with-the-best-names&quot;">"The best programmer is the one who can come up with the best names"<a class="anchor-link" href="#&quot;The-best-programmer-is-the-one-who-can-come-up-with-the-best-names&quot;">&#182;</a></h1><h1 id="Good-names-replace-comments-and-make-code-self-documenting">Good names replace comments and make code self-documenting<a class="anchor-link" href="#Good-names-replace-comments-and-make-code-self-documenting">&#182;</a></h1><h1 id="variables,-functions,-files,-etc.-should-consist-of-complete-words.-Try-to-avoid-abbreviations.">variables, functions, files, etc. should consist of complete words. Try to avoid abbreviations.<a class="anchor-link" href="#variables,-functions,-files,-etc.-should-consist-of-complete-words.-Try-to-avoid-abbreviations.">&#182;</a></h1><h1 id="Use-this-principle-in-your-coding:-frequent=short;-infrequent=long">Use this principle in your coding: frequent=short; infrequent=long<a class="anchor-link" href="#Use-this-principle-in-your-coding:-frequent=short;-infrequent=long">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># bad code</span>
-<span class="n">a</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">a</span> <span class="o">=</span> <span class="s1">&#39;a string&#39;</span>
-<span class="k">def</span> <span class="nf">a</span><span class="p">():</span>
-    <span class="k">pass</span>  <span class="c1"># Do something</span>
+<div class="output_wrapper">
+<div class="output">
 
-<span class="c1"># good code</span>
-<span class="n">count</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;a string&#39;</span>
-<span class="k">def</span> <span class="nf">func</span><span class="p">():</span>
-    <span class="k">pass</span>  <span class="c1"># Do something</span>
-</pre></div>
 
-</div>
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Epoch: 0001 cost= 1.183897932
+Epoch: 0002 cost= 0.665177088
+Epoch: 0003 cost= 0.552787534
+Epoch: 0004 cost= 0.498605378
+Epoch: 0005 cost= 0.465475004
+Epoch: 0006 cost= 0.442529724
+</pre>
 </div>
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Because-of-dynamic-typing,-it-is-better-to-use-different-names-even-for-things-that-are-related,-when-they-have-a-different-type:">Because of dynamic typing, it is better to use different names even for things that are related, when they have a different type:<a class="anchor-link" href="#Because-of-dynamic-typing,-it-is-better-to-use-different-names-even-for-things-that-are-related,-when-they-have-a-different-type:">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this is bad</span>
-<span class="n">items</span> <span class="o">=</span> <span class="s1">&#39;a b c d&#39;</span>  <span class="c1"># This is a string...</span>
-<span class="n">items</span> <span class="o">=</span> <span class="n">items</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">)</span>  <span class="c1"># ...becoming a list</span>
-<span class="n">items</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">items</span><span class="p">)</span>  <span class="c1"># ...and then a set</span>
-</pre></div>
-
-</div>
-</div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="There-is-no-efficiency-gain-when-reusing-names:-the-assignments-will-have-to-create-new-objects-anyway.-However,-when-the-complexity-grows-and-each-assignment-is-separated-by-other-lines-of-code,-including-&#8216;if&#8217;-branches-and-loops,-it-becomes-harder-to-ascertain-what-a-given-variable&#8217;s-type-is.">There is no efficiency gain when reusing names: the assignments will have to create new objects anyway. However, when the complexity grows and each assignment is separated by other lines of code, including &#8216;if&#8217; branches and loops, it becomes harder to ascertain what a given variable&#8217;s <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#type">type</a> is.<a class="anchor-link" href="#There-is-no-efficiency-gain-when-reusing-names:-the-assignments-will-have-to-create-new-objects-anyway.-However,-when-the-complexity-grows-and-each-assignment-is-separated-by-other-lines-of-code,-including-&#8216;if&#8217;-branches-and-loops,-it-becomes-harder-to-ascertain-what-a-given-variable&#8217;s-type-is.">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Here-are-some-more-style-rules-from-PEP:">Here are some more style rules from PEP:<a class="anchor-link" href="#Here-are-some-more-style-rules-from-PEP:">&#182;</a></h1><h1 id="joined_lower-for-functions,-methods,-attributes">joined_lower for functions, methods, attributes<a class="anchor-link" href="#joined_lower-for-functions,-methods,-attributes">&#182;</a></h1><h1 id="joined_lower-or-ALL_CAPS-for-constants">joined_lower or ALL_CAPS for constants<a class="anchor-link" href="#joined_lower-or-ALL_CAPS-for-constants">&#182;</a></h1><h1 id="StudlyCaps-for-classes">StudlyCaps for classes<a class="anchor-link" href="#StudlyCaps-for-classes">&#182;</a></h1><h1 id="camelCase-only-to-conform-to-pre-existing-conventions">camelCase only to conform to pre-existing conventions<a class="anchor-link" href="#camelCase-only-to-conform-to-pre-existing-conventions">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Practice-Defensive-Programming">Practice Defensive Programming<a class="anchor-link" href="#Practice-Defensive-Programming">&#182;</a></h1><h1 id="Use-assert-to-check-internal-correctness.">Use <code>assert</code> to check internal correctness.<a class="anchor-link" href="#Use-assert-to-check-internal-correctness.">&#182;</a></h1><h1 id="The-assert-statement-checks-whether-a-condition-is-true.">The <code>assert</code> statement checks whether a condition is true.<a class="anchor-link" href="#The-assert-statement-checks-whether-a-condition-is-true.">&#182;</a></h1><h1 id="&quot;This-must-be-true-here-or-something-has-gone-wrong.&quot;">"This must be true here or something has gone wrong."<a class="anchor-link" href="#&quot;This-must-be-true-here-or-something-has-gone-wrong.&quot;">&#182;</a></h1><h1 id="Like-if,-but-signals-an-error-instead-of-controlling-a-block-of-code.">Like <code>if</code>, but signals an error instead of controlling a block of code.<a class="anchor-link" href="#Like-if,-but-signals-an-error-instead-of-controlling-a-block-of-code.">&#182;</a></h1><h1 id="By-default,-Python-stops-the-program-and-displays-the-error,">By default, Python stops the program and displays the error,<a class="anchor-link" href="#By-default,-Python-stops-the-program-and-displays-the-error,">&#182;</a></h1><h1 id="along-with-a-traceback-of-the-call-stack">along with a <em>traceback</em> of the call stack<a class="anchor-link" href="#along-with-a-traceback-of-the-call-stack">&#182;</a></h1><h1 id="to-help-you-figure-out-what-went-wrong.">to help you figure out what went wrong.<a class="anchor-link" href="#to-help-you-figure-out-what-went-wrong.">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calc_GDP</span><span class="p">(</span><span class="n">income</span><span class="p">,</span> <span class="n">population</span><span class="p">):</span>
-    <span class="k">assert</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="p">,</span> <span class="s1">&#39;Population cannot be 0 or negative&#39;</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">income</span><span class="o">/</span><span class="n">population</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Don't-reinvent-the-wheel">Don't reinvent the wheel<a class="anchor-link" href="#Don't-reinvent-the-wheel">&#182;</a></h1><h1 id="Before-writing-any-code,">Before writing any code,<a class="anchor-link" href="#Before-writing-any-code,">&#182;</a></h1><h1 id="Check-Python's-standard-library.">Check Python's standard library.<a class="anchor-link" href="#Check-Python's-standard-library.">&#182;</a></h1><h1 id="Check-the-Python-Package-Index-(the-&quot;Cheese-Shop&quot;):-http://cheeseshop.python.org/pypi">Check the Python Package Index (the "Cheese Shop"): <a href="http://cheeseshop.python.org/pypi">http://cheeseshop.python.org/pypi</a><a class="anchor-link" href="#Check-the-Python-Package-Index-(the-&quot;Cheese-Shop&quot;):-http://cheeseshop.python.org/pypi">&#182;</a></h1><h1 id="Search-the-web.-Google-is-your-friend.">Search the web. Google is your friend.<a class="anchor-link" href="#Search-the-web.-Google-is-your-friend.">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Learn-more:">Learn more:<a class="anchor-link" href="#Learn-more:">&#182;</a></h1><h1 id="&quot;Code-like-a-Pythonist&quot;-http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html)">"Code like a Pythonist" <a href="http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html">http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html</a>)<a class="anchor-link" href="#&quot;Code-like-a-Pythonist&quot;-http://python.net/~goodger/projects/pycon/2007/idiomatic/handout.html)">&#182;</a></h1><h1 id="&quot;Pep-Styleguide&quot;,-https://www.python.org/dev/peps/pep-0008/)">"Pep Styleguide", <a href="https://www.python.org/dev/peps/pep-0008/">https://www.python.org/dev/peps/pep-0008/</a>)<a class="anchor-link" href="#&quot;Pep-Styleguide&quot;,-https://www.python.org/dev/peps/pep-0008/)">&#182;</a></h1><h1 id="&quot;Python-Objects&quot;,-Fredrik-Lundh,-http://www.effbot.org/zone/python-objects.htm">"Python Objects", Fredrik Lundh, <a href="http://www.effbot.org/zone/python-objects.htm">http://www.effbot.org/zone/python-objects.htm</a><a class="anchor-link" href="#&quot;Python-Objects&quot;,-Fredrik-Lundh,-http://www.effbot.org/zone/python-objects.htm">&#182;</a></h1><h1 id="&quot;Python-track:-python-idioms&quot;,-http://www.cs.caltech.edu/courses/cs11/material/python/misc/python_idioms.html">"Python track: python idioms", <a href="http://www.cs.caltech.edu/courses/cs11/material/python/misc/python_idioms.html">http://www.cs.caltech.edu/courses/cs11/material/python/misc/python_idioms.html</a><a class="anchor-link" href="#&quot;Python-track:-python-idioms&quot;,-http://www.cs.caltech.edu/courses/cs11/material/python/misc/python_idioms.html">&#182;</a></h1><h1 id="&quot;Be-Pythonic&quot;,-Shalabh-Chaturvedi,-http://www.cafepy.com/article/be_pythonic/-(PDF-version)">"Be Pythonic", Shalabh Chaturvedi, <a href="http://www.cafepy.com/article/be_pythonic/">http://www.cafepy.com/article/be_pythonic/</a> (PDF version)<a class="anchor-link" href="#&quot;Be-Pythonic&quot;,-Shalabh-Chaturvedi,-http://www.cafepy.com/article/be_pythonic/-(PDF-version)">&#182;</a></h1><h1 id="&quot;Python-Idioms&quot;,-http://www.gungfu.de/facts/wiki/Main/PythonIdioms">"Python Idioms", <a href="http://www.gungfu.de/facts/wiki/Main/PythonIdioms">http://www.gungfu.de/facts/wiki/Main/PythonIdioms</a><a class="anchor-link" href="#&quot;Python-Idioms&quot;,-http://www.gungfu.de/facts/wiki/Main/PythonIdioms">&#182;</a></h1><h1 id="&quot;The-Hitchhiker&#8217;s-Guide-to-Python&quot;,-http://docs.python-guide.org/en/latest/">"The Hitchhiker&#8217;s Guide to Python", <a href="http://docs.python-guide.org/en/latest/">http://docs.python-guide.org/en/latest/</a><a class="anchor-link" href="#&quot;The-Hitchhiker&#8217;s-Guide-to-Python&quot;,-http://docs.python-guide.org/en/latest/">&#182;</a></h1><h1 id="&quot;What-is-Pythonic?&quot;,-http://blog.startifact.com/posts/older/what-is-pythonic.html">"What is Pythonic?", <a href="http://blog.startifact.com/posts/older/what-is-pythonic.html">http://blog.startifact.com/posts/older/what-is-pythonic.html</a><a class="anchor-link" href="#&quot;What-is-Pythonic?&quot;,-http://blog.startifact.com/posts/older/what-is-pythonic.html">&#182;</a></h1>
-</div>
-</div>
 </div>
     </div>
   </div>

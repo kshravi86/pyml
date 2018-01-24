@@ -11768,6 +11768,19 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
+
+  <div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+	<div class="topcoat-navigation-bar__item left quarter">
+	  <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
+		<span class="topcoat-icon home-icon"></span>
+	  </a>
+	</div>
+	<div class="topcoat-navigation-bar__item center half">
+	  <h1 class="topcoat-navigation-bar__title">Scope</h1>
+	</div>
+  </div>
+  
+  
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11775,18 +11788,40 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Scope">Scope<a class="anchor-link" href="#Scope">&#182;</a></h1>
+<h1 id="Functions-and-Variable-Scope">Functions and Variable Scope<a class="anchor-link" href="#Functions-and-Variable-Scope">&#182;</a></h1><p><strong>Time</strong></p>
+<ul>
+<li>teaching: 10 min</li>
+<li>exercises: 10 min</li>
+</ul>
+<p><strong>Questions</strong>:</p>
+<ul>
+<li>"How do function calls actually work?"</li>
+</ul>
+<p><strong>Learning Objectives</strong>:</p>
+<ul>
+<li>"Identify local and global variables."</li>
+<li>"Identify parameters as local variables."</li>
+<li>"Identify default arguments"</li>
+</ul>
+<hr>
+<h2 id="Functions-are-an-Alternative-Reality">Functions are an Alternative Reality<a class="anchor-link" href="#Functions-are-an-Alternative-Reality">&#182;</a></h2><p>When you call a function, a temporary workspace is set up that will be destroyed when the function returns by:</p>
+<ol>
+<li>getting to the end, or </li>
+<li>explicity by a <code>return</code> statement</li>
+</ol>
+<p>So think of functions as an alternative reality, whereby variables are created and destroyed in a function call.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">decrement</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
-    <span class="n">decremented_num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">-</span> <span class="mi">1</span>
-    <span class="k">return</span><span class="p">(</span><span class="n">decremented_num</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">increment</span><span class="p">(</span><span class="n">num</span><span class="p">):</span>
+    <span class="n">incremented_num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">return</span><span class="p">(</span><span class="n">incremented_num</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11796,33 +11831,13 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">decrement</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">increment</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[2]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>8</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -11831,13 +11846,14 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-this-temporary-environment,-the-variables-in-the-parameter-list-(in-parentheses-in-the-definition)-are-set-to-the-values-passed-in.-For-example,-in-simple_function(3),-x-gets-set-to-3.-Afterwards,-you-can't-access-these-variables!">In this temporary environment, the variables in the <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#parameter">parameter</a> list (in parentheses in the definition) are set to the values passed in. For example, in <code>simple_function(3)</code>, <code>x</code> gets set to <code>3</code>. Afterwards, you can't access these variables!<a class="anchor-link" href="#In-this-temporary-environment,-the-variables-in-the-parameter-list-(in-parentheses-in-the-definition)-are-set-to-the-values-passed-in.-For-example,-in-simple_function(3),-x-gets-set-to-3.-Afterwards,-you-can't-access-these-variables!">&#182;</a></h1>
+<p>In this temporary environment, the variables in the <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#parameter">parameter</a> list (in parentheses in the definition) are set to the values passed in. For example, in <code>simple_function(3)</code>, <code>x</code> gets set to <code>3</code>. Afterwards, you can't access these variables!</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># temp is no longer defined because simple_function returned (i.e., finished)!</span>
@@ -11848,65 +11864,17 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-3-315511ec868e&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># temp is no longer defined because simple_function returned (i.e., finished)!</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>num<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;num&#39; is not defined</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># and neither is value!</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">decremented_num</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">incremented_num</span><span class="p">)</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-6-7cd1da9ddeb7&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> <span class="ansi-red-fg"># and neither is value!</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span>decremented_num<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;decremented_num&#39; is not defined</pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -11915,13 +11883,14 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="The-scope-of-a-variable-is-the-part-of-a-program-that-can-'see'-that-variable.">The scope of a variable is the part of a program that can 'see' that variable.<a class="anchor-link" href="#The-scope-of-a-variable-is-the-part-of-a-program-that-can-'see'-that-variable.">&#182;</a></h1><h1 id="Things-can-get-confusing-when-you-use-the-same-names-for-variables-both-inside-and-outside-a-function.-Check-out-this-example:">Things can get confusing when you use the same names for variables both inside and outside a function. Check out this example:<a class="anchor-link" href="#Things-can-get-confusing-when-you-use-the-same-names-for-variables-both-inside-and-outside-a-function.-Check-out-this-example:">&#182;</a></h1>
+<h2 id="The-scope-of-a-variable-is-the-part-of-a-program-that-can-'see'-that-variable.">The scope of a variable is the part of a program that can 'see' that variable.<a class="anchor-link" href="#The-scope-of-a-variable-is-the-part-of-a-program-that-can-'see'-that-variable.">&#182;</a></h2><p>Things can get confusing when you use the same names for variables both inside and outside a function. Check out this example:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pressure</span> <span class="o">=</span> <span class="mf">103.9</span>
@@ -11938,7 +11907,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;pressure is&quot;</span><span class="p">,</span> <span class="n">pressure</span><span class="p">)</span>
@@ -11949,47 +11918,26 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>pressure is 103.90000000000001
-</pre>
-</div>
-</div>
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                  Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-8-208736b17428&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span><span class="ansi-blue-fg">()</span>
-<span class="ansi-green-intense-fg ansi-bold">      1</span> print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;pressure is&#34;</span><span class="ansi-blue-fg">,</span> pressure<span class="ansi-blue-fg">)</span>
-<span class="ansi-green-fg">----&gt; 2</span><span class="ansi-red-fg"> </span>print<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;temperature is&#34;</span><span class="ansi-blue-fg">,</span> temperature<span class="ansi-blue-fg">)</span>
-
-<span class="ansi-red-fg">NameError</span>: name &#39;temperature&#39; is not defined</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="-&#160;-pressure-is-a-global-variable*."><em> &#160; <code>pressure</code> is a </em>global variable*.<a class="anchor-link" href="#-&#160;-pressure-is-a-global-variable*.">&#182;</a></h1><h1 id="*--Defined-outside-any-particular-function.">*  Defined outside any particular function.<a class="anchor-link" href="#*--Defined-outside-any-particular-function.">&#182;</a></h1><h1 id="*-Visible-everywhere.">* Visible everywhere.<a class="anchor-link" href="#*-Visible-everywhere.">&#182;</a></h1><h1 id="-&#160;-t-and-temperature-are-local-variables*-in-adjust."><em> &#160; <code>t</code> and <code>temperature</code> are </em>local variables* in <code>adjust</code>.<a class="anchor-link" href="#-&#160;-t-and-temperature-are-local-variables*-in-adjust.">&#182;</a></h1><h1 id="*-Defined-in-the-function.">* Defined in the function.<a class="anchor-link" href="#*-Defined-in-the-function.">&#182;</a></h1><h1 id="*-&#160;-Not-visible-in-the-main-program.">* &#160; Not visible in the main program.<a class="anchor-link" href="#*-&#160;-Not-visible-in-the-main-program.">&#182;</a></h1><h1 id="*-Remember:-a-function-parameter-is-a-variable">* Remember: a function parameter is a variable<a class="anchor-link" href="#*-Remember:-a-function-parameter-is-a-variable">&#182;</a></h1><h1 id="that-is-automatically-assigned-a-value-when-the-function-is-called.">that is automatically assigned a value when the function is called.<a class="anchor-link" href="#that-is-automatically-assigned-a-value-when-the-function-is-called.">&#182;</a></h1>
+<ul>
+<li><code>pressure</code> is a <em>global variable</em>.<ul>
+<li>Defined outside any particular function.</li>
+<li>Visible everywhere.</li>
+</ul>
+</li>
+<li><code>t</code> and <code>temperature</code> are <em>local variables</em> in <code>adjust</code>.<ul>
+<li>Defined in the function.</li>
+<li>Not visible in the main program.</li>
+<li>Remember: a function parameter is a variable
+that is automatically assigned a value when the function is called.</li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
@@ -11997,16 +11945,17 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Gotcha!">Gotcha!<a class="anchor-link" href="#Gotcha!">&#182;</a></h1><h1 id="But-once-we-start-using-mutable-data-types-like-lists,-things-become-tricky:">But once we start using <strong>mutable</strong> data types like lists, things become tricky:<a class="anchor-link" href="#But-once-we-start-using-mutable-data-types-like-lists,-things-become-tricky:">&#182;</a></h1>
+<h2 id="Gotcha!">Gotcha!<a class="anchor-link" href="#Gotcha!">&#182;</a></h2><p>But once we start using <strong>mutable</strong> data types like lists, things become tricky:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">18</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">54</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>
 
 <span class="k">def</span> <span class="nf">add_3</span><span class="p">(</span><span class="n">val</span><span class="p">):</span>
     <span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">3</span>
@@ -12020,30 +11969,10 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[10]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[21, 27, 36, 54]</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># So the list x refers to *is* modified</span>
@@ -12054,30 +11983,14 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>[21, 27, 36, 54]
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="So,-the-issue-here-is-our-function-is-no-longer-changing-val-so-that-it-points-at-a-new-&quot;thing.&quot;-Instead,-we're-taking-the-list-that-val-points-to-(the-same-list-x-points-to)-and-modifying-it.">So, the issue here is our function is no longer changing <code>val</code> so that it points at a new "thing." Instead, we're taking the list that <code>val</code> points to (the same list <code>x</code> points to) and modifying it.<a class="anchor-link" href="#So,-the-issue-here-is-our-function-is-no-longer-changing-val-so-that-it-points-at-a-new-&quot;thing.&quot;-Instead,-we're-taking-the-list-that-val-points-to-(the-same-list-x-points-to)-and-modifying-it.">&#182;</a></h1><h1 id="Tricky,-but-important!">Tricky, but important!<a class="anchor-link" href="#Tricky,-but-important!">&#182;</a></h1>
+<p>So, the issue here is our function is no longer changing <code>val</code> so that it points at a new "thing." Instead, we're taking the list that <code>val</code> points to (the same list <code>x</code> points to) and modifying it.</p>
+<p>Tricky, but important!</p>
+
 </div>
 </div>
 </div>
@@ -12085,13 +11998,14 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Arguments-can-have-defaults">Arguments can have defaults<a class="anchor-link" href="#Arguments-can-have-defaults">&#182;</a></h1><h1 id="Functions-do-not-need-to-take-input.">Functions do not need to take input.<a class="anchor-link" href="#Functions-do-not-need-to-take-input.">&#182;</a></h1>
+<h2 id="Arguments-can-have-defaults">Arguments can have defaults<a class="anchor-link" href="#Arguments-can-have-defaults">&#182;</a></h2><p>Functions do not need to take input.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">print_hello</span><span class="p">():</span>
@@ -12105,7 +12019,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">print_hello</span><span class="p">()</span>
@@ -12115,36 +12029,20 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>hello
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="But-if-a-function-takes-input,-arguments-can-be-passed-to-functions-in-different-ways.">But if a function takes input, arguments can be passed to functions in different ways.<a class="anchor-link" href="#But-if-a-function-takes-input,-arguments-can-be-passed-to-functions-in-different-ways.">&#182;</a></h1><h1 id="1)-Positional-arguments-are-mandatory-and-have-no-default-values.">1) <strong>Positional arguments</strong> are mandatory and have no default values.<a class="anchor-link" href="#1)-Positional-arguments-are-mandatory-and-have-no-default-values.">&#182;</a></h1>
+<p>But if a function takes input, arguments can be passed to functions in different ways.</p>
+<p>1) <strong>Positional arguments</strong> are mandatory and have no default values.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">## and add a doc [string](https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#string) so we can see what it does</span>
@@ -12161,36 +12059,19 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello World
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="In-the-case-above,-it-is-possible-to-use-argument-names-when-calling-the-functions-and,-doing-so,-it-is-possible-to-switch-the-order-of-arguments,-calling-for-instance">In the case above, it is possible to use <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#argument">argument</a> names when calling the functions and, doing so, it is possible to switch the order of arguments, calling for instance<a class="anchor-link" href="#In-the-case-above,-it-is-possible-to-use-argument-names-when-calling-the-functions-and,-doing-so,-it-is-possible-to-switch-the-order-of-arguments,-calling-for-instance">&#182;</a></h1>
+<p>In the case above, it is possible to use <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#argument">argument</a> names when calling the functions and, doing so, it is possible to switch the order of arguments, calling for instance</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">send</span><span class="p">(</span><span class="n">recipient</span><span class="o">=</span><span class="s1">&#39;World&#39;</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s1">&#39;Hello&#39;</span><span class="p">)</span>
@@ -12200,30 +12081,13 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello World
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="But-this-reduces-readability-and-is-unnecessarily-verbose,-compared-to-the-more-straightforward-calls-to-send('Hello',-'World')">But this reduces readability and is unnecessarily verbose, compared to the more straightforward calls to <code>send('Hello', 'World')</code><a class="anchor-link" href="#But-this-reduces-readability-and-is-unnecessarily-verbose,-compared-to-the-more-straightforward-calls-to-send('Hello',-'World')">&#182;</a></h1>
+<p>But this reduces readability and is unnecessarily verbose, compared to the more straightforward calls to <code>send('Hello', 'World')</code></p>
+
 </div>
 </div>
 </div>
@@ -12231,13 +12095,14 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="2)-Keyword-arguments-are-not-mandatory-and-have-default-values.-They-are-often-used-for-optional-parameters-sent-to-the-function.">2) <strong>Keyword arguments</strong> are not mandatory and have default values. They are often used for optional parameters sent to the function.<a class="anchor-link" href="#2)-Keyword-arguments-are-not-mandatory-and-have-default-values.-They-are-often-used-for-optional-parameters-sent-to-the-function.">&#182;</a></h1>
+<p>2) <strong>Keyword arguments</strong> are not mandatory and have default values. They are often used for optional parameters sent to the function.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">send</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">recipient</span><span class="p">,</span> <span class="n">cc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bcc</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
@@ -12254,38 +12119,19 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello World
-CC:  None
-BCC:  None
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Here-cc-and-bcc-are-optional,-and-evaluate-to-None-when-they-are-not-passed-another-value.">Here cc and bcc are optional, and evaluate to <code>None</code> when they are not passed another value.<a class="anchor-link" href="#Here-cc-and-bcc-are-optional,-and-evaluate-to-None-when-they-are-not-passed-another-value.">&#182;</a></h1>
+<p>Here cc and bcc are optional, and evaluate to <code>None</code> when they are not passed another value.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">send</span><span class="p">(</span><span class="s1">&#39;Hello&#39;</span><span class="p">,</span><span class="s1">&#39;World&#39;</span><span class="p">,</span> <span class="s2">&quot;Rochelle&quot;</span><span class="p">,</span> <span class="s2">&quot;Laura&quot;</span><span class="p">)</span>
@@ -12295,26 +12141,39 @@ BCC:  None
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Hello World
-CC:  Rochelle
-BCC:  Laura
-</pre>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-1:">Challenge 1:<a class="anchor-link" href="#Challenge-1:">&#182;</a></h2><p>Write a function (with your neighbor!), which takes multiple arguments and returns a value. Be creative, and think about what may be useful to you and your research (<em>What is something you may need to do to your data many times, but the parameters change each time depending on the input?</em>). Use your resources to solve problems we haven't encountered yet!</p>
 
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Functions-Checklist">Functions Checklist<a class="anchor-link" href="#Functions-Checklist">&#182;</a></h2><p><strong>Defining functions checklist</strong></p>
+<ol>
+<li>Did you start your function definition with def?</li>
+<li>Does your function name have only characters and <code>_</code> (underscore) characters?</li>
+<li>Did you put an open parenthesis <code>(</code> right after the function name?</li>
+<li>Did you put your arguments after the parenthesis <code>(</code> separated by commas?</li>
+<li>Did you make each argument unique (meaning no duplicated names)?</li>
+<li>Did you put a close parenthesis and a colon <code>):</code> after the arguments?</li>
+<li>Did you indent all lines of code you want in the function four spaces? No more, no less.</li>
+<li>Did you "end" your function by going back to writing with no indent (dedenting we call it)?</li>
+</ol>
+<p><strong>Calling functions checklist</strong></p>
+<ol>
+<li>Did you call/use/run this function by typing its name?</li>
+<li>Did you put the values you want into the parenthesis separated by commas?</li>
+</ol>
 
+</div>
+</div>
 </div>
     </div>
   </div>

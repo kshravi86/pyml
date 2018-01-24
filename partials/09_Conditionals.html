@@ -11768,6 +11768,18 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
+
+  <div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+	<div class="topcoat-navigation-bar__item left quarter">
+	  <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
+		<span class="topcoat-icon home-icon"></span>
+	  </a>
+	</div>
+	<div class="topcoat-navigation-bar__item center half">
+	  <h1 class="topcoat-navigation-bar__title">Conditionals</h1>
+	</div>
+  </div>
+  
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11775,13 +11787,51 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Use-if-statements-to-control-whether-or-not-a-block-of-code-is-executed.">Use <code>if</code> statements to control whether or not a block of code is executed.<a class="anchor-link" href="#Use-if-statements-to-control-whether-or-not-a-block-of-code-is-executed.">&#182;</a></h1><h1 id="An-if-statement-(more-properly-called-a-conditional-statement)">An <code>if</code> statement (more properly called a <em>conditional</em> statement)<a class="anchor-link" href="#An-if-statement-(more-properly-called-a-conditional-statement)">&#182;</a></h1><h1 id="controls-whether-some-block-of-code-is-executed-or-not.">controls whether some block of code is executed or not.<a class="anchor-link" href="#controls-whether-some-block-of-code-is-executed-or-not.">&#182;</a></h1><h1 id="Structure-is-similar-to-a-for-statement:">Structure is similar to a <code>for</code> statement:<a class="anchor-link" href="#Structure-is-similar-to-a-for-statement:">&#182;</a></h1><h1 id="First-line-opens-with-if-and-ends-with-a-colon">First line opens with <code>if</code> and ends with a colon<a class="anchor-link" href="#First-line-opens-with-if-and-ends-with-a-colon">&#182;</a></h1><h1 id="Body-containing-one-or-more-statements-is-indented-(usually-by-4-spaces)">Body containing one or more statements is indented (usually by 4 spaces)<a class="anchor-link" href="#Body-containing-one-or-more-statements-is-indented-(usually-by-4-spaces)">&#182;</a></h1>
+<h1 id="Conditionals">Conditionals<a class="anchor-link" href="#Conditionals">&#182;</a></h1><p><strong>Time</strong></p>
+<ul>
+<li>Teaching: 10 min</li>
+<li>Exercises: 15 min</li>
+</ul>
+<p><strong>Questions</strong>:</p>
+<ul>
+<li>"How can programs do different things for different data?"</li>
+</ul>
+<p><strong>Learning Objectives</strong>:</p>
+<ul>
+<li>"Correctly write programs that use if and else statements and simple <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#boolean-operators">Boolean expressions</a> (without logical operators)."</li>
+<li>"Trace the execution of unnested conditionals and conditionals inside loops."
+keypoints:</li>
+<li>"Use <code>if</code> statements to control whether or not a block of code is executed."</li>
+<li>"Conditionals are often used inside loops."</li>
+<li>"Use <code>else</code> to execute a block of code when an <code>if</code> condition is <em>not</em> true."</li>
+<li>"Use <code>elif</code> to specify additional tests."</li>
+<li>"Conditions are tested once, in order."</li>
+</ul>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Use-if-statements-to-control-whether-or-not-a-block-of-code-is-executed.">Use <code>if</code> statements to control whether or not a block of code is executed.<a class="anchor-link" href="#Use-if-statements-to-control-whether-or-not-a-block-of-code-is-executed.">&#182;</a></h2><ul>
+<li>An <code>if</code> statement (more properly called a <em>conditional</em> statement)
+controls whether some block of code is executed or not.</li>
+<li>Structure is similar to a <code>for</code> statement:<ul>
+<li>First line opens with <code>if</code> and ends with a colon</li>
+<li>Body containing one or more statements is indented (usually by 4 spaces)</li>
+</ul>
+</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">age</span> <span class="o">=</span> <span class="mi">97</span>
@@ -11797,36 +11847,22 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>97 is old
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="##-Conditionals-are-often-used-inside-loops.">## Conditionals are often used inside loops.<a class="anchor-link" href="###-Conditionals-are-often-used-inside-loops.">&#182;</a></h1><h1 id="Not-much-point-using-a-conditional-when-we-know-the-value-(as-above).">Not much point using a conditional when we know the value (as above).<a class="anchor-link" href="#Not-much-point-using-a-conditional-when-we-know-the-value-(as-above).">&#182;</a></h1><h1 id="But-useful-when-we-have-a-collection-to-process.">But useful when we have a collection to process.<a class="anchor-link" href="#But-useful-when-we-have-a-collection-to-process.">&#182;</a></h1>
+<h2 id="Conditionals-are-often-used-inside-loops.">Conditionals are often used inside loops.<a class="anchor-link" href="#Conditionals-are-often-used-inside-loops.">&#182;</a></h2><ul>
+<li>Not much point using a conditional when we know the value (as above).</li>
+<li>But useful when we have a collection to process.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">97</span><span class="p">]</span>
@@ -11839,37 +11875,22 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>88 is old
-97 is old
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Use-else-to-execute-a-block-of-code-when-an-if-condition-is-not-true.">Use <code>else</code> to execute a block of code when an <code>if</code> condition is <em>not</em> true.<a class="anchor-link" href="#Use-else-to-execute-a-block-of-code-when-an-if-condition-is-not-true.">&#182;</a></h1><h1 id="else-is-always-attached-to-if."><code>else</code> is always attached to <code>if</code>.<a class="anchor-link" href="#else-is-always-attached-to-if.">&#182;</a></h1><h1 id="Allows-us-to-specify-an-alternative-to-execute-when-the-if-branch-isn't-taken.">Allows us to specify an alternative to execute when the <code>if</code> <em>branch</em> isn't taken.<a class="anchor-link" href="#Allows-us-to-specify-an-alternative-to-execute-when-the-if-branch-isn't-taken.">&#182;</a></h1>
+<h2 id="Use-else-to-execute-a-block-of-code-when-an-if-condition-is-not-true.">Use <code>else</code> to execute a block of code when an <code>if</code> condition is <em>not</em> true.<a class="anchor-link" href="#Use-else-to-execute-a-block-of-code-when-an-if-condition-is-not-true.">&#182;</a></h2><ul>
+<li><code>else</code> is always attached to <code>if</code>.</li>
+<li>Allows us to specify an alternative to execute when the <code>if</code> <em>branch</em> isn't taken.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">97</span><span class="p">]</span>
@@ -11884,40 +11905,24 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>20 is not old
-43 is not old
-12 is not old
-88 is old
-97 is old
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Use-elif-to-specify-additional-tests.">Use <code>elif</code> to specify additional tests.<a class="anchor-link" href="#Use-elif-to-specify-additional-tests.">&#182;</a></h1><h1 id="May-want-to-provide-several-alternative-choices,-each-with-its-own-test.">May want to provide several alternative choices, each with its own test.<a class="anchor-link" href="#May-want-to-provide-several-alternative-choices,-each-with-its-own-test.">&#182;</a></h1><h1 id="Use-elif-(short-for-&quot;else-if&quot;)-and-a-condition-to-specify-these.">Use <code>elif</code> (short for "else if") and a condition to specify these.<a class="anchor-link" href="#Use-elif-(short-for-&quot;else-if&quot;)-and-a-condition-to-specify-these.">&#182;</a></h1><h1 id="Always-associated-with-an-if.">Always associated with an <code>if</code>.<a class="anchor-link" href="#Always-associated-with-an-if.">&#182;</a></h1><h1 id="Must-come-before-the-else-(which-is-the-&quot;catch-all&quot;).">Must come before the <code>else</code> (which is the "catch all").<a class="anchor-link" href="#Must-come-before-the-else-(which-is-the-&quot;catch-all&quot;).">&#182;</a></h1>
+<h2 id="Use-elif-to-specify-additional-tests.">Use <code>elif</code> to specify additional tests.<a class="anchor-link" href="#Use-elif-to-specify-additional-tests.">&#182;</a></h2><ul>
+<li>May want to provide several alternative choices, each with its own test.</li>
+<li>Use <code>elif</code> (short for "else if") and a condition to specify these.</li>
+<li>Always associated with an <code>if</code>.</li>
+<li>Must come before the <code>else</code> (which is the "catch all").</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">97</span><span class="p">]</span>
@@ -11934,40 +11939,20 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>20 is young
-43 is middle-aged
-12 is young
-88 is old
-97 is old
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Use-boolean-operators-to-make-complex-statements">Use <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#boolean-operators">boolean operators</a> to make complex statements<a class="anchor-link" href="#Use-boolean-operators-to-make-complex-statements">&#182;</a></h1><h1 id="I-can-also-generate-more-complex-conditional-statements-with-boolean-operators">I can also generate more complex conditional statements with boolean operators<a class="anchor-link" href="#I-can-also-generate-more-complex-conditional-statements-with-boolean-operators">&#182;</a></h1><h1 id="like-and-and-or,-and-use-comparators-like-&quot;&lt;&quot;,-&quot;&gt;&quot;">like <strong>and</strong> and <strong>or</strong>, and use comparators like "&lt;", "&gt;"<a class="anchor-link" href="#like-and-and-or,-and-use-comparators-like-&quot;&lt;&quot;,-&quot;&gt;&quot;">&#182;</a></h1>
+<h1 id="Use-boolean-operators-to-make-complex-statements">Use <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#boolean-operators">boolean operators</a> to make complex statements<a class="anchor-link" href="#Use-boolean-operators-to-make-complex-statements">&#182;</a></h1><p>I can also generate more complex conditional statements with boolean operators
+like <strong>and</strong> and <strong>or</strong>, and use comparators like "&lt;", "&gt;"</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">97</span><span class="p">]</span>
@@ -11982,40 +11967,19 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>20 is in the labor force
-43 is in the labor force
-12 is outside the labor force
-88 is outside the labor force
-97 is outside the labor force
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="If-we-want-the-condition-to-test-whether-two-things-are-the-same,-then-we-use-two-equals-signs:-==">If we want the condition to test whether two things are the same, then we use two equals signs: <code>==</code><a class="anchor-link" href="#If-we-want-the-condition-to-test-whether-two-things-are-the-same,-then-we-use-two-equals-signs:-==">&#182;</a></h1>
+<p>If we want the condition to test whether two things are the same, then we use two equals signs: <code>==</code></p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;bears&#39;</span><span class="p">,</span> <span class="s1">&#39;beets&#39;</span><span class="p">,</span> <span class="s1">&#39;battlestar galacticta&#39;</span><span class="p">,</span> <span class="s1">&#39;skateboarding&#39;</span><span class="p">,</span> <span class="s1">&#39;peanut parfait&#39;</span><span class="p">]</span>
@@ -12029,38 +11993,19 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>bears starts with &#34;b&#34;!
-beets starts with &#34;b&#34;!
-battlestar galacticta starts with &#34;b&#34;!
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="If-we-want-our-block-of-code-to-only-run-if-two-things-are-not-the-same,-then-we-use-an-exclamation-point:-!=">If we want our block of code to only run if two things are <strong>not</strong> the same, then we use an exclamation point: <code>!=</code><a class="anchor-link" href="#If-we-want-our-block-of-code-to-only-run-if-two-things-are-not-the-same,-then-we-use-an-exclamation-point:-!=">&#182;</a></h1>
+<p>If we want our block of code to only run if two things are <strong>not</strong> the same, then we use an exclamation point: <code>!=</code></p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">words</span><span class="p">:</span>
@@ -12072,37 +12017,22 @@ battlestar galacticta starts with &#34;b&#34;!
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>skateboarding starts with something else!
-peanut parfait starts with something else!
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Conditions-are-tested-once,-in-order.">Conditions are tested once, in order.<a class="anchor-link" href="#Conditions-are-tested-once,-in-order.">&#182;</a></h1><h1 id="Python-steps-through-the-branches-of-the-conditional-in-order,-testing-each-in-turn.">Python steps through the branches of the conditional in order, testing each in turn.<a class="anchor-link" href="#Python-steps-through-the-branches-of-the-conditional-in-order,-testing-each-in-turn.">&#182;</a></h1><h1 id="So-ordering-matters.">So ordering matters.<a class="anchor-link" href="#So-ordering-matters.">&#182;</a></h1>
+<h2 id="Conditions-are-tested-once,-in-order.">Conditions are tested once, in order.<a class="anchor-link" href="#Conditions-are-tested-once,-in-order.">&#182;</a></h2><ul>
+<li>Python steps through the branches of the conditional in order, testing each in turn.</li>
+<li>So ordering matters.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">grade</span> <span class="o">=</span> <span class="mi">85</span>
@@ -12118,36 +12048,21 @@ peanut parfait starts with something else!
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>grade is C
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="---Conditionals-do-not*-automatically-go-back-and-re-evaluate-if-values-change."><em>   Conditionals do </em>not* automatically go back and re-evaluate if values change.<a class="anchor-link" href="#---Conditionals-do-not*-automatically-go-back-and-re-evaluate-if-values-change.">&#182;</a></h1>
+<ul>
+<li>Conditionals do <em>not</em> automatically go back and re-evaluate if values change.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="mi">10000</span>
@@ -12162,21 +12077,37 @@ peanut parfait starts with something else!
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Often use conditionals in a loop to "evolve" the values of variables.</li>
+</ul>
 
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>small city
-</pre>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">population</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span> <span class="c1"># execute the loop 5 times</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">population</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">200000</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;large city&#39;</span><span class="p">)</span>
+        <span class="n">population</span> <span class="o">-=</span> <span class="mi">5000</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;small city&#39;</span><span class="p">)</span>
+        <span class="n">population</span> <span class="o">+=</span> <span class="mi">75000</span>
 
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;final population:&#39;</span><span class="p">,</span> <span class="n">population</span><span class="p">)</span>
+</pre></div>
+
+</div>
 </div>
 </div>
 
@@ -12185,7 +12116,238 @@ peanut parfait starts with something else!
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*"><strong>*</strong><a class="anchor-link" href="#*">&#182;</a></h1><h2 id="Keypoints">Keypoints<a class="anchor-link" href="#Keypoints">&#182;</a></h2><h1 id="1.-Use-if-statements-to-control-whether-or-not-a-block-of-code-is-executed.">1. Use <code>if</code> statements to control whether or not a block of code is executed.<a class="anchor-link" href="#1.-Use-if-statements-to-control-whether-or-not-a-block-of-code-is-executed.">&#182;</a></h1><h1 id="2.-Conditionals-are-often-used-inside-loops.">2. Conditionals are often used inside loops.<a class="anchor-link" href="#2.-Conditionals-are-often-used-inside-loops.">&#182;</a></h1><h1 id="3.-Use-else-to-execute-a-block-of-code-when-an-if-condition-is-not-true.">3. Use <code>else</code> to execute a block of code when an <code>if</code> condition is <em>not</em> true.<a class="anchor-link" href="#3.-Use-else-to-execute-a-block-of-code-when-an-if-condition-is-not-true.">&#182;</a></h1><h1 id="4.-Use-elif-to-specify-additional-tests.">4. Use <code>elif</code> to specify additional tests.<a class="anchor-link" href="#4.-Use-elif-to-specify-additional-tests.">&#182;</a></h1><h1 id="5.-Use-boolean-operators-to-make-complex-statements.">5. Use boolean operators to make complex statements.<a class="anchor-link" href="#5.-Use-boolean-operators-to-make-complex-statements.">&#182;</a></h1><h1 id="6.-Conditions-are-tested-once,-in-order.">6. Conditions are tested once, in order.<a class="anchor-link" href="#6.-Conditions-are-tested-once,-in-order.">&#182;</a></h1>
+<h2 id="Challenge-1:-Trimming-Values">Challenge 1: Trimming Values<a class="anchor-link" href="#Challenge-1:-Trimming-Values">&#182;</a></h2><p>Fill in the blanks so that this program creates a new list
+containing zeroes where the original list's values were negative
+and ones where the original list's values were positive.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">original</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">]</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">____</span>
+<span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">original</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">____</span><span class="p">:</span>
+        <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">____</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-2:-String-Conditionals">Challenge 2: String Conditionals<a class="anchor-link" href="#Challenge-2:-String-Conditionals">&#182;</a></h2><p>Here are our presidents again. Create a list of all the presidents whose last name starts with the letter B.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">presidents_full</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;George Washington&quot;</span><span class="p">,</span> <span class="s2">&quot;John Adams&quot;</span><span class="p">,</span> <span class="s2">&quot;Thomas Jefferson&quot;</span><span class="p">,</span> <span class="s2">&quot;James Madison&quot;</span><span class="p">,</span> <span class="s2">&quot;James Monroe&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;John Quincy Adams&quot;</span><span class="p">,</span> <span class="s2">&quot;Andrew Jackson&quot;</span><span class="p">,</span> <span class="s2">&quot;Martin Van Buren&quot;</span><span class="p">,</span> <span class="s2">&quot;William Henry Harrison&quot;</span><span class="p">,</span> <span class="s2">&quot;John Tyler&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;James K. Polk&quot;</span><span class="p">,</span> <span class="s2">&quot;Zachary Taylor&quot;</span><span class="p">,</span> <span class="s2">&quot;Millard Fillmore&quot;</span><span class="p">,</span> <span class="s2">&quot;Franklin Pierce&quot;</span><span class="p">,</span> <span class="s2">&quot;James Buchanan&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;Abraham Lincoln&quot;</span><span class="p">,</span> <span class="s2">&quot;Andrew Johnson&quot;</span><span class="p">,</span> <span class="s2">&quot;Ulysses S. Grant&quot;</span><span class="p">,</span> <span class="s2">&quot;Rutherford B. Hayes&quot;</span><span class="p">,</span> <span class="s2">&quot;James A. Garfield&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;Chester A. Arthur&quot;</span><span class="p">,</span> <span class="s2">&quot;Grover Cleveland&quot;</span><span class="p">,</span> <span class="s2">&quot;Benjamin Harrison&quot;</span><span class="p">,</span> <span class="s2">&quot;Grover Cleveland&quot;</span><span class="p">,</span> <span class="s2">&quot;William McKinley&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;Theodore Roosevelt&quot;</span><span class="p">,</span> <span class="s2">&quot;William Howard Taft&quot;</span><span class="p">,</span> <span class="s2">&quot;Woodrow Wilson&quot;</span><span class="p">,</span> <span class="s2">&quot;Warren G. Harding&quot;</span><span class="p">,</span> <span class="s2">&quot;Calvin Coolidge&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;Herbert Hoover&quot;</span><span class="p">,</span> <span class="s2">&quot;Franklin D. Roosevelt&quot;</span><span class="p">,</span> <span class="s2">&quot;Harry S. Truman&quot;</span><span class="p">,</span> <span class="s2">&quot;Dwight D. Eisenhower&quot;</span><span class="p">,</span> <span class="s2">&quot;John F. Kennedy&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;Lyndon B. Johnson&quot;</span><span class="p">,</span> <span class="s2">&quot;Richard Nixon&quot;</span><span class="p">,</span> <span class="s2">&quot;Gerald Ford&quot;</span><span class="p">,</span> <span class="s2">&quot;Jimmy Carter&quot;</span><span class="p">,</span> <span class="s2">&quot;Ronald Reagan&quot;</span><span class="p">,</span> <span class="s2">&quot;George H. W. Bush&quot;</span><span class="p">,</span> \
+        <span class="s2">&quot;Bill Clinton&quot;</span><span class="p">,</span> <span class="s2">&quot;George W. Bush&quot;</span><span class="p">,</span> <span class="s2">&quot;Barack Obama&quot;</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-3:-Find-the-rhyming-words">Challenge 3: Find the rhyming words<a class="anchor-link" href="#Challenge-3:-Find-the-rhyming-words">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below are the first two stanzas of "row, row, row your boat":</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">song</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Row, row, row your boat</span>
+<span class="s1">Gently down the stream,</span>
+<span class="s1">Merrily merrily, merrily, merrily</span>
+<span class="s1">Life is but a dream.</span>
+
+<span class="s1">Row, row, row your boat</span>
+<span class="s1">Gently down the brook,</span>
+<span class="s1">If you catch a little fish </span>
+<span class="s1">Let it off the hook.&#39;&#39;&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Using string methods, for loops, and conditionals, write some code to <code>print</code> only the rhyming words (HINT: we'll be simplistic and assume it rhymes if the last 3 characters are the same)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-4:-Acrostics">Challenge 4: Acrostics<a class="anchor-link" href="#Challenge-4:-Acrostics">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In poetry, an acrostic is a message created by taking certain letters in a pattern over lines. One 9th century German writer, Otfrid of Weissenburg, was notorius for his early use of acrostics, one instance of which is in the text below: <em>Salomoni episcopo Otfridus</em>. His message can be found by taking the first character of every other line. Print Otfrid's message!</p>
+<p>Source: <a href="http://titus.uni-frankfurt.de/texte/etcs/germ/ahd/otfrid/otfri.htm">http://titus.uni-frankfurt.de/texte/etcs/germ/ahd/otfrid/otfri.htm</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">text</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;si sálida gimúati      sálomones gúati, </span>
+<span class="s1">     ther bíscof ist nu édiles      kóstinzero sédales; </span>
+<span class="s1">     allo gúati gidúe thio sín,      thio bíscofa er thar hábetin, </span>
+<span class="s1">     ther ínan zi thiu giládota,      in hóubit sinaz zuívalta! </span>
+<span class="s1">     lékza ih therera búachi      iu sentu in suábo richi, </span>
+<span class="s1">     thaz ir irkíaset ubar ál,      oba siu frúma wesan scal; </span>
+<span class="s1">     oba ir hiar fíndet iawiht thés      thaz wírdig ist thes lésannes: </span>
+<span class="s1">     iz iuer húgu irwállo,      wísduames fóllo. </span>
+<span class="s1">     mir wárun thio iuo wízzi      ju ófto filu núzzi, </span>
+<span class="s1">     íueraz wísduam;      thes duan ih míhilan ruam. </span>
+<span class="s1">     ófto irhugg ih múates      thes mánagfalten gúates, </span>
+<span class="s1">     thaz ír mih lértut hárto      íues selbes wórto. </span>
+<span class="s1">     ni thaz míno dohti      giwérkon thaz io móhti, </span>
+<span class="s1">     odo in thén thingon      thio húldi so gilángon; </span>
+<span class="s1">     iz datun gómaheiti,      thio íues selbes gúati, </span>
+<span class="s1">     íueraz giráti,      nales míno dati. </span>
+<span class="s1">     emmizen nu ubar ál      ih druhtin férgon scal, </span>
+<span class="s1">     mit lón er iu iz firgélte      joh sínes selbes wórte; </span>
+<span class="s1">     páradyses résti      gébe iu zi gilústi; </span>
+<span class="s1">     ungilónot ni biléip      ther gotes wízzode kleip. </span>
+<span class="s1">     in hímilriches scóne      so wérde iz iu zi lóne </span>
+<span class="s1">     mit géltes ginúhti,      thaz ír mir datut zúhti. </span>
+<span class="s1">     sínt in thesemo búache,      thes gómo theheiner rúache; </span>
+<span class="s1">     wórtes odo gúates,      thaz lích iu iues múates: </span>
+<span class="s1">     chéret thaz in múate      bi thia zúhti iu zi gúate, </span>
+<span class="s1">     joh zellet tház ana wánc      al in íuweran thanc. </span>
+<span class="s1">     ofto wírdit, oba gúat      thes mannes júngoro giduat, </span>
+<span class="s1">     thaz es líwit thráto      ther zúhtari gúato. </span>
+<span class="s1">     pétrus ther rícho      lono iu es blídlicho, </span>
+<span class="s1">     themo zi rómu druhtin gráp      joh hús inti hóf gap; </span>
+<span class="s1">     óbana fon hímile      sént iu io zi gámane </span>
+<span class="s1">     sálida gimýato      selbo kríst ther gúato! </span>
+<span class="s1">     oba ih irbálden es gidár,      ni scal ih firlázan iz ouh ál, </span>
+<span class="s1">     nub ih ío bi iuih gerno      gináda sina férgo, </span>
+<span class="s1">     thaz hóh er iuo wírdi      mit sínes selbes húldi, </span>
+<span class="s1">     joh iu féstino in thaz múat      thaz sinaz mánagfalta gúat; </span>
+<span class="s1">     firlíhe iu sines ríches,      thes hohen hímilriches, </span>
+<span class="s1">     bi thaz ther gúato hiar io wíaf      joh émmizen zi góte riaf; </span>
+<span class="s1">     rihte íue pédi thara frúa      joh míh gifúage tharazúa, </span>
+<span class="s1">     tház wir unsih fréwen thar      thaz gotes éwiniga jár, </span>
+<span class="s1">     in hímile unsih blíden,      thaz wízi wir bimíden; </span>
+<span class="s1">     joh dúe uns thaz gimúati      thúruh thio síno guati! </span>
+<span class="s1">     dúe uns thaz zi gúate      blídemo múate! </span>
+<span class="s1">     mit héilu er gibóran ward,      ther io thia sálida thar fand, </span>
+<span class="s1">     uuanta es ni brístit furdir      (thes gilóube man mír), </span>
+<span class="s1">     nirfréwe sih mit múatu      íamer thar mit gúatu. </span>
+<span class="s1">     sélbo krist ther guato      firlíhe uns hiar gimúato, </span>
+<span class="s1">     wir íamer fro sin múates      thes éwinigen gúates!&#39;&#39;&#39;</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HINT: remember what % does, lookup enumerate</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Otfrid was more skillful than to settle for the first letter of every other line. What happens if you extract the last letter of the last word of each line, for every other line starting on the second line?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># HINT: first remove punctuation, tab is represented by \t, lookup enumerate</span>
+<span class="kn">from</span> <span class="nn">string</span> <span class="k">import</span> <span class="n">punctuation</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<hr>
+<h2 id="Keypoints">Keypoints<a class="anchor-link" href="#Keypoints">&#182;</a></h2><ol>
+<li>Use <code>if</code> statements to control whether or not a block of code is executed.</li>
+<li>Conditionals are often used inside loops.</li>
+<li>Use <code>else</code> to execute a block of code when an <code>if</code> condition is <em>not</em> true.</li>
+<li>Use <code>elif</code> to specify additional tests.</li>
+<li>Use boolean operators to make complex statements.</li>
+<li>Conditions are tested once, in order.</li>
+</ol>
+
 </div>
 </div>
 </div>

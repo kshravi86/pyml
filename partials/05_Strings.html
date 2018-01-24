@@ -11768,6 +11768,18 @@ div#notebook {
     </script>
     <!-- End of mathjax configuration --></head>
 <body>
+
+  <div class="topcoat-navigation-bar" ng-controller="HomeCtrl">
+	<div class="topcoat-navigation-bar__item left quarter">
+	  <a class="topcoat-icon-button--quiet" ng-click="slidePage('/','modal')">
+		<span class="topcoat-icon home-icon"></span>
+	  </a>
+	</div>
+	<div class="topcoat-navigation-bar__item center half">
+	  <h1 class="topcoat-navigation-bar__title">Strings</h1>
+	</div>
+  </div>
+  
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
@@ -11775,17 +11787,42 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="We-can-do-things-with-strings">We can do things with strings<a class="anchor-link" href="#We-can-do-things-with-strings">&#182;</a></h1><h1 id="We've-already-seen-some-operations-that-can-be-done-with-strings.">We've already seen some operations that can be done with strings.<a class="anchor-link" href="#We've-already-seen-some-operations-that-can-be-done-with-strings.">&#182;</a></h1>
+<h1 id="Strings">Strings<a class="anchor-link" href="#Strings">&#182;</a></h1><p><strong>Time</strong></p>
+<ul>
+<li>Teaching: 10 min</li>
+<li>Exercises: 20 min</li>
+</ul>
+<p><strong>Questions</strong>:</p>
+<ul>
+<li>"How do I manipulate strings (text)?"</li>
+</ul>
+<p><strong>Learning Objectives</strong>:</p>
+<ul>
+<li>Become familiar with the <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#string">string</a> <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#type">type</a> and its methods</li>
+</ul>
+<hr>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="We-can-do-things-with-strings">We can do things with strings<a class="anchor-link" href="#We-can-do-things-with-strings">&#182;</a></h2><ul>
+<li>We've already seen some operations that can be done with strings.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_name</span> <span class="o">=</span> <span class="s2">&quot;Sachin&quot;</span>
-<span class="n">last_name</span> <span class="o">=</span> <span class="s2">&quot; Viru&quot;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_name</span> <span class="o">=</span> <span class="s2">&quot;Johan&quot;</span>
+<span class="n">last_name</span> <span class="o">=</span> <span class="s2">&quot;Gambolputty&quot;</span>
 <span class="n">full_name</span> <span class="o">=</span> <span class="n">first_name</span> <span class="o">+</span> <span class="n">last_name</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">full_name</span><span class="p">)</span>
 </pre></div>
@@ -11794,36 +11831,21 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Sachin Viru
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*-Remember-that-computers-don't-understand-context.">* Remember that computers don't understand context.<a class="anchor-link" href="#*-Remember-that-computers-don't-understand-context.">&#182;</a></h1>
+<ul>
+<li>Remember that computers don't understand context.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_name</span> <span class="o">=</span> <span class="n">first_name</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">last_name</span>
@@ -11834,36 +11856,22 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Sachin  Viru
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Strings-are-made-up-of-sub-strings">Strings are made up of sub-strings<a class="anchor-link" href="#Strings-are-made-up-of-sub-strings">&#182;</a></h1><h1 id="You-can-think-of-strings-as-a-sequence-of-smaller-strings-or-characters.">You can think of strings as a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#sequence">sequence</a> of smaller strings or characters.<a class="anchor-link" href="#You-can-think-of-strings-as-a-sequence-of-smaller-strings-or-characters.">&#182;</a></h1><h1 id="We-can-access-a-piece-of-that-sequence-using-[].">We can access a piece of that sequence using <code>[]</code>.<a class="anchor-link" href="#We-can-access-a-piece-of-that-sequence-using-[].">&#182;</a></h1>
+<h2 id="Strings-are-made-up-of-sub-strings">Strings are made up of sub-strings<a class="anchor-link" href="#Strings-are-made-up-of-sub-strings">&#182;</a></h2><ul>
+<li>You can think of strings as a <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#sequence">sequence</a> of smaller strings or characters. </li>
+<li>We can access a piece of that sequence using <code>[]</code>.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_name</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -11873,38 +11881,19 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[3]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;a&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Gotcha---Python-(and-many-other-langauges)-start-counting-from-0."><strong>Gotcha</strong> - Python (and many other langauges) start counting from 0.<a class="anchor-link" href="#Gotcha---Python-(and-many-other-langauges)-start-counting-from-0.">&#182;</a></h1>
+<p><strong>Gotcha</strong> - Python (and many other langauges) start counting from 0.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_name</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
@@ -11914,30 +11903,10 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[4]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;S&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_name</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
@@ -11947,38 +11916,21 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[5]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;i&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="You-can-slice-strings-using--[-:-]">You can slice strings using  <code>[ : ]</code><a class="anchor-link" href="#You-can-slice-strings-using--[-:-]">&#182;</a></h1><h1 id="if-you-want-a-range-(or-&quot;slice&quot;)-of-a-sequence,-you-get-everything-before-the-second-index:">if you want a range (or "slice") of a sequence, you get everything <em>before</em> the second index:<a class="anchor-link" href="#if-you-want-a-range-(or-&quot;slice&quot;)-of-a-sequence,-you-get-everything-before-the-second-index:">&#182;</a></h1>
+<h2 id="You-can-slice-strings-using--[-:-]">You can slice strings using  <code>[ : ]</code><a class="anchor-link" href="#You-can-slice-strings-using--[-:-]">&#182;</a></h2><ul>
+<li>if you want a range (or "slice") of a sequence, you get everything <em>before</em> the second index:</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_name</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
@@ -11988,30 +11940,10 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[6]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;Sach&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_name</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
@@ -12021,38 +11953,21 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[7]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;Sachi&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*-You-can-see-some-of-the-logic-for-this-when-we-consider-implicit-indices.">* You can see some of the logic for this when we consider implicit indices.<a class="anchor-link" href="#*-You-can-see-some-of-the-logic-for-this-when-we-consider-implicit-indices.">&#182;</a></h1>
+<ul>
+<li>You can see some of the logic for this when we consider implicit indices.</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_name</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
@@ -12062,56 +11977,16 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[8]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;Sachi&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_name</span><span class="p">[</span><span class="mi">5</span><span class="p">:]</span>
 </pre></div>
 
 </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[9]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;n  Viru&#39;</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -12128,29 +12003,63 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="*-There-are-other-operations-defined-on-string-data.-These-are-called-string-methods.">* There are other operations defined on string data. These are called <strong>string <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#method">methods</a></strong>.<a class="anchor-link" href="#*-There-are-other-operations-defined-on-string-data.-These-are-called-string-methods.">&#182;</a></h1><h1 id="IPython-lets-you-do-tab-completion-after-a-dot-('.')-to-see-what-methods-an-object-(i.e.,-a-defined-variable)-has-to-offer.-Try-it-now!">IPython lets you do tab-completion after a dot ('.') to see what methods an <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#object">object</a> (i.e., a defined variable) has to offer. Try it now!<a class="anchor-link" href="#IPython-lets-you-do-tab-completion-after-a-dot-('.')-to-see-what-methods-an-object-(i.e.,-a-defined-variable)-has-to-offer.-Try-it-now!">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="-Let's-look-at-the-upper-method.-What-does-it-do?-Lets-take-a-look-at-the-documentation.-IPython-lets-us-do-this-with-a-question-mark-('?')-before-or*-after-an-object-(again,-a-defined-variable)."><em> Let's look at the upper method. What does it do? Lets take a look at the documentation. IPython lets us do this with a question mark ('?') before </em>or* after an object (again, a defined variable).<a class="anchor-link" href="#-Let's-look-at-the-upper-method.-What-does-it-do?-Lets-take-a-look-at-the-documentation.-IPython-lets-us-do-this-with-a-question-mark-('?')-before-or*-after-an-object-(again,-a-defined-variable).">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="So-we-can-use-it-to-upper-caseify-a-string.">So we can use it to upper-caseify a string.<a class="anchor-link" href="#So-we-can-use-it-to-upper-caseify-a-string.">&#182;</a></h1>
+<ul>
+<li>There are other operations defined on string data. These are called <strong>string <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#method">methods</a></strong>. </li>
+<li>IPython lets you do tab-completion after a dot ('.') to see what methods an <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#object">object</a> (i.e., a defined variable) has to offer. Try it now!</li>
+</ul>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">str</span><span class="o">.</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>Let's look at the upper method. What does it do? Lets take a look at the documentation. IPython lets us do this with a question mark ('?') before <em>or</em> after an object (again, a defined variable).</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span>str.upper<span class="o">?</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>So we can use it to upper-caseify a string.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
@@ -12160,38 +12069,20 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[11]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;SACHIN  VIRU&#39;</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="You-have-to-use-the-parenthesis-at-the-end-because-upper-is-a-method-of-the-string-class.">You have to use the parenthesis at the end because upper is a method of the string class.<a class="anchor-link" href="#You-have-to-use-the-parenthesis-at-the-end-because-upper-is-a-method-of-the-string-class.">&#182;</a></h1><h1 id="Don't-forget,-simply-calling-the-method-does-not-change-the-original-variable,-you-must-reassign-the-variable:">Don't forget, simply calling the method does not change the original variable, you must reassign the variable:<a class="anchor-link" href="#Don't-forget,-simply-calling-the-method-does-not-change-the-original-variable,-you-must-reassign-the-variable:">&#182;</a></h1>
+<p>You have to use the parenthesis at the end because upper is a method of the string class.</p>
+<p>Don't forget, simply calling the method does not change the original variable, you must reassign the variable:</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">full_name</span><span class="p">)</span>
@@ -12201,28 +12092,10 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Sachin  Viru
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">full_name</span> <span class="o">=</span> <span class="n">full_name</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
@@ -12233,62 +12106,116 @@ div#notebook {
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>SACHIN  VIRU
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="For-what-its-worth,-you-don't-need-to-have-a-variable-to-use-the-upper()-method,-you-could-use-it-on-the-string-itself.">For what its worth, you don't need to have a variable to use the upper() method, you could use it on the string itself.<a class="anchor-link" href="#For-what-its-worth,-you-don't-need-to-have-a-variable-to-use-the-upper()-method,-you-could-use-it-on-the-string-itself.">&#182;</a></h1>
+<p>For what its worth, you don't need to have a variable to use the upper() method, you could use it on the string itself.</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;Sachin Viru&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s2">&quot;Johann Gambolputty&quot;</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[14]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&#39;SACHIN &#39;</pre>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>What do you think should happen when you take upper of an int?  What about a string representation of an int?</p>
 
 </div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-1:-Write-your-name">Challenge 1: Write your name<a class="anchor-link" href="#Challenge-1:-Write-your-name">&#182;</a></h2><ol>
+<li>Make two string variables, one with your first name and one with your last name.</li>
+<li>Concatenate both strings to form your full name and <a href="https://github.com/dlab-berkeley/python-intensive/blob/master/Glossary.md#assign">assign</a> it to a variable.</li>
+<li>Assign a new variable that has your full name in all upper case.</li>
+<li>Slice that string to get your first name again.</li>
+</ol>
 
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-2:-Try-seeing-what-the-following-string-methods-do:">Challenge 2: Try seeing what the following string methods do:<a class="anchor-link" href="#Challenge-2:-Try-seeing-what-the-following-string-methods-do:">&#182;</a></h2>
+<pre><code>* `split`
+* `join`
+* `replace`
+* `strip`
+* `find`</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Challenge-3:-Working-with-strings">Challenge 3: Working with strings<a class="anchor-link" href="#Challenge-3:-Working-with-strings">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Below is a string of Edgar Allen Poe's "A Dream Within a Dream":</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">poem</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;Take this kiss upon the brow!</span>
+<span class="s1">And, in parting from you now,</span>
+<span class="s1">Thus much let me avow —</span>
+<span class="s1">You are not wrong, who deem</span>
+<span class="s1">That my days have been a dream;</span>
+<span class="s1">Yet if hope has flown away</span>
+<span class="s1">In a night, or in a day,</span>
+<span class="s1">In a vision, or in none,</span>
+<span class="s1">Is it therefore the less gone?  </span>
+<span class="s1">All that we see or seem</span>
+<span class="s1">Is but a dream within a dream.</span>
+
+<span class="s1">I stand amid the roar</span>
+<span class="s1">Of a surf-tormented shore,</span>
+<span class="s1">And I hold within my hand</span>
+<span class="s1">Grains of the golden sand —</span>
+<span class="s1">How few! yet how they creep</span>
+<span class="s1">Through my fingers to the deep,</span>
+<span class="s1">While I weep — while I weep!</span>
+<span class="s1">O God! Can I not grasp </span>
+<span class="s1">Them with a tighter clasp?</span>
+<span class="s1">O God! can I not save</span>
+<span class="s1">One from the pitiless wave?</span>
+<span class="s1">Is all that we see or seem</span>
+<span class="s1">But a dream within a dream?&#39;&#39;&#39;</span>
+</pre></div>
+
+</div>
 </div>
 </div>
 
@@ -12297,7 +12224,39 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Keypoints">Keypoints<a class="anchor-link" href="#Keypoints">&#182;</a></h1><h1 id="Some-mathematical-operators-can-be-used-on-strings">Some mathematical operators can be used on strings<a class="anchor-link" href="#Some-mathematical-operators-can-be-used-on-strings">&#182;</a></h1><h1 id="Strings-can-be-indexed,-Python-indexing-always-starts-at-0!">Strings can be indexed, Python indexing always starts at 0!<a class="anchor-link" href="#Strings-can-be-indexed,-Python-indexing-always-starts-at-0!">&#182;</a></h1><h1 id="Strings,-and-other-types,-have-their-own-methods,-which-are-called-using-dots-after-the-variable,-and-then-the-method-name.">Strings, and other types, have their own methods, which are called using dots after the variable, and then the method name.<a class="anchor-link" href="#Strings,-and-other-types,-have-their-own-methods,-which-are-called-using-dots-after-the-variable,-and-then-the-method-name.">&#182;</a></h1>
+<p>What is the difference between <code>poem.strip("?")</code> and <code>poem.replace("?", "")</code> ?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>At what index does the word "<em>and</em>" first appear? Where does it last appear?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>How can you answer the above accounting for upper- and lowercase?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Keypoints">Keypoints<a class="anchor-link" href="#Keypoints">&#182;</a></h1><ul>
+<li>Some mathematical operators can be used on strings</li>
+<li>Strings can be indexed, Python indexing always starts at 0!</li>
+<li>Strings, and other types, have their own methods, which are called using dots after the variable, and then the method name.</li>
+</ul>
+
 </div>
 </div>
 </div>
